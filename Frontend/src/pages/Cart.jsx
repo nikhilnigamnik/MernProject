@@ -24,62 +24,99 @@ const Cart = () => {
       const stripePromise = await loadStripe(
         "pk_test_51NKO11SFNB5NKPFS71M8pGFzVBLImxOvG2UywkJofGWrN4hsWvxXdWfFaHpGEnluZoTBTZAa3Fh9ey6l9g0ZuE5D00ypujXOtb"
       );
-      const res = await fetch("https://backend-mernss.onrender.com/checkout-payment", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(productcartItems),
-      });
+      const res = await fetch(
+        "https://backend-mernss.onrender.com/checkout-payment",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(productcartItems),
+        }
+      );
       if (res.statusCode === 500) return;
 
       const data = await res.json();
-     
+
       toast("Redirect to Payment Gateway....!");
       stripePromise.redirectToCheckout({ sessionId: data });
-    }
-    else{
+    } else {
       toast("You have not Login");
-      setTimeout(()=> {
-        navigate("/login")
-      },100)
+      setTimeout(() => {
+        navigate("/login");
+      }, 100);
     }
   };
   return (
     <>
-      <div className="p-2 md:p-4">
-        <h1>Your Cart Items</h1>
+      <div className="">
+        <div className="my-4 flex flex-col gap-4">
+          <p className="text-mainclr text-center font-medium">CART</p>
+          <h1 className="text-4xl text-center font-bold">Your Cart Items</h1>
+        </div>
 
         {productcartItems[0] ? (
-          <div className="w-full gap-10 justify-between md:flex max-w-3xl ">
-            {/* Display Cart items */}
-            <div className="">
-              {productcartItems.map((el) => {
-                return (
-                  <CartProduct
-                    id={el._id}
-                    key={el._id}
-                    name={el.name}
-                    image={el.image}
-                    price={el.price}
-                    category={el.category}
-                    qty={el.qty}
-                    total={el.total}
-                  />
-                );
-              })}
-            </div>
+          <>
+            <div className="w-full my-10 gap-10 justify-between md:flex ">
+              {/* Display Cart items */}
 
-            {/* Total Cart Items */}
-            <div className=" ml-auto">
-              <h1>Checkout</h1>
-              <div>
-                <p>Total Quantity {totalQty}</p>
-                <p>Total Price {totalPrice}</p>
+              <div className="flex w-full flex-col gap-4">
+                <div className="w-full shadow-sm p-4 border items-center flex justify-between">
+                  <h1>Product</h1>
+                  <h1>Price</h1>
+                  <h1>Quantity</h1>
+                  <h1>Subtotal</h1>
+                  <h1>Remove</h1>
+                </div>
+             
+                {productcartItems.map((el) => {
+                  return (
+                    <CartProduct
+                      id={el._id}
+                      key={el._id}
+                      name={el.name}
+                      image={el.image}
+                      price={el.price}
+                      category={el.category}
+                      qty={el.qty}
+                      total={el.total}
+                    />
+                  );
+                })}
               </div>
-              <Button onClick={handlePayment}>Checkout</Button>
+
+              {/* Total Cart Items */}
+              <div className="flex shadow-sm flex-col mt-8 md:mt-0 gap-4 h-fit w-full md:w-1/3 p-4 shadow-sm border">
+                <h1 className="text-2xl font-semibold">Total</h1>
+                <div>
+                  <div className="flex justify-between">
+                    <p className="text-sm font-semibold">Total Quantity</p>
+                    <p>{totalQty}</p>
+                  </div>
+                  <div className="flex justify-between">
+                    <p className="text-sm font-semibold">Discount</p>
+                    <p>0%</p>
+                  </div>
+                  <div className="flex justify-between">
+                    <p className="text-sm font-semibold">Shipping</p>
+                    <p>Free</p>
+                  </div>
+                  <hr></hr>
+                </div>
+                <div className="flex justify-between">
+                  <p className="text-sm font-semibold">Total Price</p>
+                  <p>{totalPrice}</p>
+                </div>
+
+                <button
+                  onClick={handlePayment}
+                  className="bg-mainclr px-4 py-2 rounded-full text-white"
+                >
+                  Proceed To Checkout
+                </button>
+              </div>
             </div>
-          </div>
+          </>
         ) : (
           <div className="flex w-full justify-center items-center">
             <img
@@ -87,7 +124,9 @@ const Cart = () => {
               src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/6910d1112421559.6013fd8d41f44.jpg"
             />
             <Link to="/">
-              <Button>Continue</Button>
+              <button className="bg-mainclr px-4 py-2 rounded-full text-white">
+                Continue
+              </button>
             </Link>
           </div>
         )}

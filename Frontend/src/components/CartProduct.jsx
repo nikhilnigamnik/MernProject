@@ -12,24 +12,35 @@ const CartProduct = ({ id, name, image, category, total, qty, price }) => {
   const dispatch = useDispatch();
   // const
   return (
-    <div className="shadow-md rounded justify-between items-center border p-4 flex">
-      <div className="p-3 bg-white rounded overflow-hidden">
-        <img className="h-20 bg-white w-36 object-cover" src={image} />
+    <div className="w-full border shadow-sm items-center rounded justify-between p-4 flex">
+      <div className="bg-white flex-col flex justify-center items-center gap-2 rounded overflow-hidden">
+        <img className="h-20 bg-white w-40 object-cover" src={image} />
+        <h1>{name}</h1>
       </div>
+
       <div>
-        <h1>Name : {name}</h1>
-        <h1> Price : {price}</h1>
+        <h1>{price}</h1>
       </div>
 
       <div className="flex justify-center">
-        <div className="flex gap-4 items-center">
-          <Button onClick={() => dispatch(decreaseItem(id))}>-</Button>
+        <div className="flex gap-2 items-center">
+          <button
+            className="bg-mainclr px-4 py-2 rounded-full text-white"
+            onClick={() => dispatch(decreaseItem(id))}
+          >
+            -
+          </button>
           <p>{qty}</p>
-          <Button onClick={() => dispatch(increaseItem(id))}>+</Button>
+          <button
+            className="bg-mainclr px-4 py-2 rounded-full text-white"
+            onClick={() => dispatch(increaseItem(id))}
+          >
+            +
+          </button>
         </div>
       </div>
       <div className="flex gap-4">
-        total <p>{total}</p>
+        <p>{total}</p>
       </div>
       <div
         onClick={() => dispatch(deleteCartItems(id))}

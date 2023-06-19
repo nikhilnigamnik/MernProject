@@ -46,7 +46,7 @@ const CardFeature = ({ image, name, price, category, loading, id }) => {
             Add Cart
           </button>
 
-          {/* <Button onClick={handleAddToCart}>Add Cart</Button> */}
+          
         </>
       ) : (
         <div className="min-h-[150px] flex justify-center items-center">

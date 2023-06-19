@@ -3,8 +3,9 @@ import { Transition } from "@headlessui/react";
 import { IoMenu } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
-import { BsFillCartFill } from "react-icons/bs";
-import { RiUserSmileFill } from "react-icons/ri";
+import { FaOpencart } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
+import { FaUserTie } from "react-icons/fa";
 import { Badge } from "@material-tailwind/react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutRedux } from "../redux/userSlice";
@@ -46,10 +47,10 @@ const Navbar = () => {
               />
             </Link>
 
-            <div className="hidden  sm:block sm:ml-6">
+            <div className="hidden z-10 sm:block sm:ml-6">
               {showMenu && (
                 <div>
-                  <div className="absolute mt-10 right-0 bg-white p-4 shadow-md rounded">
+                  <div className="absolute flex flex-col  justify-center gap-1 mt-10 right-0 bg-white p-4 py-8 shadow-md rounded">
                     {userData.email === "nik@gmail.com" && (
                       <Link
                         to={"newproduct"}
@@ -66,17 +67,17 @@ const Navbar = () => {
                           user : {userData.email}
                         </p>
                         <p
-                          className="cursor-pointer text-white px-2 bg-black rounded"
+                          className="cursor-pointer text-white px-2 bg-mainclr rounded"
                           onClick={handleLogout}
                         >
                           Logout
                         </p>
                       </div>
                     ) : (
-                      <div>
+                      <div className="px-8">
                         <Link
                           to={"/login"}
-                          className="cursor-pointer text-white px-2 bg-black rounded"
+                          className="cursor-pointer px-2 text-white bg-mainclr rounded"
                         >
                           Login
                         </Link>
@@ -103,7 +104,7 @@ const Navbar = () => {
             </div>
 
             <div className="hidden  sm:block ">
-              <div className="flex items-center gap-4">
+              <div className="flex justify-center items-center gap-8">
                 <Link to="/cart">
                   <Badge
                     color="red"
@@ -112,15 +113,19 @@ const Navbar = () => {
                     content={CartItemNum.length}
                     withBorder
                   >
-                    <BsFillCartFill size={24} />
+                    <FaOpencart size={24} />
                   </Badge>
                 </Link>
 
                 <div className="cursor-pointer" onClick={handleShowMenu}>
-                  {<RiUserSmileFill size={24} /> ? (
-                    <RiUserSmileFill size={24} />
+                  {showMenu ? (
+                    userData.email ? (
+                      <FaUserTie size={24} />
+                    ) : (
+                      <FaUserCircle size={24} />
+                    )
                   ) : (
-                    <RiUserSmileFill size={24} />
+                    <FaUserCircle size={24} />
                   )}
                 </div>
               </div>
@@ -129,7 +134,7 @@ const Navbar = () => {
             {/* Mobile Menu  */}
 
             <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
-              <div className="flex justify-center gap-4 items-center">
+              <div className="flex justify-center gap-6 items-center">
                 <div>
                   <Link to="/cart">
                     <Badge
@@ -139,21 +144,25 @@ const Navbar = () => {
                       content={CartItemNum.length}
                       withBorder
                     >
-                      <BsFillCartFill size={24} />
+                      <FaOpencart size={24} />
                     </Badge>
                   </Link>
                 </div>
 
                 <div className="cursor-pointer" onClick={handleShowMenu}>
-                  {<RiUserSmileFill size={24} /> ? (
-                    <RiUserSmileFill size={24} />
+                  {showMenu ? (
+                    userData.email ? (
+                      <FaUserTie size={24} />
+                    ) : (
+                      <FaUserCircle size={24} />
+                    )
                   ) : (
-                    <RiUserSmileFill size={24} />
+                    <FaUserCircle size={24} />
                   )}
                 </div>
               </div>
 
-              <div>
+              <div className="ml-4">
                 <button
                   type="button"
                   onClick={toggleMenu}
@@ -169,30 +178,38 @@ const Navbar = () => {
 
               {showMenu && (
                 <div>
-                  <div className="absolute mt-10 right-0 bg-white p-2 rounded-md">
+                  <div className="absolute z-10 flex flex-col  justify-center gap-1 mt-10 right-0 bg-white px-4 py-8 shadow-md rounded">
                     {userData.email === "nik@gmail.com" && (
                       <Link
                         to={"newproduct"}
-                        className="whitespace-nowrap cursor-pointer px-2"
+                        className="cursor-pointer text-white px-2 bg-black rounded"
                       >
-                        New product
+                        Add new product
                       </Link>
                     )}
 
                     {userData.email ? (
-                      <p
-                        className="cursor-pointer text-white px-2 bg-red-500"
-                        onClick={handleLogout}
-                      >
-                        Logout {userData.email}
-                      </p>
+                      <div className="flex flex-col gap-1">
+                        <p className="cursor-pointer text-white px-2 bg-black rounded">
+                          {" "}
+                          user : {userData.email}
+                        </p>
+                        <p
+                          className="cursor-pointer text-white px-2 bg-mainclr rounded"
+                          onClick={handleLogout}
+                        >
+                          Logout
+                        </p>
+                      </div>
                     ) : (
-                      <Link
-                        to={"/login"}
-                        className="whitespace-nowrap cursor-pointer px-2"
-                      >
-                        Login
-                      </Link>
+                      <div className="px-8">
+                        <Link
+                          to={"/login"}
+                          className="cursor-pointer px-2 text-white bg-mainclr rounded"
+                        >
+                          Login
+                        </Link>
+                      </div>
                     )}
                   </div>
                 </div>
