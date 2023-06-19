@@ -49,9 +49,19 @@ const Navbar = () => {
                 <HiMenuAlt1 className="block  h-6 w-6" aria-hidden="true" />
               )}
             </button>
-            <Badge content="4" withBorder>
-              <BsFillCartFill size={24} />
-            </Badge>
+
+
+            <Link to="/cart">
+                <Badge
+                  color="red"
+                  placement="top-end"
+                  overlap="top-end"
+                  content={CartItemNum.length}
+                  withBorder
+                >
+                  <BsFillCartFill size={24} />
+                </Badge>
+              </Link>
 
             <div className="cursor-pointer" onClick={handleShowMenu}>
               {<RiUserSmileFill size={24} /> ? (
@@ -60,36 +70,41 @@ const Navbar = () => {
                 <RiUserSmileFill size={24} />
               )}
             </div>
-            {showMenu && (
-              <div>
-                <div className="absolute mt-10 right-0 bg-white p-2 shadow-md rounded-md">
-                  {userData.email === "nixxk@gmail.com" && (
-                    <Link
-                      className="whitespace-nowrap cursor-pointer"
-                      to="newproduct"
-                    >
-                      New Product
-                    </Link>
-                  )}
 
-                  {<RiUserSmileFill size={24} /> ? (
-                    <p
-                      className="cursor-pointer text-white px-2 bg-red-500"
-                      onClick={handleLogout}
-                    >
-                      Logout
-                    </p>
-                  ) : (
-                    <Link
-                      to={"/login"}
-                      className="whitespace-nowrap cursor-pointer px-2"
-                    >
-                      Login
-                    </Link>
-                  )}
+
+
+            {showMenu && (
+                <div>
+                  <div className="absolute mt-10 right-0 bg-white p-2 shadow-md rounded-md">
+                    {userData.email === "nik@gmail.com" && (
+                      <Link
+                        to={"newproduct"}
+                        className="whitespace-nowrap cursor-pointer px-2"
+                      >
+                        New product
+                      </Link>
+                    )}
+
+                    {userData.email ? (
+                      <p
+                        className="cursor-pointer text-white px-2 bg-red-500"
+                        onClick={handleLogout}
+                      >
+                        Logout {(userData.email)}
+                      </p>
+                    ) : (
+                      <Link
+                        to={"/login"}
+                        className="whitespace-nowrap cursor-pointer px-2"
+                      >
+                        Login
+                      </Link>
+                    )}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+
+
           </div>
 
           <div className="flex items-center justify-between">
@@ -103,8 +118,12 @@ const Navbar = () => {
               </Link>
             </div>
           </div>
-
           <div className="hidden sm:block sm:ml-6">
+
+
+
+
+
             <div className="flex gap-10 items-center space-x-4">
               {/* Your navigation links */}
               <Link to="/">
@@ -117,6 +136,7 @@ const Navbar = () => {
               <Link to="/about">
                 <p>ABOUT</p>
               </Link>
+              
               <Link to="/cart">
                 <Badge
                   color="red"
@@ -128,6 +148,7 @@ const Navbar = () => {
                   <BsFillCartFill size={24} />
                 </Badge>
               </Link>
+              
 
               <div className="cursor-pointer" onClick={handleShowMenu}>
                 {<RiUserSmileFill size={24} /> ? (
@@ -136,6 +157,8 @@ const Navbar = () => {
                   <RiUserSmileFill size={24} />
                 )}
               </div>
+
+
               {showMenu && (
                 <div>
                   <div className="absolute mt-10 right-0 bg-white p-2 shadow-md rounded-md">
@@ -166,6 +189,10 @@ const Navbar = () => {
                   </div>
                 </div>
               )}
+
+
+
+
             </div>
           </div>
         </div>
