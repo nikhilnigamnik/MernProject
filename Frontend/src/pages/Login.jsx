@@ -32,7 +32,7 @@ export default function Login() {
     e.preventDefault();
     const { email, password } = data;
     if (email && password) {
-      const fetchData = await fetch("http://localhost:8000/login", {
+      const fetchData = await fetch("https://backend-mernss.onrender.com/login", {
         method: "POST",
         headers: {
           "content-type": "application/json",

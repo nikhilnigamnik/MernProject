@@ -45,7 +45,7 @@ export default function Signup() {
     const { firstname, email, password, confirmpassword } = data;
     if (firstname && email && password && confirmpassword) {
       if (password === confirmpassword) {
-        const fetchData = await fetch("http://localhost:8000/signup", {
+        const fetchData = await fetch("https://backend-mernss.onrender.com/signup", {
           method: "POST",
           headers: {
             "content-type": "application/json",

@@ -24,7 +24,7 @@ const Cart = () => {
       const stripePromise = await loadStripe(
         "pk_test_51NKO11SFNB5NKPFS71M8pGFzVBLImxOvG2UywkJofGWrN4hsWvxXdWfFaHpGEnluZoTBTZAa3Fh9ey6l9g0ZuE5D00ypujXOtb"
       );
-      const res = await fetch("http://localhost:8000/checkout-payment", {
+      const res = await fetch("https://backend-mernss.onrender.com/checkout-payment", {
         method: "POST",
         headers: {
           "content-type": "application/json",
