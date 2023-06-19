@@ -47,7 +47,7 @@ const Home = () => {
             Here you will find all the best quality and pure food. order now to
             satisfy your hunger.
           </p>
-          <div className="flex md:justify-center items-center gap-4 mt-2">
+          <div className="flex justify-center md:justify-start items-center gap-4 mt-2">
             <button className="bg-mainclr px-4 py-2 rounded-full text-white">
               Order Now
             </button>
