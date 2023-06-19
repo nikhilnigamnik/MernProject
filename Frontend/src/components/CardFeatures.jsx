@@ -20,7 +20,7 @@ const CardFeature = ({ image, name, price, category, loading, id }) => {
   };
 
   return (
-    <div className="w-full min-w-[200px] max-w-[200px] bg-white border rounded-xl  py-5 px-4 cursor-pointer flex flex-col ">
+    <div className="w-full hover:shadow-md transition-all min-w-[200px] max-w-[200px] bg-white border rounded-xl  py-5 px-4 cursor-pointer flex flex-col ">
       {image ? (
         <>
           <Link

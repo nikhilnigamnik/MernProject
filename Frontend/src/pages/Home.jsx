@@ -107,14 +107,14 @@ const Home = () => {
       </div>
 
       <div className="mt-20">
-        <div className="gap-2 flex flex-col justify-center items-center my-10 w-full">
+        <div className="gap-2 flex flex-col justify-center items-center w-full">
           <p className="text-mainclr text-center font-medium">
             Our Fresh Product{" "}
           </p>
           <h2 className="text-4xl text-center  capitalize font-bold">
             That Always makes you fall in love
           </h2>
-          <div className="flex justify-center gap-4">
+          <div className="flex my-6 justify-center gap-4">
             <button
               className="rounded-full bg-mainclr p-2"
               onClick={prevProduct}
