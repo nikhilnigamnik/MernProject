@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
-import { HiMenuAlt1 } from "react-icons/hi";
+import { IoMenu } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
 import { BsFillCartFill } from "react-icons/bs";
@@ -162,7 +162,7 @@ const Navbar = () => {
                   {isOpen ? (
                     <RxCross2 className="block h-6 w-6" aria-hidden="true" />
                   ) : (
-                    <HiMenuAlt1 className="block  h-6 w-6" aria-hidden="true" />
+                    <IoMenu className="block  h-6 w-6" aria-hidden="true" />
                   )}
                 </button>
               </div>
@@ -213,18 +213,18 @@ const Navbar = () => {
       >
         {(ref) => (
           <div className="sm:hidden" ref={ref}>
-            <div className="text-white p-8 flex flex-col gap-4">
-              <div className="bg-[#d5294d] hover:scale-[0.9] transition-all hover:bg-[#b31d3f] rounded-sm px-4 py-2">
+            <div className="text-white text-center py-10 px-20 flex flex-col gap-4">
+              <div className="bg-[#d5294d] shadow-sm   hover:scale-[0.9] transition-all hover:bg-[#b31d3f] rounded-full px-4 py-2">
                 <Link to="/">
                   <p>Home</p>
                 </Link>
               </div>
-              <div className="bg-[#d5294d] hover:scale-[0.9] transition-all hover:bg-[#b31d3f] rounded-sm px-4 py-2">
+              <div className="bg-mainclr hover:scale-[0.9] transition-all hover:bg-[#b31d3f] rounded-full px-4 py-2">
                 <Link to="contact">
                   <p>Contact</p>
                 </Link>
               </div>
-              <div className="bg-[#d5294d] hover:scale-[0.9] transition-all hover:bg-[#b31d3f] rounded-sm px-4 py-2">
+              <div className="bg-[#d5294d] hover:scale-[0.9] transition-all hover:bg-[#b31d3f] rounded-full px-4 py-2">
                 <Link to="about">
                   <p>About Us</p>
                 </Link>

@@ -33,49 +33,53 @@ const Home = () => {
 
   return (
     <div className="p-2 md:p-4">
-      <div className="md:flex gap-4 py-2">
+      <div className="md:flex justify-center items-center gap-4 py-2">
         <div className="md:w-1/2">
-          <div className="flex gap-3 bg-slate-300 w-36 px-2 items-center rounded-full">
-            <p className="text-sm font-medium text-slate-900">Bike Delivery</p>
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png"
-              className="h-7"
-            />
-          </div>
-          <h2 className="text-4xl md:text-7xl font-bold py-3">
-            The Fasted Delivery at{" "}
-            <span className="text-red-600 text-">Your Home</span>
-          </h2>
-          <p className="py-3 text-base ">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries
+          <p className="bg-red-100 inline-block rounded-full px-4 py-2">
+            Hungry?
           </p>
-          <button className="font-bold bg-red-500 text-slate-200 px-4 py-2 rounded-md">
-            Order Now
-          </button>
+
+          <h2 className="text-5xl md:text-6xl md:text-left text-left font-semibold py-4">
+            Just Come to <span className="text-[#d5294d]">FoodWaale</span> &
+            Order
+          </h2>
+          <p className="py-3 capitalize text-base font-normal ">
+            Here you will find all the best quality and pure food. order now to
+            satisfy your hunger.
+          </p>
+          <div className="flex md:justify-center items-center gap-4 mt-2">
+            <button className="bg-mainclr px-4 py-2 rounded-full text-white">
+              Order Now
+            </button>
+            <button className="border px-4 py-2 rounded-full shadow-sm text-black">
+              Explore Food
+            </button>
+          </div>
         </div>
 
-        <div className="md:w-1/2 flex flex-wrap gap-5 p-4 justify-center">
-          {homeProductCartList[0]
-            ? homeProductCartList.map((el) => {
-                return (
-                  <HomeCard
-                    key={el._id}
-                    id={el._id}
-                    image={el.image}
-                    name={el.name}
-                    price={el.price}
-                    category={el.category}
-                  />
-                );
-              })
-            : loadingArray.map((el, index) => {
-                return <HomeCard key={index} loading={"loading"} />;
-              })}
-        </div>
+        <img
+          className="w-full max-w-lg"
+          src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687194080/DIGITALY_6_r8id0t.png"
+        />
+      </div>
+
+      <div className="md:w-1/2 flex flex-wrap gap-5 p-4 justify-center">
+        {homeProductCartList[0]
+          ? homeProductCartList.map((el) => {
+              return (
+                <HomeCard
+                  key={el._id}
+                  id={el._id}
+                  image={el.image}
+                  name={el.name}
+                  price={el.price}
+                  category={el.category}
+                />
+              );
+            })
+          : loadingArray.map((el, index) => {
+              return <HomeCard key={index} loading={"loading"} />;
+            })}
       </div>
 
       <div className="">

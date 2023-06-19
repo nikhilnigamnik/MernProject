@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const HomeCard = ({ name, image, category, price, id }) => {
   return (
-    <div className="bg-white shadow-md p-2 rounded min-w-[150px]">
+    <div className="bg-white border p-2 rounded min-w-[150px]">
       {name && (
         <div>
           <Link
