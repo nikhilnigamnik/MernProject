@@ -31,137 +31,145 @@ const Navbar = () => {
     toast.success("Logout Successfully");
   };
 
-  const CartItemNum = useSelector(state => state.product.cartItem)
+  const CartItemNum = useSelector((state) => state.product.cartItem);
 
   return (
-    <nav className="bg-gray-50  shadow-md">
+    <nav className="bg-gray-50 border">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="relative flex items-center justify-between h-16">
-          <div className="absolute inset-y-0 right-0 flex gap-3 items-center sm:hidden">
-            <button
-              type="button"
-              onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2"
-            >
-              {isOpen ? (
-                <RxCross2 className="block h-6 w-6" aria-hidden="true" />
-              ) : (
-                <HiMenuAlt1 className="block  h-6 w-6" aria-hidden="true" />
-              )}
-            </button>
+        <div className="relative justify-between flex items-center  h-16">
+          <div className="flex justify-between items-center w-full">
+            {/* Your logo or brand */}
+            <Link to="/">
+              <img
+                width={120}
+                src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687178864/DIGITALY_4_dhwooi.png"
+              />
+            </Link>
 
-
-            <Link to="/cart">
-                <Badge
-                  color="red"
-                  placement="top-end"
-                  overlap="top-end"
-                  content={CartItemNum.length}
-                  withBorder
-                >
-                  <BsFillCartFill size={24} />
-                </Badge>
-              </Link>
-
-            <div className="cursor-pointer" onClick={handleShowMenu}>
-              {<RiUserSmileFill size={24} /> ? (
-                <RiUserSmileFill size={24} />
-              ) : (
-                <RiUserSmileFill size={24} />
-              )}
-            </div>
-
-
-
-            {showMenu && (
+            <div className="hidden  sm:block sm:ml-6">
+              {showMenu && (
                 <div>
-                  <div className="absolute mt-10 right-0 bg-white p-2 shadow-md rounded-md">
+                  <div className="absolute mt-10 right-0 bg-white p-4 shadow-md rounded">
                     {userData.email === "nik@gmail.com" && (
                       <Link
                         to={"newproduct"}
-                        className="whitespace-nowrap cursor-pointer px-2"
+                        className="cursor-pointer text-white px-2 bg-black rounded"
                       >
-                        New product
+                        Add new product
                       </Link>
                     )}
 
                     {userData.email ? (
-                      <p
-                        className="cursor-pointer text-white px-2 bg-red-500"
-                        onClick={handleLogout}
-                      >
-                        Logout {(userData.email)}
-                      </p>
+                      <div className="flex flex-col gap-1">
+                        <p className="cursor-pointer text-white px-2 bg-black rounded">
+                          {" "}
+                          user : {userData.email}
+                        </p>
+                        <p
+                          className="cursor-pointer text-white px-2 bg-black rounded"
+                          onClick={handleLogout}
+                        >
+                          Logout
+                        </p>
+                      </div>
                     ) : (
-                      <Link
-                        to={"/login"}
-                        className="whitespace-nowrap cursor-pointer px-2"
-                      >
-                        Login
-                      </Link>
+                      <div>
+                        <Link
+                          to={"/login"}
+                          className="cursor-pointer text-white px-2 bg-black rounded"
+                        >
+                          Login
+                        </Link>
+                      </div>
                     )}
                   </div>
                 </div>
               )}
-
-
-          </div>
-
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              {/* Your logo or brand */}
-              <Link to="/">
-                <img
-                  width={100}
-                  src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1684857846/logo_o2djkp.png"
-                />
-              </Link>
             </div>
-          </div>
-          <div className="hidden sm:block sm:ml-6">
-
-
-
-
-
-            <div className="flex gap-10 items-center space-x-4">
+            <div className="flex hidden  sm:block justify-between items-center">
               {/* Your navigation links */}
-              <Link to="/">
-                <p>HOME</p>
-              </Link>
-              
-              <Link to="/contact">
-                <p>CONTACT</p>
-              </Link>
-              <Link to="/about">
-                <p>ABOUT</p>
-              </Link>
-              
-              <Link to="/cart">
-                <Badge
-                  color="red"
-                  placement="top-end"
-                  overlap="top-end"
-                  content={CartItemNum.length}
-                  withBorder
-                >
-                  <BsFillCartFill size={24} />
-                </Badge>
-              </Link>
-              
+              <div className="flex gap-4">
+                <Link to="/">
+                  <p>Home</p>
+                </Link>
 
-              <div className="cursor-pointer" onClick={handleShowMenu}>
-                {<RiUserSmileFill size={24} /> ? (
-                  <RiUserSmileFill size={24} />
-                ) : (
-                  <RiUserSmileFill size={24} />
-                )}
+                <Link to="/contact">
+                  <p>Contact</p>
+                </Link>
+                <Link to="/about">
+                  <p>About Us</p>
+                </Link>
+              </div>
+            </div>
+
+            <div className="hidden  sm:block ">
+              <div className="flex items-center gap-4">
+                <Link to="/cart">
+                  <Badge
+                    color="red"
+                    placement="top-end"
+                    overlap="top-end"
+                    content={CartItemNum.length}
+                    withBorder
+                  >
+                    <BsFillCartFill size={24} />
+                  </Badge>
+                </Link>
+
+                <div className="cursor-pointer" onClick={handleShowMenu}>
+                  {<RiUserSmileFill size={24} /> ? (
+                    <RiUserSmileFill size={24} />
+                  ) : (
+                    <RiUserSmileFill size={24} />
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Menu  */}
+
+            <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
+              <div className="flex justify-center gap-4 items-center">
+                <div>
+                  <Link to="/cart">
+                    <Badge
+                      color="red"
+                      placement="top-end"
+                      overlap="top-end"
+                      content={CartItemNum.length}
+                      withBorder
+                    >
+                      <BsFillCartFill size={24} />
+                    </Badge>
+                  </Link>
+                </div>
+
+                <div className="cursor-pointer" onClick={handleShowMenu}>
+                  {<RiUserSmileFill size={24} /> ? (
+                    <RiUserSmileFill size={24} />
+                  ) : (
+                    <RiUserSmileFill size={24} />
+                  )}
+                </div>
               </div>
 
+              <div>
+                <button
+                  type="button"
+                  onClick={toggleMenu}
+                  className="inline-flex items-center justify-center p-2"
+                >
+                  {isOpen ? (
+                    <RxCross2 className="block h-6 w-6" aria-hidden="true" />
+                  ) : (
+                    <HiMenuAlt1 className="block  h-6 w-6" aria-hidden="true" />
+                  )}
+                </button>
+              </div>
 
               {showMenu && (
                 <div>
-                  <div className="absolute mt-10 right-0 bg-white p-2 shadow-md rounded-md">
+                  <div className="absolute mt-10 right-0 bg-white p-2 rounded-md">
                     {userData.email === "nik@gmail.com" && (
                       <Link
                         to={"newproduct"}
@@ -176,7 +184,7 @@ const Navbar = () => {
                         className="cursor-pointer text-white px-2 bg-red-500"
                         onClick={handleLogout}
                       >
-                        Logout {(userData.email)}
+                        Logout {userData.email}
                       </p>
                     ) : (
                       <Link
@@ -189,10 +197,6 @@ const Navbar = () => {
                   </div>
                 </div>
               )}
-
-
-
-
             </div>
           </div>
         </div>
@@ -209,18 +213,22 @@ const Navbar = () => {
       >
         {(ref) => (
           <div className="sm:hidden" ref={ref}>
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {/* Your mobile navigation links */}
-              <Link to="/">
-                <p>HOME</p>
-              </Link>
-              
-              <Link to="contact">
-                <p>CONTACT</p>
-              </Link>
-              <Link to="about">
-                <p>ABOUT</p>
-              </Link>
+            <div className="text-white p-8 flex flex-col gap-4">
+              <div className="bg-[#d5294d] hover:scale-[0.9] transition-all hover:bg-[#b31d3f] rounded-sm px-4 py-2">
+                <Link to="/">
+                  <p>Home</p>
+                </Link>
+              </div>
+              <div className="bg-[#d5294d] hover:scale-[0.9] transition-all hover:bg-[#b31d3f] rounded-sm px-4 py-2">
+                <Link to="contact">
+                  <p>Contact</p>
+                </Link>
+              </div>
+              <div className="bg-[#d5294d] hover:scale-[0.9] transition-all hover:bg-[#b31d3f] rounded-sm px-4 py-2">
+                <Link to="about">
+                  <p>About Us</p>
+                </Link>
+              </div>
             </div>
           </div>
         )}
