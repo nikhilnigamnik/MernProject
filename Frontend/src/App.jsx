@@ -34,7 +34,7 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <div className="max-w-7xl mx-auto px-2 overflow-hidden">
+      <div className="max-w-7xl mt-4 mx-auto px-2 overflow-hidden">
         <Routes>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />

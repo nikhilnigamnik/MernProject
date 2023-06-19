@@ -20,7 +20,7 @@ const CardFeature = ({ image, name, price, category, loading, id }) => {
   };
 
   return (
-    <div className="w-full min-w-[200px] max-w-[200px] bg-white hover:shadow-lg drop-shadow-lg py-5 px-4 cursor-pointer flex flex-col ">
+    <div className="w-full min-w-[200px] max-w-[200px] bg-white border rounded-xl  py-5 px-4 cursor-pointer flex flex-col ">
       {image ? (
         <>
           <Link
@@ -34,12 +34,19 @@ const CardFeature = ({ image, name, price, category, loading, id }) => {
               {name}
             </h3>
             <p className=" text-slate-500  font-medium">{category}</p>
-            <p className=" font-bold">
-              <span className="text-red-500">₹</span>
+            <p className="font-bold ">
+              <span className="text-red-500 hover:text-white">Rs.</span>
               <span>{price}</span>
             </p>
           </Link>
-          <Button onClick={handleAddToCart}>Add Cart</Button>
+          <button
+            onClick={handleAddToCart}
+            className="bg-mainclr px-4 py-2 rounded-full text-white"
+          >
+            Add Cart
+          </button>
+
+          {/* <Button onClick={handleAddToCart}>Add Cart</Button> */}
         </>
       ) : (
         <div className="min-h-[150px] flex justify-center items-center">

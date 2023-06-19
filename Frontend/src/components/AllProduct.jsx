@@ -11,13 +11,12 @@ const AllProduct = () => {
   const [filterBy, setfilterBy] = useState("");
   const [filterByCategory, setFilterByCategory] = useState(productData);
 
-
   useEffect(() => {
     setFilterByCategory(productData);
   }, [productData]);
 
   const handleFilterProduct = (category) => {
-    setfilterBy(category)
+    setfilterBy(category);
     const filter = productData.filter(
       (el) => el.category.toLowerCase() === category.toLowerCase()
     );
@@ -29,10 +28,13 @@ const AllProduct = () => {
   const loadingArrayFeature = new Array(10).fill(null);
 
   return (
-    <div className="my-5">
-      <h1>Item List</h1>
+    <div className="my-20">
+      <div className="flex flex-col gap-2">
+        <p className="text-mainclr text-center font-medium">Our Category</p>
+        <h1 className="text-4xl text-center font-bold">Menu Category</h1>
+      </div>
 
-      <div className="flex gap-8 justify-center overflow-scroll scrollbar-none">
+      <div className="flex  gap-8 justify-center overflow-scroll scrollbar-none">
         {categoryList[0] &&
           categoryList.map((el) => {
             return (

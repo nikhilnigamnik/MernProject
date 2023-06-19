@@ -1,30 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import RatingIcons from "../components/RatingIcons";
 
 const HomeCard = ({ name, image, category, price, id }) => {
   return (
-    <div className="bg-white border p-2 rounded min-w-[150px]">
+    <div className="bg-white flex justify-center items-center flex-col  hover:shadow-md transition-all border  p-3 rounded-xl min-w-[150px]">
       {name && (
-        <div>
-          <Link
-            to={`/menu/${id}`}
-            onClick={() => window.scrollTo({ top: "0", behavior: "smooth" })}
-          >
-            <div className="w-40 min-h-[150px]">
+        <div className="flex justify-center items-center">
+          <div className="flex flex-col gap-2">
+            <div className="w-40    min-h-[150px]">
               <img src={image} className="h-full w-full" />
             </div>
-            <h3 className="font-semibold text-slate-600 text-center capitalize text-lg">
-              {name}
-            </h3>
-            <p className="text-center text-slate-500  font-medium">
-              {category}
-            </p>
+            <div>
+              <h3 className="font-semibold  capitalize">{name}</h3>
+              <RatingIcons />
+              <p className="">{category}</p>
+            </div>
 
-            <p className="text-center font-bold">
-              <span className="text-red-500">₹</span>
-              <span>{price}</span>
-            </p>
-          </Link>
+            <div className="flex justify-between items-center">
+              <p className="font-bold ">
+                <span className="text-red-500 hover:text-white">Rs.</span>
+                <span>{price}</span>
+              </p>
+              <Link
+                className="float-right"
+                to={`/menu/${id}`}
+                onClick={() =>
+                  window.scrollTo({ top: "0", behavior: "smooth" })
+                }
+              >
+                <button className="bg-mainclr text-[10px] px-2 py-1 rounded-full text-white">
+                  Order Now
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
       )}
     </div>
