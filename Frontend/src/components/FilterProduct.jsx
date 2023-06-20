@@ -7,7 +7,7 @@ const FilterProduct = ({ category, onClick, isActive }) => {
   return (
     <div className="my-10" onClick={onClick}>
       <div
-        className={`text-3xl px-5 py-8 flex gap-4 items-center flex-col  rounded-xl cursor-pointer ${
+        className={`text-3xl transition duration-700 ease-in-out px-5 py-8 flex gap-4 items-center flex-col  rounded-xl cursor-pointer ${
           isActive ? "bg-mainclr text-white" : "bg-white border"
         }`}
       >

@@ -95,8 +95,8 @@ export default function Login() {
 
           <button
             type="submit"
-            className=" bg-mainclr my-4 rounded-full px-4 py-2 text-white"
-            fullWidth
+            className=" bg-mainclr w-full my-4 rounded-full px-4 py-2 text-white"
+           
           >
             Login
           </button>

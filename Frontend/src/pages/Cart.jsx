@@ -123,7 +123,7 @@ const Cart = () => {
             </div>
           </>
         ) : (
-          <div className="flex gap-6 flex-col h-screen justify-center items-center">
+          <div className="flex gap-6 flex-col mt-8 justify-center items-center">
             <h1 className="text-center text-xl font-semibold ">
               Your Cart is Empty
             </h1>

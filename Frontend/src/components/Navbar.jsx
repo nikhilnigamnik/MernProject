@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
 import { FaOpencart } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
+import { IoLogOutOutline } from "react-icons/io5";
+import { IoLogInOutline } from "react-icons/io5";
 import { FaUserTie } from "react-icons/fa";
 import { Badge } from "@material-tailwind/react";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,37 +52,33 @@ const Navbar = () => {
             <div className="hidden z-10 sm:block sm:ml-6">
               {showMenu && (
                 <div>
-                  <div className="absolute flex flex-col px-4 py-8   justify-center gap-1 mt-10 right-0 bg-white shadow-md rounded">
+                  <div className="absolute flex flex-col p-4              justify-center gap-1 mt-10 right-0 bg-white shadow-md rounded">
                     {userData.email === "nik@gmail.com" && (
-                      <Link
-                        to={"newproduct"}
-                        className="cursor-pointer w-full shadow-md px-2 text-black rounded"
-                      >
-                        Admin
-                      </Link>
+                      <div className="flex cursor-pointer gap-4 bg-mainclr text-white py-1 px-2 rounded-sm  items-center">
+                        <FaUserCircle size={20} />
+
+                        <Link to={"admin"}>Admin</Link>
+                      </div>
                     )}
 
                     {userData.email ? (
                       <div className="flex flex-col gap-1">
-                        <p className="cursor-pointer shadow-md  text-black px-2  rounded">
-                          {" "}
-                          User : {userData.email}
-                        </p>
-                        <p
-                          className="cursor-pointer text-white px-2 bg-mainclr rounded"
-                          onClick={handleLogout}
-                        >
-                          Logout
-                        </p>
+                        <div className="flex cursor-pointer gap-4 bg-mainclr text-white py-1 px-2 rounded-sm  items-center">
+                          <FaUserCircle size={20} />
+
+                          <p className="">{userData.email}</p>
+                        </div>
+                        <div className="flex py-1 cursor-pointer bg-mainclr text-white px-2 rounded-sm justify-between items-center">
+                          <p className="" onClick={handleLogout}>
+                            Logout
+                          </p>
+                          <IoLogOutOutline size={20} />
+                        </div>
                       </div>
                     ) : (
-                      <div className="">
-                        <Link
-                          to={"/login"}
-                          className="cursor-pointer px-4 py-1  text-white bg-mainclr rounded"
-                        >
-                          Login
-                        </Link>
+                      <div className="flex gap-4 py-1 cursor-pointer bg-mainclr text-white px-2 rounded-sm justify-between items-center">
+                        <Link to={"/login"}>Login</Link>
+                        <IoLogInOutline />
                       </div>
                     )}
                   </div>
@@ -178,37 +176,33 @@ const Navbar = () => {
 
               {showMenu && (
                 <div>
-                  <div className="absolute z-10 flex flex-col px-4 py-8   justify-center gap-1 mt-10 right-0 bg-white shadow-md rounded">
+                  <div className="absolute flex flex-col p-4 z-10 justify-center gap-1 mt-10 right-0 bg-white shadow-md rounded">
                     {userData.email === "nik@gmail.com" && (
-                      <Link
-                        to={"newproduct"}
-                        className="cursor-pointer w-full shadow-md px-2 text-black rounded"
-                      >
-                        Admin
-                      </Link>
+                      <div className="flex cursor-pointer gap-4 bg-mainclr text-white py-1 px-2 rounded-sm  items-center">
+                        <FaUserCircle size={20} />
+
+                        <Link to={"admin"}>Admin</Link>
+                      </div>
                     )}
 
                     {userData.email ? (
                       <div className="flex flex-col gap-1">
-                        <p className="cursor-pointer shadow-md  text-black px-2  rounded">
-                          {" "}
-                          User : {userData.email}
-                        </p>
-                        <p
-                          className="cursor-pointer text-white px-2 bg-mainclr rounded"
-                          onClick={handleLogout}
-                        >
-                          Logout
-                        </p>
+                        <div className="flex cursor-pointer gap-4 bg-mainclr text-white py-1 px-2 rounded-sm  items-center">
+                          <FaUserCircle size={20} />
+
+                          <p className="">{userData.email}</p>
+                        </div>
+                        <div className="flex py-1 cursor-pointer bg-mainclr text-white px-2 rounded-sm justify-between items-center">
+                          <p className="" onClick={handleLogout}>
+                            Logout
+                          </p>
+                          <IoLogOutOutline size={20} />
+                        </div>
                       </div>
                     ) : (
-                      <div className="">
-                        <Link
-                          to={"/login"}
-                          className="cursor-pointer px-4 py-1  text-white bg-mainclr rounded"
-                        >
-                          Login
-                        </Link>
+                      <div className="flex gap-4 py-1 cursor-pointer bg-mainclr text-white px-2 rounded-sm justify-between items-center">
+                        <Link to={"/login"}>Login</Link>
+                        <IoLogInOutline />
                       </div>
                     )}
                   </div>

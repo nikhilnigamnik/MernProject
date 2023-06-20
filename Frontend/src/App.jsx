@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -15,6 +15,7 @@ import Cart from "./pages/Cart";
 import Success from "./pages/Success";
 import Cancle from "./pages/Cancle";
 import NewProduct from "./components/Admin/NewProduct";
+import Admin from "./components/Admin/Admin";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -24,29 +25,28 @@ const App = () => {
     (async () => {
       // const res = await fetch(`${process.env.REACT_APP_BACKEND_API}/product`);
       const res = await fetch("https://backend-mernss.onrender.com/product");
-      console.log(res);
+
       const resData = await res.json();
       dispatch(setDataProduct(resData));
     })();
   }, []);
-  // console.log(productData);
 
   return (
     <div>
       <Navbar />
       <div className="max-w-7xl mt-4 mx-auto px-2 overflow-hidden">
         <Routes>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          {/* <Route path="menu" element={<Menu />} /> */}
-          <Route path="menu/:filterby" element={<Menu />} />
-          <Route path="login" element={<Login />} />
-          <Route path="newproduct" element={<NewProduct />} />
-          <Route path="signup" element={<Signup />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path="success" element={<Success />} />
-          <Route path="cancel" element={<Cancle />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/menu/:filterby" element={<Menu />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/success" element={<Success />} />
+          <Route path="/cancel" element={<Cancle />} />
+          <Route path="/admin/*" element={<Admin />} />
+          <Route path="/admin/product" element={<Admin><NewProduct /></Admin>} />
         </Routes>
       </div>
       <Toaster />

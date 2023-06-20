@@ -1,38 +1,46 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Button } from "@material-tailwind/react";
+import { Link, useLocation } from "react-router-dom";
 
-const Admin = () => {
+const Admin = ({ children }) => {
+  const [activeButton, setActiveButton] = useState("");
+  const location = useLocation();
+
+  const handleButtonClick = (buttonId) => {
+    setActiveButton(buttonId);
+  };
+
+  const buttonData = [
+    { id: "", label: "Dashboard" },
+    { id: "/product", label: "Add Product" },
+    { id: "/userdetails", label: "User Details" },
+    { id: "/order", label: "Order Details" },
+    { id: "/productdetails", label: "Product Details" },
+    { id: "/customer", label: "Customer Details" },
+    { id: "/manageproduct", label: "Manage Product" },
+    { id: "/logout", label: "Logout" },
+  ];
+
   return (
-    <div className="border rounded-md flex flex-col gap-4 p-4 md:w-1/4">
-      <h2 className="text-3xl text-center  capitalize font-semibold">
-        Admin Panel
-      </h2>
-      <div className="flex   mt-4 gap-8 flex-col">
-        <Link to="/newproduct">
-          <button className="bg-mainclr w-full px-4 py-2 rounded-full text-white">
-            Add Product
-          </button>
-        </Link>
+    <div className="md:flex justify-between gap-8">
+      <div className="flex gap-4 p-8 border md:w-1/4 flex-col">
+        {buttonData.map((button) => (
+          <Link to={`/admin${button.id}`} key={button.id}>
+            <button
+              className={`border transition duration-700 ease-in-out shadow-sm text-left w-full text-black px-4 py-2 rounded-md ${
+                activeButton === button.id ? "bg-mainclr text-white" : ""
+              }`}
+              onClick={() => handleButtonClick(button.id)}
+            >
+              {button.label}
+            </button>
+          </Link>
+        ))}
+      </div>
 
-        <button className="bg-mainclr w-full px-4 py-2 rounded-full text-white">
-          Product Items
-        </button>
-        <button className="bg-mainclr w-full px-4 py-2 rounded-full text-white">
-          Dashboard
-        </button>
-        <button className="bg-mainclr w-full px-4 py-2 rounded-full text-white">
-          Tracking
-        </button>
-        <Link to="/">
-          <button className="bg-mainclr w-full px-4 py-2 rounded-full text-white">
-            Home
-          </button>
-        </Link>
-        <Link to="/">
-          <button className="bg-mainclr w-full px-4 py-2 rounded-full text-white">
-            Logout
-          </button>
-        </Link>
+      <div className="md:w-3/4 border">
+        {location.pathname === "/admin" && <div></div>}
+        {children}
       </div>
     </div>
   );

@@ -51,10 +51,15 @@ const Home = () => {
             satisfy your hunger.
           </p>
           <div className="flex  gap-4 mt-2">
-            <button className="bg-mainclr px-4 py-2 rounded-full text-white">
+            <button
+              onClick={() =>
+                window.scrollTo({ top: "1100", behavior: "smooth" })
+              }
+              className="bg-mainclr px-4 py-2 rounded-full text-white"
+            >
               Order Now
             </button>
-            <button className="border border-red-300 px-4 py-2 rounded-full shadow-sm text-black">
+            <button className=" hover:bg-mainclr hover:text-white hover:border-none transition-all border-red-300 px-4 py-2 rounded-full shadow-md text-black">
               Explore Food
             </button>
           </div>
