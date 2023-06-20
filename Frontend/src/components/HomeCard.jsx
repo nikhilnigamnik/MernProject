@@ -8,12 +8,12 @@ const HomeCard = ({ name, image, category, price, id }) => {
       {name && (
         <div className="flex justify-center items-center">
           <div className="flex flex-col gap-2">
-            <div className="w-40    min-h-[150px]">
+            <div className="w-40  shadow-md rounded-full    min-h-[150px]">
               <img src={image} className="h-full w-full" />
             </div>
+              <RatingIcons />
             <div>
               <h3 className="font-semibold  capitalize">{name}</h3>
-              <RatingIcons />
               <p className="">{category}</p>
             </div>
 

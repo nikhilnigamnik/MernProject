@@ -1,6 +1,4 @@
-import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
-
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,7 +8,6 @@ export default function Login() {
   const navigate = useNavigate();
 
   const userData = useSelector((state) => state);
-
 
   const dispatch = useDispatch();
 
@@ -32,15 +29,17 @@ export default function Login() {
     e.preventDefault();
     const { email, password } = data;
     if (email && password) {
-      const fetchData = await fetch("https://backend-mernss.onrender.com/login", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const fetchData = await fetch(
+        "https://backend-mernss.onrender.com/login",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
       const dataRes = await fetchData.json();
-
 
       toast(userData.user.email + dataRes.message);
       if (dataRes.alert) {
@@ -49,59 +48,69 @@ export default function Login() {
           navigate("/");
         }, 1000);
       }
-  
     } else {
-      alert("please enter require field");
+      toast("please enter require field");
     }
   };
 
   return (
-    <div className=" flex justify-center items-center">
-      <Card color="transparent" shadow={false}>
-        <Typography variant="h4" color="blue-gray">
-          Login
-        </Typography>
-        <Typography color="gray" className="mt-1 font-normal">
-          Enter your details to Login.
-        </Typography>
+    <div className="flex h-[70vh]  justify-center items-center">
+      <div>
+        <h2 className="text-4xl text-center  capitalize font-bold">Login</h2>
+        <h1 className="capitalize my-4 text-center  text-normal font-semibold">
+          Enter your details to login
+        </h1>
         <form
-          className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
+          className=" border shadow-sm w-80 p-4 max-w-screen-lg sm:w-96"
           onSubmit={handleSubmit}
         >
-          <div className="mb-4 flex flex-col gap-6">
-            <Input
-              size="lg"
-              id="email"
-              name="email"
-              label="Email"
-              value={data.email}
-              onChange={handleOnChange}
-            />
-            <Input
-              type="password"
-              id="password"
-              name="password"
-              size="lg"
-              label="Password"
-              value={data.password}
-              onChange={handleOnChange}
-            />
+          <div className=" flex flex-col gap-6">
+            <div className="flex flex-col gap-2">
+              <label className="capitalize text-normal">Email</label>
+              <input
+                size="lg"
+                id="email"
+                name="email"
+                className="border rounded"
+                label="Email"
+                value={data.email}
+                onChange={handleOnChange}
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label className="capitalize text-normal">Password</label>
+              <input
+                className="border rounded"
+                type="password"
+                id="password"
+                name="password"
+                size="lg"
+                label="Password"
+                value={data.password}
+                onChange={handleOnChange}
+              />
+            </div>
           </div>
 
-          <Button type="submit" className="mt-6" fullWidth>
+          <button
+            type="submit"
+            className=" bg-mainclr my-4 rounded-full px-4 py-2 text-white"
+            fullWidth
+          >
             Login
-          </Button>
-          <Typography color="gray" className="mt-4 text-center font-normal">
+          </button>
+          <h1>
             Do not have an account?{" "}
             <Link
               to="/signup"
-              className="font-medium text-blue-500 transition-colors hover:text-blue-700"
+              className="font-medium text-red-500 transition-colors hover:text-red-700"
             >
               Sign up
             </Link>
-          </Typography>
+          </h1>
         </form>
-      </Card>
+      </div>
     </div>
   );
 }

@@ -50,21 +50,21 @@ const Navbar = () => {
             <div className="hidden z-10 sm:block sm:ml-6">
               {showMenu && (
                 <div>
-                  <div className="absolute flex flex-col  justify-center gap-1 mt-10 right-0 bg-white p-4 py-8 shadow-md rounded">
+                  <div className="absolute flex flex-col px-4 py-8   justify-center gap-1 mt-10 right-0 bg-white shadow-md rounded">
                     {userData.email === "nik@gmail.com" && (
                       <Link
                         to={"newproduct"}
-                        className="cursor-pointer text-white px-2 bg-black rounded"
+                        className="cursor-pointer w-full shadow-md px-2 text-black rounded"
                       >
-                        Add new product
+                        Admin
                       </Link>
                     )}
 
                     {userData.email ? (
                       <div className="flex flex-col gap-1">
-                        <p className="cursor-pointer text-white px-2 bg-black rounded">
+                        <p className="cursor-pointer shadow-md  text-black px-2  rounded">
                           {" "}
-                          user : {userData.email}
+                          User : {userData.email}
                         </p>
                         <p
                           className="cursor-pointer text-white px-2 bg-mainclr rounded"
@@ -74,10 +74,10 @@ const Navbar = () => {
                         </p>
                       </div>
                     ) : (
-                      <div className="px-8">
+                      <div className="">
                         <Link
                           to={"/login"}
-                          className="cursor-pointer px-2 text-white bg-mainclr rounded"
+                          className="cursor-pointer  text-white bg-mainclr rounded"
                         >
                           Login
                         </Link>
@@ -178,21 +178,21 @@ const Navbar = () => {
 
               {showMenu && (
                 <div>
-                  <div className="absolute z-10 flex flex-col  justify-center gap-1 mt-10 right-0 bg-white px-4 py-8 shadow-md rounded">
+                  <div className="absolute z-10 flex flex-col px-4 py-8   justify-center gap-1 mt-10 right-0 bg-white shadow-md rounded">
                     {userData.email === "nik@gmail.com" && (
                       <Link
                         to={"newproduct"}
-                        className="cursor-pointer text-white px-2 bg-black rounded"
+                        className="cursor-pointer w-full shadow-md px-2 text-black rounded"
                       >
-                        Add new product
+                        Admin
                       </Link>
                     )}
 
                     {userData.email ? (
                       <div className="flex flex-col gap-1">
-                        <p className="cursor-pointer text-white px-2 bg-black rounded">
+                        <p className="cursor-pointer shadow-md  text-black px-2  rounded">
                           {" "}
-                          user : {userData.email}
+                          User : {userData.email}
                         </p>
                         <p
                           className="cursor-pointer text-white px-2 bg-mainclr rounded"
@@ -202,10 +202,10 @@ const Navbar = () => {
                         </p>
                       </div>
                     ) : (
-                      <div className="px-8">
+                      <div className="">
                         <Link
                           to={"/login"}
-                          className="cursor-pointer px-2 text-white bg-mainclr rounded"
+                          className="cursor-pointer px-4 py-1  text-white bg-mainclr rounded"
                         >
                           Login
                         </Link>

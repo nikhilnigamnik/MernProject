@@ -54,7 +54,7 @@ const Home = () => {
             <button className="bg-mainclr px-4 py-2 rounded-full text-white">
               Order Now
             </button>
-            <button className="border px-4 py-2 rounded-full shadow-sm text-black">
+            <button className="border border-red-300 px-4 py-2 rounded-full shadow-sm text-black">
               Explore Food
             </button>
           </div>

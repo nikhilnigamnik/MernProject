@@ -1,10 +1,3 @@
-import {
-  Card,
-  Input,
-  Checkbox,
-  Button,
-  Typography,
-} from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
 import { BiShow } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
@@ -22,7 +15,6 @@ export default function Signup() {
     confirmpassword: "",
   });
 
-
   const handleShowPass = () => {
     setShowPass((prev) => !prev);
   };
@@ -38,22 +30,22 @@ export default function Signup() {
     });
   };
 
-  
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { firstname, email, password, confirmpassword } = data;
     if (firstname && email && password && confirmpassword) {
       if (password === confirmpassword) {
-        const fetchData = await fetch("https://backend-mernss.onrender.com/signup", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(data),
-        });
+        const fetchData = await fetch(
+          "https://backend-mernss.onrender.com/signup",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(data),
+          }
+        );
         const dataRes = await fetchData.json();
-    
 
         // alert(dataRes.message);
         toast.success(dataRes.message);
@@ -70,87 +62,108 @@ export default function Signup() {
   };
 
   return (
-    <div className=" flex justify-center items-center">
-      <Card color="transparent" shadow={false}>
-        <Typography variant="h4" color="blue-gray">
-          Signup
-        </Typography>
-        <Typography color="gray" className="mt-1 font-normal">
-          Enter your details to Login.
-        </Typography>
+    <div className=" flex my-10 justify-center items-center">
+      <div>
+        <h1 className="text-4xl text-center  capitalize font-bold">Signup</h1>
+        <h1 className="capitalize my-4 text-center  text-normal font-semibold">
+          Enter your details to Signup.
+        </h1>
         <form
-          className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
+          className="border shadow-sm p-4 w-80 max-w-screen-lg sm:w-96"
           onSubmit={handleSubmit}
         >
           <div className="mb-4 flex flex-col gap-6">
-            <div>
-              <img />
-            </div>
-            <Input
-              size="lg"
-              id="firstname"
-              name="firstname"
-              label="First Name"
-              value={data.firstname}
-              onChange={handleOnChange}
-            />
-            <Input
-              size="lg"
-              id="lastname"
-              name="lastname"
-              label="Last Name"
-              value={data.lastname}
-              onChange={handleOnChange}
-            />
-            <Input
-              size="lg"
-              id="email"
-              name="email"
-              label="Email"
-              value={data.email}
-              onChange={handleOnChange}
-            />
-            <Input
-              type="password"
-              id="password"
-              name="password"
-              size="lg"
-              label="Password"
-              value={data.password}
-              onChange={handleOnChange}
-            />
-            <div className="flex ">
-              <Input
-                type={showPass ? "text" : "password"}
-                name="confirmpassword"
+            <div className="flex flex-col gap-2">
+              <label className="capitalize text-normal">FirstName</label>
+              <input
                 size="lg"
-                label="Confirm Password"
-                value={data.confirmpassword}
+                id="firstname"
+                name="firstname"
+                label="First Name"
+                className="border w-full rounded"
+                value={data.firstname}
                 onChange={handleOnChange}
               />
-              <span
-                className="flex justify-center items-center cursor-pointer"
-                onClick={handleShowPass}
-              >
-                {showPass ? <BiShow /> : <BiHide />}
-              </span>
+            </div>
+            <div className="flex flex-col gap-2">
+              <label className="capitalize text-normal">LastName</label>
+              <input
+                size="lg"
+                id="lastname"
+                name="lastname"
+                label="First Name"
+                className="border w-full rounded"
+                value={data.lastname}
+                onChange={handleOnChange}
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label className="capitalize text-normal">Email</label>
+              <input
+                size="lg"
+                className="border w-full rounded"
+                id="email"
+                name="email"
+                label="Email"
+                value={data.email}
+                onChange={handleOnChange}
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label className="capitalize text-normal">Password</label>
+              <input
+                type="password"
+                className="border w-full rounded"
+                id="password"
+                name="password"
+                size="lg"
+                label="Password"
+                value={data.password}
+                onChange={handleOnChange}
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label className="capitalize text-normal">Confirm Password</label>
+              <div className="border flex justify-between rounded">
+                <input
+                  type={showPass ? "text" : "password"}
+                  name="confirmpassword"
+                  size="lg"
+                  label="Confirm Password"
+                  value={data.confirmpassword}
+                  onChange={handleOnChange}
+                />
+                <span
+                  className="flex justify-center mr-4 items-center cursor-pointer"
+                  onClick={handleShowPass}
+                >
+                  {showPass ? <BiShow /> : <BiHide />}
+                </span>
+              </div>
             </div>
           </div>
 
-          <Button type="submit" className="mt-6" fullWidth>
+          <button
+            type="submit"
+            className=" bg-mainclr my-4 rounded-full px-4 py-2 text-white"
+            fullWidth
+          >
             Signup
-          </Button>
-          <Typography color="gray" className="mt-4 text-center font-normal">
+          </button>
+          <h1 className="font-normal">
             Already have an account?{" "}
             <Link
               to="/login"
-              className="font-medium text-blue-500 transition-colors hover:text-blue-700"
+              className="font-medium text-red-500 transition-colors hover:red-blue-700"
             >
               Login
             </Link>
-          </Typography>
+          </h1>
         </form>
-      </Card>
+      </div>
     </div>
   );
 }

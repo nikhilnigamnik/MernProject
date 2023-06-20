@@ -62,13 +62,11 @@ const Cart = () => {
 
               <div className="flex w-full flex-col gap-4">
                 <div className="w-full shadow-sm p-4 border items-center flex justify-between">
-                  <h1>Product</h1>
-                  <h1>Price</h1>
-                  <h1>Quantity</h1>
-                  <h1>Subtotal</h1>
-                  <h1>Remove</h1>
+                  <h1 className="capitalize text-normal font-semibold">Product Details</h1>
+                  <h1 className="capitalize text-normal font-semibold">Quantity</h1>
+                  <h1 className="capitalize text-normal font-semibold">Subtotal</h1>
                 </div>
-             
+
                 {productcartItems.map((el) => {
                   return (
                     <CartProduct
@@ -86,7 +84,7 @@ const Cart = () => {
               </div>
 
               {/* Total Cart Items */}
-              <div className="flex shadow-sm flex-col mt-8 md:mt-0 gap-4 h-fit w-full md:w-1/3 p-4 shadow-sm border">
+              <div className="flex flex-col mt-8 md:mt-0 gap-4 h-fit w-full md:w-1/3 p-4 shadow-sm border">
                 <h1 className="text-2xl font-semibold">Total</h1>
                 <div>
                   <div className="flex justify-between">
