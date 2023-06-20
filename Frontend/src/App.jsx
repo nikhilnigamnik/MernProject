@@ -16,6 +16,8 @@ import Success from "./pages/Success";
 import Cancle from "./pages/Cancle";
 import NewProduct from "./components/Admin/NewProduct";
 import Admin from "./components/Admin/Admin";
+import ProductItem from "./components/Admin/ProductItem";
+import UserList from "./components/Admin/UserDetails";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -46,7 +48,30 @@ const App = () => {
           <Route path="/success" element={<Success />} />
           <Route path="/cancel" element={<Cancle />} />
           <Route path="/admin/*" element={<Admin />} />
-          <Route path="/admin/product" element={<Admin><NewProduct /></Admin>} />
+          <Route
+            path="/admin/product"
+            element={
+              <Admin>
+                <NewProduct />
+              </Admin>
+            }
+          />
+          <Route
+            path="/admin/productdetails"
+            element={
+              <Admin>
+                <ProductItem />
+              </Admin>
+            }
+          />
+          <Route
+            path="/admin/userdetails"
+            element={
+              <Admin>
+                <UserList />
+              </Admin>
+            }
+          />
         </Routes>
       </div>
       <Toaster />

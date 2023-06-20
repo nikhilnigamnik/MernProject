@@ -108,6 +108,7 @@ const Navbar = () => {
                     color="red"
                     placement="top-end"
                     overlap="top-end"
+                    className="animate-pulse"
                     content={CartItemNum.length}
                     withBorder
                   >

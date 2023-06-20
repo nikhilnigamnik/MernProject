@@ -22,12 +22,12 @@ const Admin = ({ children }) => {
   ];
 
   return (
-    <div className="md:flex justify-between gap-8">
+    <div className="md:flex justify-between md:gap-8">
       <div className="flex gap-4 p-8 border md:w-1/4 flex-col">
         {buttonData.map((button) => (
           <Link to={`/admin${button.id}`} key={button.id}>
             <button
-              className={`border transition duration-700 ease-in-out shadow-sm text-left w-full text-black px-4 py-2 rounded-md ${
+              className={`border transition duration-150 ease-in-out shadow-sm text-left w-full text-black px-4 py-2 rounded-md ${
                 activeButton === button.id ? "bg-mainclr text-white" : ""
               }`}
               onClick={() => handleButtonClick(button.id)}
@@ -39,7 +39,11 @@ const Admin = ({ children }) => {
       </div>
 
       <div className="md:w-3/4 border">
-        {location.pathname === "/admin" && <div></div>}
+        {location.pathname === "/admin" && (
+          <div className="p-8">
+            <h1>Hillooo Dashboard</h1>
+          </div>
+        )}
         {children}
       </div>
     </div>

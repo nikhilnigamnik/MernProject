@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
 const ProductItem = () => {
+  const [totalProducts, setTotalProducts] = useState(0);
+
   const [productsId, setProductsId] = useState([]);
   const dispatch = useDispatch();
   const params = useParams();
@@ -24,6 +26,7 @@ const ProductItem = () => {
       const resData = response.data;
       dispatch(setDataProduct(resData));
       // Update productsId with the fetched data
+      setTotalProducts(resData.length);
       setProductsId(resData);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -46,12 +49,14 @@ const ProductItem = () => {
   };
 
   return (
-    <div>
+    <div className="p-8">
       <h2>Product List</h2>
+      <p>Total Products: {totalProducts}</p>
       {productsId.length > 0 ? (
         productsId.map((product) => (
           <div key={product._id}>
             <h3>{product.name}</h3>
+            <img src={product.image} />
             <button onClick={() => handleDelete(product._id)}>Delete</button>
           </div>
         ))
@@ -63,4 +68,3 @@ const ProductItem = () => {
 };
 
 export default ProductItem;
-
