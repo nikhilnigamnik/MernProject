@@ -6,7 +6,6 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Menu from "./pages/Menu";
 import Login from "./pages/Login";
-import NewProduct from "./pages/NewProduct";
 import Signup from "./pages/Signup";
 import { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,6 +14,7 @@ import { setDataProduct } from "./redux/productSlice";
 import Cart from "./pages/Cart";
 import Success from "./pages/Success";
 import Cancle from "./pages/Cancle";
+import NewProduct from "./components/Admin/NewProduct";
 
 const App = () => {
   const dispatch = useDispatch();

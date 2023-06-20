@@ -9,14 +9,15 @@ import {
   decreaseItem,
 } from "../redux/productSlice";
 
+
 const CartProduct = ({ id, name, image, category, total, qty, price }) => {
   const dispatch = useDispatch();
   // const
   return (
     <div className="w-full flex   border shadow-sm items-center rounded justify-between p-8">
+     
       <div>
-
-        <div className="bg-white flex justify-between items-center gap-6 rounded overflow-hidden">
+        <div className="bg-white md:flex justify-between items-center gap-6 rounded overflow-hidden">
           <img className="h-20 bg-white w-40 object-cover" src={image} />
           <div className="flex flex-col gap-1">
             <h1 className="capitalize text-normal font-semibold">{name}</h1>
@@ -61,7 +62,6 @@ const CartProduct = ({ id, name, image, category, total, qty, price }) => {
         <span className="text-mainclr font-semibold">Rs. </span>
         <p>{total}</p>
       </div>
-
     </div>
   );
 };

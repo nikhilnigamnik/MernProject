@@ -50,21 +50,28 @@ const Cart = () => {
   return (
     <>
       <div className="">
-        <div className="my-4 flex flex-col gap-4">
-          <p className="text-mainclr text-center font-medium">CART</p>
-          <h1 className="text-4xl text-center font-bold">Your Cart Items</h1>
-        </div>
-
         {productcartItems[0] ? (
           <>
+            <div className="my-4 flex flex-col gap-4">
+              <p className="text-mainclr text-center font-medium">CART</p>
+              <h1 className="text-4xl text-center font-bold">
+                Your Cart Items
+              </h1>
+            </div>
             <div className="w-full my-10 gap-10 justify-between md:flex ">
               {/* Display Cart items */}
 
               <div className="flex w-full flex-col gap-4">
                 <div className="w-full shadow-sm p-4 border items-center flex justify-between">
-                  <h1 className="capitalize text-normal font-semibold">Product Details</h1>
-                  <h1 className="capitalize text-normal font-semibold">Quantity</h1>
-                  <h1 className="capitalize text-normal font-semibold">Subtotal</h1>
+                  <h1 className="capitalize text-normal font-semibold">
+                    Product Details
+                  </h1>
+                  <h1 className="capitalize text-normal font-semibold">
+                    Quantity
+                  </h1>
+                  <h1 className="capitalize text-normal font-semibold">
+                    Subtotal
+                  </h1>
                 </div>
 
                 {productcartItems.map((el) => {
@@ -116,14 +123,20 @@ const Cart = () => {
             </div>
           </>
         ) : (
-          <div className="flex w-full justify-center items-center">
+          <div className="flex gap-6 flex-col h-screen justify-center items-center">
+            <h1 className="text-center text-xl font-semibold ">
+              Your Cart is Empty
+            </h1>
             <img
-              className="w-full max-w-lg"
-              src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/6910d1112421559.6013fd8d41f44.jpg"
+              className=""
+              src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687243479/Cart_illustartion_bewtgt.png"
             />
+            <p className="text-center font-normal text-lg w-1/2">
+              Looks like you haven't added anything to your cart yet
+            </p>
             <Link to="/">
               <button className="bg-mainclr px-4 py-2 rounded-full text-white">
-                Continue
+                Go Home
               </button>
             </Link>
           </div>

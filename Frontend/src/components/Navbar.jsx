@@ -77,7 +77,7 @@ const Navbar = () => {
                       <div className="">
                         <Link
                           to={"/login"}
-                          className="cursor-pointer  text-white bg-mainclr rounded"
+                          className="cursor-pointer px-4 py-1  text-white bg-mainclr rounded"
                         >
                           Login
                         </Link>
