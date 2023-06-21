@@ -4,6 +4,7 @@ import { setDataProduct } from "../../redux/productSlice";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { AiFillDelete } from "react-icons/ai";
 
 const ProductItem = () => {
   const [totalProducts, setTotalProducts] = useState(0);
@@ -49,20 +50,29 @@ const ProductItem = () => {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-8 flex flex-col">
       <h2>Product List</h2>
       <p>Total Products: {totalProducts}</p>
-      {productsId.length > 0 ? (
-        productsId.map((product) => (
-          <div key={product._id}>
-            <h3>{product.name}</h3>
-            <img src={product.image} />
-            <button onClick={() => handleDelete(product._id)}>Delete</button>
-          </div>
-        ))
-      ) : (
-        <p>Loading...</p>
-      )}
+      <div className="flex mt-4 flex-col gap-4">
+        {productsId.length > 0 ? (
+          productsId.map((product) => (
+            <div
+              className="flex p-4 shadow-sm border justify-between items-center"
+              key={product._id}
+            >
+              <div className="">
+                <img className="w-20 max-w-sm" src={product.image} />
+                <h1>Product Name : {product.name}</h1>
+                <h1>Category : {product.category}</h1>
+                <h1>Price : {product.price}</h1>
+              </div>
+              <AiFillDelete onClick={() => handleDelete(product._id)} />
+            </div>
+          ))
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
   );
 };
