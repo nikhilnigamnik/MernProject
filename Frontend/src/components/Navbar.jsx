@@ -52,13 +52,15 @@ const Navbar = () => {
             <div className="hidden z-10 sm:block sm:ml-6">
               {showMenu && (
                 <div>
-                  <div className="absolute flex flex-col p-4              justify-center gap-1 mt-10 right-0 bg-white shadow-md rounded">
+                  <div className="absolute flex flex-col p-4 justify-center gap-1 mt-10 right-0 bg-white border shadow-md rounded">
                     {userData.email === "nik@gmail.com" && (
-                      <div className="flex cursor-pointer gap-4 bg-mainclr text-white py-1 px-2 rounded-sm  items-center">
-                        <FaUserCircle size={20} />
+                      <Link to={"admin"}>
+                        <div className="flex cursor-pointer gap-4 bg-mainclr text-white py-1 px-2 rounded-sm  items-center">
+                          <FaUserCircle size={20} />
 
-                        <Link to={"admin"}>Admin</Link>
-                      </div>
+                          <p>Admin</p>
+                        </div>
+                      </Link>
                     )}
 
                     {userData.email ? (
@@ -179,11 +181,13 @@ const Navbar = () => {
                 <div>
                   <div className="absolute flex flex-col p-4 z-10 justify-center gap-1 mt-10 right-0 bg-white shadow-md rounded">
                     {userData.email === "nik@gmail.com" && (
-                      <div className="flex cursor-pointer gap-4 bg-mainclr text-white py-1 px-2 rounded-sm  items-center">
-                        <FaUserCircle size={20} />
+                      <Link to={"admin"}>
+                        <div className="flex cursor-pointer gap-4 bg-mainclr text-white py-1 px-2 rounded-sm  items-center">
+                          <FaUserCircle size={20} />
 
-                        <Link to={"admin"}>Admin</Link>
-                      </div>
+                          <p>Admin</p>
+                        </div>
+                      </Link>
                     )}
 
                     {userData.email ? (
