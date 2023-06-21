@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@material-tailwind/react";
 import { Link, useLocation } from "react-router-dom";
 
-const Admin = ({ children }) => {
+const Admin = ({ children, totalUsers }) => {
   const [activeButton, setActiveButton] = useState("");
   const location = useLocation();
 
@@ -41,7 +41,10 @@ const Admin = ({ children }) => {
       <div className="md:w-3/4 border">
         {location.pathname === "/admin" && (
           <div className="p-8">
-            <h1>Hillooo Dashboard</h1>
+            <div>
+              <h1>Total Products</h1>
+              <h1>Total Users : {totalUsers}</h1>
+            </div>
           </div>
         )}
         {children}

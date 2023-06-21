@@ -25,7 +25,6 @@ const App = () => {
 
   useEffect(() => {
     (async () => {
-      // const res = await fetch(`${process.env.REACT_APP_BACKEND_API}/product`);
       const res = await fetch("https://backend-mernss.onrender.com/product");
 
       const resData = await res.json();
