@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button } from "@material-tailwind/react";
 import { Link, useLocation } from "react-router-dom";
+import UserList from "./UserDetails";
 
-const Admin = ({ children, totalUsers }) => {
+const Admin = ({ children }) => {
   const [activeButton, setActiveButton] = useState("");
   const location = useLocation();
+
+
 
   const handleButtonClick = (buttonId) => {
     setActiveButton(buttonId);
@@ -42,8 +45,8 @@ const Admin = ({ children, totalUsers }) => {
         {location.pathname === "/admin" && (
           <div className="p-8">
             <div>
-              <h1>Total Products</h1>
-              <h1>Total Users : {totalUsers}</h1>
+              <h1>Total Products : </h1>
+              <h1>Total Users : </h1>
             </div>
           </div>
         )}
@@ -52,5 +55,7 @@ const Admin = ({ children, totalUsers }) => {
     </div>
   );
 };
+
+
 
 export default Admin;

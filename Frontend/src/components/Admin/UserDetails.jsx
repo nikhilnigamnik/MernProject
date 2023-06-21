@@ -17,7 +17,7 @@ function UserList() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [users]);
 
   const handleDelete = async (userId) => {
     try {
@@ -62,3 +62,7 @@ function UserList() {
 }
 
 export default UserList;
+
+
+
+
