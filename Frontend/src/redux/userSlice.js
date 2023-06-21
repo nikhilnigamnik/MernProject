@@ -5,7 +5,9 @@ const initialState = {
   _id: "",
   firstname: "",
   lastname: "",
+  users: [],
 };
+
 export const userSlice = createSlice({
   name: "user",
   initialState,
@@ -24,9 +26,12 @@ export const userSlice = createSlice({
       state.lastname = "";
       state.email = "";
     },
+    userRedux: (state, action) => {
+      state.users = action.payload;
+    },
   },
 });
 
-export const { loginRedux, logoutRedux } = userSlice.actions;
+export const { loginRedux, logoutRedux, userRedux } = userSlice.actions;
 
 export default userSlice.reducer;

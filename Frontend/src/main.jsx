@@ -22,6 +22,7 @@ import { Provider } from "react-redux";
 import { store } from "./redux/index.js";
 import Menu from "./pages/Menu.jsx";
 import Admin from "./components/Admin/Admin.jsx";
+import UserDetails from "./components/Admin/UserDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -70,9 +71,13 @@ const router = createBrowserRouter([
         element: <Cancle />,
       },
       {
-        path: "/admin",
+        path: "/admin/*",
         element: <Admin />,
       },
+      {
+        path: "/userdetails",
+        element: <UserDetails/>
+      }
     ],
   },
 ]);

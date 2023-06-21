@@ -41,6 +41,8 @@ const Home = () => {
           <p className="bg-red-100 inline-block rounded-full px-4 py-2">
             Hungry?
           </p>
+          
+        
 
           <h2 className="text-5xl md:text-6xl md:text-left text-left font-semibold py-4">
             Just Come to <span className="text-[#d5294d]">FoodWaale</span> &

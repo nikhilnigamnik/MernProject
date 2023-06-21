@@ -2,31 +2,50 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { AiFillDelete } from "react-icons/ai";
+import { useSelector } from "react-redux";
 
-function UserList({ id, firstname, lastname }) {
+const handleDelete = async (userId) => {
+  try {
+    const response = await axios.delete(
+      `https://backend-mernss.onrender.com/users/${userId}`
+    );
+    if (response.status === 200) {
+      toast.success("Deleting...");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+function UserDetails() {
+  const users = useSelector((state) => state?.user?.users);
+
+  if (!users) {
+    return <div>Loading...</div>; // or any other fallback UI when products are undefined
+  }
   return (
     <div className="p-8">
-      {/* <h1 className="text-center text-2xl font-semibold">User List</h1> */}
-      {/* <p>Total Users : {totalUsers}</p> */}
-      <ul className="flex mt-4 flex-col gap-4">
-        <li
-          className="flex border shadow-sm justify-between items-center p-4 "
-          key={id}
-        >
-          <div className="">
-            <p>
-              Name: {firstname} {lastname}
-            </p>
-            {/* <p>Email: {user.email}</p> */}
-          </div>
-          {/* <p>Password : {user.password}</p>
-              <p>Confirm Password : {user.confirmpassword}</p> */}
-          {/* <button onClick={() => handleDelete(user._id)}>Delete</button> */}
-          <AiFillDelete onClick={() => handleDelete(id)} />
-        </li>
-      </ul>
+      <h2>User List</h2>
+      <p>Total Users : {users.length}</p>
+      {users.map((item) => (
+        <div key={item._id} className="">
+          <ul className="flex mt-4 flex-col gap-4">
+            <li className="flex border shadow-sm justify-between items-center p-4 ">
+              <p>
+                {item.firstname} {item.lastname}
+              </p>
+              <p>{item.email}</p>
+              <p></p>
+              <AiFillDelete
+                className="cursor-pointer"
+                onClick={() => handleDelete(id)}
+              />
+            </li>
+          </ul>
+        </div>
+      ))}
     </div>
   );
 }
 
-export default UserList;
+export default UserDetails;
