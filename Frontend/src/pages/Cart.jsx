@@ -113,6 +113,17 @@ const Cart = () => {
                   <p>{totalPrice}</p>
                 </div>
 
+                <div className="rounded-xl py-2 px-4 sha2 flex justify-center">
+                  <input
+                    type="text"
+                    className="bg-transparent outline-none "
+                    placeholder="Enter coupon to get discount"
+                  />
+                  <button className="bg-mainclr px-2 hover:bg-red-800 transition-all text-white rounded-xl">
+                    Check
+                  </button>
+                </div>
+
                 <button
                   onClick={handlePayment}
                   className="bg-mainclr px-4 py-2 rounded-full text-white"
