@@ -89,7 +89,7 @@ const Navbar = () => {
               )}
             </div>
             <div className="rounded-full hidden lg:block p-2 sha2">
-              <input type="text" className="rounded-l-lg outline-none px-2" placeholder="Search product..." />
+              <input type="text" className="rounded-l-lg bg-transparent outline-none px-2" placeholder="Search product..." />
               <button className="bg-mainclr hover:bg-red-800 transition-all text-white rounded-full px-4 py-1">Search</button>
             </div>
             <div className="hidden sm:block justify-between items-center">
