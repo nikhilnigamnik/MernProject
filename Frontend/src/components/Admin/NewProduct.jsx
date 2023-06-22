@@ -10,6 +10,8 @@ const NewProduct = () => {
     image: "",
     price: "",
     description: "",
+    discount: "",
+    rating: "",
   });
 
   const handleOnChange = (e) => {
@@ -37,9 +39,9 @@ const NewProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { name, image, category, price } = data;
+    const { name, image, category, price, discount, rating } = data;
 
-    if (name && image && category && price) {
+    if (name && image && category && price && discount && rating) {
       const fetchData = await fetch(
         `https://backend-mernss.onrender.com/uploadProduct`,
         {
@@ -62,6 +64,8 @@ const NewProduct = () => {
           image: "",
           price: "",
           description: "",
+          discount: "",
+          rating: "",
         };
       });
     } else {
@@ -75,7 +79,7 @@ const NewProduct = () => {
         <input
           type={"text"}
           name="name"
-          className="border p-1 my-1"
+          className="border rounded-lg p-1 my-1"
           onChange={handleOnChange}
           value={data.name}
         />
@@ -83,7 +87,7 @@ const NewProduct = () => {
         <label htmlFor="category">Category</label>
 
         <select
-          className="bg-slate-200 capitalize p-1 my-1"
+          className="bg-slate-200 rounded-lg capitalize p-1 my-1"
           id="category"
           name="category"
           onChange={handleOnChange}
@@ -104,7 +108,7 @@ const NewProduct = () => {
 
         <label htmlFor="image">
           Image
-          <div className="h-40 border w-full bg-slate-200  rounded flex items-center justify-center cursor-pointer">
+          <div className="h-40 rounded-lg border w-full bg-slate-200  rounded flex items-center justify-center cursor-pointer">
             {data.image ? (
               <img src={data.image} className="h-full " />
             ) : (
@@ -118,7 +122,7 @@ const NewProduct = () => {
               accept="image/*"
               id="image"
               onChange={uploadImage}
-              className="hidden"
+              className="hidden "
             />
           </div>
         </label>
@@ -128,22 +132,42 @@ const NewProduct = () => {
         </label>
         <input
           type={"text"}
-          className="border p-1 my-1"
+          className="border rounded-lg p-1 my-1"
           name="price"
           onChange={handleOnChange}
           value={data.price}
+        />
+        <label htmlFor="discount" className="my-1">
+          Discount
+        </label>
+        <input
+          type={"text"}
+          className="border rounded-lg p-1 my-1"
+          name="discount"
+          onChange={handleOnChange}
+          value={data.discount}
+        />
+        <label htmlFor="rating" className="my-1">
+          Rating
+        </label>
+        <input
+          type={"text"}
+          className="border rounded-lg p-1 my-1"
+          name="rating"
+          onChange={handleOnChange}
+          value={data.rating}
         />
 
         <label htmlFor="description">Description</label>
         <textarea
           rows={2}
           value={data.description}
-          className="border p-1 my-1 resize-none"
+          className="border rounded-lg p-1 my-1 resize-none"
           name="description"
           onChange={handleOnChange}
         ></textarea>
 
-        <button className="bg-mainclr text-[10px] px-2 py-2 rounded-full text-white">
+        <button className="bg-mainclr text-[10px] px-2 py-3 mt-4 rounded-full text-white">
           Save
         </button>
       </form>

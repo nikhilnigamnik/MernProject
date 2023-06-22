@@ -14,6 +14,7 @@ const App = () => {
       const res = await fetch("https://backend-mernss.onrender.com/product");
       const resData = await res.json();
       dispatch(setDataProduct(resData));
+      console.log(resData)
     })();
   }, []);
 
