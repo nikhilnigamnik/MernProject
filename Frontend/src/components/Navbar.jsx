@@ -52,10 +52,10 @@ const Navbar = () => {
             <div className="hidden z-10 sm:block sm:ml-6">
               {showMenu && (
                 <div>
-                  <div className="absolute flex flex-col p-4 justify-center gap-1 mt-10 right-0 bg-white border shadow-md rounded">
+                  <div className="absolute flex flex-col p-4 justify-center gap-1 mt-10 right-0 bg-white border shadow-md rounded-xl">
                     {userData.email === "nik@gmail.com" && (
                       <Link to={"admin"}>
-                        <div className="flex cursor-pointer gap-4 bg-mainclr text-white py-1 px-2 rounded-sm  items-center">
+                        <div className="flex cursor-pointer gap-4  text-black border shadow-md p-2 rounded-lg  items-center">
                           <FaUserCircle size={20} />
 
                           <p>Admin</p>
@@ -65,12 +65,12 @@ const Navbar = () => {
 
                     {userData.email ? (
                       <div className="flex flex-col gap-1">
-                        <div className="flex cursor-pointer gap-4 bg-mainclr text-white py-1 px-2 rounded-sm  items-center">
+                        <div className="flex cursor-pointer gap-4  text-black border shadow-md p-2 rounded-lg  items-center">
                           <FaUserCircle size={20} />
 
                           <p className="">{userData.email}</p>
                         </div>
-                        <div className="flex py-1 cursor-pointer bg-mainclr text-white px-2 rounded-sm justify-between items-center">
+                        <div className="flex  cursor-pointer bg-mainclr text-white p-2 shadow-md rounded-lg justify-between items-center">
                           <p className="" onClick={handleLogout}>
                             Logout
                           </p>
@@ -78,7 +78,7 @@ const Navbar = () => {
                         </div>
                       </div>
                     ) : (
-                      <div className="flex gap-4 py-1 cursor-pointer bg-mainclr text-white px-2 rounded-sm justify-between items-center">
+                      <div className="flex gap-6 cursor-pointer bg-mainclr text-white p-2 shadow-md rounded-lg justify-between items-center">
                         <Link to={"/login"}>Login</Link>
                         <IoLogInOutline />
                       </div>
@@ -110,7 +110,6 @@ const Navbar = () => {
                     color="red"
                     placement="top-end"
                     overlap="top-end"
-                    className="animate-pulse"
                     content={CartItemNum.length}
                     withBorder
                   >
@@ -179,10 +178,10 @@ const Navbar = () => {
 
               {showMenu && (
                 <div>
-                  <div className="absolute flex flex-col p-4 z-10 justify-center gap-1 mt-10 right-0 bg-white shadow-md rounded">
+                  <div className="absolute z-10 flex flex-col p-4 justify-center gap-1 mt-10 right-0 bg-white border shadow-md rounded-xl">
                     {userData.email === "nik@gmail.com" && (
                       <Link to={"admin"}>
-                        <div className="flex cursor-pointer gap-4 bg-mainclr text-white py-1 px-2 rounded-sm  items-center">
+                        <div className="flex cursor-pointer gap-4  text-black border shadow-md p-2 rounded-lg  items-center">
                           <FaUserCircle size={20} />
 
                           <p>Admin</p>
@@ -192,12 +191,12 @@ const Navbar = () => {
 
                     {userData.email ? (
                       <div className="flex flex-col gap-1">
-                        <div className="flex cursor-pointer gap-4 bg-mainclr text-white py-1 px-2 rounded-sm  items-center">
+                        <div className="flex cursor-pointer gap-4  text-black border shadow-md p-2 rounded-lg  items-center">
                           <FaUserCircle size={20} />
 
                           <p className="">{userData.email}</p>
                         </div>
-                        <div className="flex py-1 cursor-pointer bg-mainclr text-white px-2 rounded-sm justify-between items-center">
+                        <div className="flex  cursor-pointer bg-mainclr text-white p-2 shadow-md rounded-lg justify-between items-center">
                           <p className="" onClick={handleLogout}>
                             Logout
                           </p>
@@ -205,7 +204,7 @@ const Navbar = () => {
                         </div>
                       </div>
                     ) : (
-                      <div className="flex gap-4 py-1 cursor-pointer bg-mainclr text-white px-2 rounded-sm justify-between items-center">
+                      <div className="flex gap-6 cursor-pointer bg-mainclr text-white p-2 shadow-md rounded-lg justify-between items-center">
                         <Link to={"/login"}>Login</Link>
                         <IoLogInOutline />
                       </div>

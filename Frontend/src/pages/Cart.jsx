@@ -61,8 +61,8 @@ const Cart = () => {
             <div className="w-full my-10 gap-10 justify-between md:flex ">
               {/* Display Cart items */}
 
-              <div className="flex w-full flex-col gap-4">
-                <div className="w-full shadow-sm p-4 border items-center flex justify-between">
+              <div className="flex  w-full flex-col gap-4">
+                <div className="w-full rounded-xl shadow-sm p-4 border justify-items-center grid grid-cols-3">
                   <h1 className="capitalize text-normal font-semibold">
                     Product Details
                   </h1>
@@ -91,7 +91,7 @@ const Cart = () => {
               </div>
 
               {/* Total Cart Items */}
-              <div className="flex flex-col mt-8 md:mt-0 gap-4 h-fit w-full md:w-1/3 p-4 shadow-sm border">
+              <div className="flex rounded-xl flex-col mt-8 md:mt-0 gap-4 h-fit w-full md:w-1/3 p-4 shadow-sm border">
                 <h1 className="text-2xl font-semibold">Total</h1>
                 <div>
                   <div className="flex justify-between">

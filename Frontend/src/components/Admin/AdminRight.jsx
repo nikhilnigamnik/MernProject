@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import ProductItem from "./ProductItem";
 import AdminHome from "./AdminHome";
 import UserDetails from "./UserDetails";
-import NewProduct from "../NewProduct";
+import NewProduct from "./NewProduct";
 
 const AdminRight = () => {
   return (

@@ -6,7 +6,7 @@ import Contact from "./pages/Contact.jsx";
 import Login from "./pages/Login.jsx";
 import Success from "./pages/Success.jsx";
 import Cancle from "./pages/Cancle.jsx";
-import Newproduct from "./components/NewProduct.jsx";
+import Newproduct from "./components/Admin/NewProduct.jsx";
 import Signup from "./pages/Signup.jsx";
 import Cart from "./pages/Cart.jsx";
 import About from "./pages/About.jsx";

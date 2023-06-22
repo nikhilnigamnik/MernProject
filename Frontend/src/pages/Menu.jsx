@@ -31,7 +31,6 @@ const Menu = () => {
       <p className="text-mainclr text-center font-medium">About</p>
       <h1 className="text-4xl text-center font-bold">Explore Our Best Meal</h1>
       <div className="w-full gap-6 p-10 my-10  m-auto max-w-4xl items-center md:grid grid-cols-3 border shadow-sm">
-
         <div className="w-full overflow-hidden">
           <img src={productDisplay.image} className="" />
         </div>
@@ -46,7 +45,7 @@ const Menu = () => {
               <span className="text-mainclr font-semibold">Rs. </span>
               {productDisplay.price}
             </h1>
-            <RatingIcons/>
+            <RatingIcons />
           </div>
 
           <div>
@@ -72,7 +71,7 @@ const Menu = () => {
         </div>
       </div>
 
-      <AllProduct heading={"Related Product"} />
+      {/* <AllProduct heading={"Related Product"} /> */}
     </div>
   );
 };

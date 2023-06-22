@@ -44,9 +44,7 @@ export default function Login() {
       toast(userData.user.email + dataRes.message);
       if (dataRes.alert) {
         dispatch(loginRedux(dataRes));
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
+        navigate("/");
       }
     } else {
       toast("please enter require field");
@@ -96,7 +94,6 @@ export default function Login() {
           <button
             type="submit"
             className=" bg-mainclr w-full my-4 rounded-full px-4 py-2 text-white"
-           
           >
             Login
           </button>
