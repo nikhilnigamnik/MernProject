@@ -20,7 +20,6 @@ import { store } from "./redux/index.js";
 import Menu from "./pages/Menu.jsx";
 import Admin from "./components/Admin/Admin.jsx";
 import UserDetails from "./components/Admin/UserDetails.jsx";
-import Cancel from "./pages/Cancel.jsx";
 
 const router = createBrowserRouter([
   {
@@ -66,7 +65,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/cancel",
-        element: <Cancel />,
+        element: <Cancel/> ,
       },
       {
         path: "/admin/*",
