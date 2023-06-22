@@ -15,8 +15,8 @@ import { toast } from "react-hot-toast";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const userData = useSelector((state) => state?.user) || []
-  const CartItemNum = useSelector((state) => state?.product?.cartItem) || []
+  const userData = useSelector((state) => state?.user) || [];
+  const CartItemNum = useSelector((state) => state?.product?.cartItem) || [];
   const handleShowMenu = () => {
     setShowMenu((prev) => !prev);
   };
@@ -88,9 +88,13 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <div className="flex hidden  sm:block justify-between items-center">
+            <div className="rounded-full hidden lg:block p-2 sha2">
+              <input type="text" className="rounded-l-lg outline-none px-2" placeholder="Search product..." />
+              <button className="bg-mainclr text-white rounded-full px-4 py-1">Search</button>
+            </div>
+            <div className="hidden sm:block justify-between items-center">
               {/* Your navigation links */}
-              <div className="flex gap-16">
+              <div className="flex gap-6">
                 <Link to="/">
                   <p>Home</p>
                 </Link>
