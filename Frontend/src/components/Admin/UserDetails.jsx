@@ -38,7 +38,7 @@ function UserDetails() {
               <p></p>
               <AiFillDelete
                 className="cursor-pointer"
-                onClick={() => handleDelete(id)}
+                onClick={() => handleDelete(item._id)}
               />
             </li>
           </ul>

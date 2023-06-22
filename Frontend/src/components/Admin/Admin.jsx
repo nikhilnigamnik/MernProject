@@ -10,18 +10,15 @@ import { useDispatch } from "react-redux";
 import { productRedux } from "../../redux/productSlice";
 
 const Admin = () => {
-const dispatch = useDispatch();
-
+  const dispatch = useDispatch();
 
   const fetchProducts = async () => {
     try {
       const response = await axios.get(`${baseURL}/product`);
-      if(response.data){
-
+      if (response.data) {
         dispatch(productRedux(response.data));
       }
       const resData = response.data;
-      console.log(resData);
     } catch (error) {
       console.error(error);
     }
@@ -37,7 +34,6 @@ const dispatch = useDispatch();
       if (response.data) {
         dispatch(userRedux(response.data));
       }
-      console.log(response.data);
     } catch (error) {
       console.log(error);
     }

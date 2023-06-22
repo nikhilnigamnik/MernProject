@@ -22,6 +22,10 @@ const Menu = () => {
     navigate("/cart");
   };
 
+  if (!productDisplay) {
+    return <div>Loading...</div>; // or any other fallback UI when products are undefined
+  }
+
   return (
     <div className="p-2 md:p-4">
       <p className="text-mainclr text-center font-medium">About</p>

@@ -1,6 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { AiFillDelete } from "react-icons/ai";
+import { toast } from "react-hot-toast";
+import axios from "axios";
+
+const handleDelete = async (productId) => {
+  try {
+    const response = await axios.delete(
+      `https://backend-mernss.onrender.com/product/${productId}`
+    );
+    if (response.status === 200) {
+      toast.success("Product deleted successfully!");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 function ProductItem() {
   const products = useSelector((state) => state?.product?.products);
@@ -25,6 +40,12 @@ function ProductItem() {
               <h1>Category: {item.category}</h1>
               <h1>Price: {item.price}</h1>
             </div>
+            <AiFillDelete
+              className="cursor-pointer"
+              onClick={() => {
+                handleDelete(item._id);
+              }}
+            />
           </div>
         ))}
       </div>

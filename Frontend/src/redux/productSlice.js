@@ -57,7 +57,7 @@ export const productSlice = createSlice({
     },
     productRedux: (state, action) => {
       state.products = action.payload
-      console.log(action.payload)
+     
     }
   },
 });

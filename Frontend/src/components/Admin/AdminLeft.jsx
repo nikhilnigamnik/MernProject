@@ -21,7 +21,7 @@ const AdminLeft = () => {
   ];
 
   return (
-    <div className="md:w-1/4   border shadow-md">
+    <div className="md:w-1/4 rounded-lg  border shadow-md">
       <div className="p-8 w-full flex flex-col gap-4">
         {buttonData.map((button) => (
           <Link to={`/admin${button.id}`} key={button.id}>

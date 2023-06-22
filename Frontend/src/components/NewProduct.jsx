@@ -75,7 +75,7 @@ const NewProduct = () => {
       <div className="">
         <div className="p-4 bg-white">
           <form
-            className="shadow rounded-md flex flex-col p-3 "
+            className=" rounded-md flex flex-col p-4 "
             onSubmit={handleSubmit}
           >
             <label htmlFor="name">Name</label>
