@@ -5,6 +5,8 @@ const initialState = {
   productList: [],
   cartItem: [],
 };
+
+
 export const productSlice = createSlice({
   name: "product",
   initialState,
@@ -14,10 +16,14 @@ export const productSlice = createSlice({
     },
     addCartItems: (state, action) => {
       const check = state.cartItem.some((el) => el._id === action.payload._id);
+      const itemName = action.payload.name;
       if (check) {
-        toast("Item already in cart");
+        toast(`${itemName} is already added in cart`);
       } else {
-        toast("Item Added");
+        const itemName = action.payload.name
+        
+        toast(`${itemName} added to cart`);
+       
         const total = action.payload.price;
 
         state.cartItem = [
@@ -26,6 +32,8 @@ export const productSlice = createSlice({
         ];
       }
     },
+
+
     deleteCartItems: (state, action) => {
       toast.success("Item Deleted");
       let index = state.cartItem.findIndex((el) => el._id === action.payload);
