@@ -14,7 +14,7 @@ const App = () => {
       const res = await fetch("https://backend-mernss.onrender.com/product");
       const resData = await res.json();
       dispatch(setDataProduct(resData));
-      console.log(resData)
+      console.log(resData);
     })();
   }, []);
 
@@ -25,6 +25,13 @@ const App = () => {
       <main className="max-w-7xl  mx-auto mt-4 px-2 overflow-hidden">
         <Outlet />
       </main>
+      <img
+        width={50}
+        onClick={() => window.scrollTo({ top: "0", behavior: "smooth" })}
+        className="bottom-9 bg-white p-0 rounded-full cursor-pointer fixed right-9"
+        src="https://img.icons8.com/ios-filled/100/000000/circled-up-2.png"
+        alt="circled-up-2"
+      />
     </>
   );
 };
