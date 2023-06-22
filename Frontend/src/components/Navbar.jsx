@@ -89,7 +89,7 @@ const Navbar = () => {
             </div>
             <div className="flex hidden  sm:block justify-between items-center">
               {/* Your navigation links */}
-              <div className="flex gap-4">
+              <div className="flex gap-16">
                 <Link to="/">
                   <p>Home</p>
                 </Link>
