@@ -3,6 +3,7 @@ import FilterProduct from "./FilterProduct";
 import CardFeature from "./CardFeatures";
 import { useSelector } from "react-redux";
 
+
 const AllProduct = () => {
   const productData = useSelector((state) => state.product.productList);
   const categoryList = [...new Set(productData.map((el) => el.category))];
@@ -34,6 +35,8 @@ const AllProduct = () => {
         <h1 className="text-4xl text-center font-bold">Menu Category</h1>
       </div>
 
+      
+
       <div className="flex   gap-8 justify-center overflow-scroll scrollbar-none">
         {categoryList[0] &&
           categoryList.map((el) => {
@@ -62,6 +65,7 @@ const AllProduct = () => {
           );
         })}
       </div>
+  
     </div>
   );
 };

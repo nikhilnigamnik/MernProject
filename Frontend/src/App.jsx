@@ -22,7 +22,7 @@ const App = () => {
     <>
       <Toaster />
       <Navbar />
-      <main className="max-w-7xl mt-4 mx-auto px-2 overflow-hidden">
+      <main className="max-w-7xl  mx-auto mt-4 px-2 overflow-hidden">
         <Outlet />
       </main>
     </>

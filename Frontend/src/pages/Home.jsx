@@ -35,15 +35,12 @@ const Home = () => {
   const [filterByCategory, setFilterByCategory] = useState(productData);
 
   return (
-    <div className="p-2 md:p-4">
-      <div className="md:flex justify-center items-center gap-4 py-2">
+    <div className="p-2 md:p-4 ">
+      <div className="md:flex w-full justify-center items-center gap-4 py-2">
         <div className="md:w-1/2">
           <p className="bg-red-100 inline-block rounded-full px-4 py-2">
             Hungry?
           </p>
-          
-        
-
           <h2 className="text-5xl md:text-6xl md:text-left text-left font-semibold py-4">
             Just Come to <span className="text-[#d5294d]">FoodWaale</span> &
             Order
@@ -78,11 +75,13 @@ const Home = () => {
             </div>
           </div>
         </div>
-
-        <img
-          className="w-full max-w-lg"
-          src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687194080/DIGITALY_6_r8id0t.png"
-        />
+        <div>
+          <img
+            className="w-full relative max-w-lg"
+            src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687411927/image_1_kmbet2.png"
+          />
+          <img className="absolute top-4 md:right-40 -z-10" src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687411927/Pngtree_hand-painted_noise_green_leaf_element_4054582_1_ckvrcy.png"/>
+        </div>
       </div>
 
       <div className="flex gap-2 mt-6 flex-col justify-center items-center">
