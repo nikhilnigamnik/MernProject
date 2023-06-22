@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Cancle = () => {
+const Cancel = () => {
   return (
     <div className="bg-red-200 flex justify-center items-center w-full max-w-md m-auto h-36">
       <p>Payment Cancel</p>
@@ -8,4 +8,4 @@ const Cancle = () => {
   )
 }
 
-export default Cancle
+export default Cancel
