@@ -45,14 +45,25 @@ const Admin = () => {
 
   return (
     <>
-      <div className="w-full flex justify-center items-center p-2 rounded-xl">
+      <div className="rounded-full mt-4 flex items-center w-full p-2 sha2">
+        <input
+          type="text"
+          className="rounded-l-lg w-full outline-none px-2"
+          placeholder="Search product..."
+        />
+        <button className="bg-mainclr hover:bg-red-800 transition-all text-white rounded-full px-4 py-1">
+          Search
+        </button>
+      </div>
+
+      {/* <div className="w-full flex justify-center items-center p-2 rounded-xl">
         <input
           className="w-full bg-gray-400 rounded-l-xl p-2 outline-none "
           type="text "
           placeholder="Search Here..."
         />
         <button className="bg-mainclr p-2  rounded-r-xl text-white">Search</button>
-      </div>
+      </div> */}
       <div className="md:flex justify-between md:gap-8">
         <AdminLeft />
         <AdminRight />
