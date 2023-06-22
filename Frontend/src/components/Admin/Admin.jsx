@@ -45,8 +45,13 @@ const Admin = () => {
 
   return (
     <>
-      <div className="w-full p-2 mb-4 rounded-xl shadow-md">
-        <input className="w-full outline-none " type="text " placeholder="Search Here..." />
+      <div className="w-full flex justify-center items-center p-2 rounded-xl">
+        <input
+          className="w-full bg-gray-400 rounded-l-xl p-2 outline-none "
+          type="text "
+          placeholder="Search Here..."
+        />
+        <button className="bg-mainclr p-2  rounded-r-xl text-white">Search</button>
       </div>
       <div className="md:flex justify-between md:gap-8">
         <AdminLeft />

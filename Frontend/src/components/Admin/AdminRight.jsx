@@ -7,7 +7,7 @@ import NewProduct from "./NewProduct";
 
 const AdminRight = () => {
   return (
-    <div className="md:w-3/4  sha2 rounded-lg shadow-md ">
+    <div className="md:w-3/4 my-4  sha2 rounded-lg shadow-md ">
       <div>
         <Routes>
           <Route index path="/" element={<AdminHome />} />

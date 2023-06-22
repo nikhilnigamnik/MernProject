@@ -31,7 +31,7 @@ function ProductItem() {
       <div className="flex mt-4 flex-col gap-4">
         {products.map((item) => (
           <div
-            className="flex p-4 rounded-xl sha4 justify-between items-center"
+            className="flex p-4 rounded-xl sha3 justify-between items-center"
             key={item._id}
           >
             <div className="">

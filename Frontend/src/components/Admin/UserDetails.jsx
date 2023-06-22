@@ -30,7 +30,7 @@ function UserDetails() {
       {users.map((item) => (
         <div key={item._id} className="">
           <ul className="flex mt-4 flex-col gap-4">
-            <li className="flex sha4 rounded-xl  justify-between items-center p-4 ">
+            <li className="flex sha3 rounded-xl  justify-between items-center p-4 ">
               <p>
                 {item.firstname} {item.lastname}
               </p>
