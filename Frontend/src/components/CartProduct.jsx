@@ -13,7 +13,7 @@ const CartProduct = ({ id, name, image, category, total, qty, price }) => {
   const dispatch = useDispatch();
   // const
   return (
-    <div className="w-full grid grid-cols-3 justify-center border shadow-sm rounded-xl p-8">
+    <div className="w-full grid grid-cols-3 justify-center sha2 shadow-sm rounded-xl p-8">
       <div className="flex flex-col justify-between ">
         <div className="bg-white md:flex justify-between items-center gap-6 rounded overflow-hidden">
           <img className="h-20 bg-white w-40 object-cover" src={image} />

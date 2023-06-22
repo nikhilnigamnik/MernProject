@@ -137,7 +137,7 @@ const Home = () => {
         </div>
 
         <div
-          className="ml-auto flex gap-4 overflow-scroll  scrollbar-none scroll-smooth transition-all"
+          className="ml-auto flex gap-4 overflow-scroll p-2  scrollbar-none scroll-smooth transition-all"
           ref={slideProductRef}
         >
           {productCartVegetableCardList.map((el) => {

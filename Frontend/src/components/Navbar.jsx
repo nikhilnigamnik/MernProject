@@ -37,7 +37,7 @@ const Navbar = () => {
   const CartItemNum = useSelector((state) => state.product.cartItem);
 
   return (
-    <nav className="bg-gray-50 border">
+    <nav className="bg-gray-50 sha border">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative justify-between flex items-center  h-16">
           <div className="flex justify-between items-center w-full">

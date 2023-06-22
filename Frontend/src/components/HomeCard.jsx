@@ -4,14 +4,14 @@ import RatingIcons from "../components/RatingIcons";
 
 const HomeCard = ({ name, image, category, price, id }) => {
   return (
-    <div className="bg-white flex justify-center items-center flex-col  hover:shadow-md transition-all border  p-3 rounded-xl min-w-[150px]">
+    <div className="bg-white flex justify-center items-center flex-col  hover:shadow-md transition-all sha3  p-4 rounded-xl min-w-[150px]">
       {name && (
         <div className="flex justify-center items-center">
           <div className="flex flex-col gap-2">
             <div className="w-40  shadow-md rounded-full    min-h-[150px]">
               <img src={image} className="h-full w-full" />
             </div>
-              <RatingIcons />
+            <RatingIcons />
             <div>
               <h3 className="font-semibold  capitalize">{name}</h3>
               <p className="">{category}</p>

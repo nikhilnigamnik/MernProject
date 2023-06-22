@@ -45,6 +45,9 @@ const Admin = () => {
 
   return (
     <>
+      <div className="w-full p-2 mb-4 rounded-xl shadow-md">
+        <input className="w-full outline-none " type="text " placeholder="Search Here..." />
+      </div>
       <div className="md:flex justify-between md:gap-8">
         <AdminLeft />
         <AdminRight />

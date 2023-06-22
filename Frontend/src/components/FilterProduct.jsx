@@ -8,7 +8,7 @@ const FilterProduct = ({ category, onClick, isActive }) => {
     <div className="my-10 flex flex-col gap-3" onClick={onClick}>
       <div
         className={`text-3xl transition duration-700 ease-in-out px-5 py-8 flex gap-4 items-center flex-col  rounded-xl cursor-pointer ${
-          isActive ? "bg-mainclr text-white" : "bg-white border"
+          isActive ? "bg-mainclr text-white" : "bg-white sha2"
         }`}
       >
         <BiStoreAlt />
