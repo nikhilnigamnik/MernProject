@@ -15,8 +15,8 @@ import { toast } from "react-hot-toast";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const userData = useSelector((state) => state.user);
-
+  const userData = useSelector((state) => state?.user) || []
+  const CartItemNum = useSelector((state) => state?.product?.cartItem) || []
   const handleShowMenu = () => {
     setShowMenu((prev) => !prev);
   };
@@ -33,8 +33,6 @@ const Navbar = () => {
     dispatch(logoutRedux());
     toast.success("Logout Successfully");
   };
-
-  const CartItemNum = useSelector((state) => state.product.cartItem);
 
   return (
     <nav className="bg-gray-50 sha border">
@@ -68,7 +66,10 @@ const Navbar = () => {
                         <div className="flex cursor-pointer gap-4  text-black border shadow-md p-2 rounded-lg  items-center">
                           <FaUserCircle size={20} />
 
-                          <p className="">{userData.email}</p>
+                          <div className="flex gap-1">
+                            <p>{userData.firstname}</p>
+                            <p>{userData.lastname}</p>
+                          </div>
                         </div>
                         <div className="flex  cursor-pointer bg-mainclr text-white p-2 shadow-md rounded-lg justify-between items-center">
                           <p className="" onClick={handleLogout}>
@@ -194,7 +195,10 @@ const Navbar = () => {
                         <div className="flex cursor-pointer gap-4  text-black border shadow-md p-2 rounded-lg  items-center">
                           <FaUserCircle size={20} />
 
-                          <p className="">{userData.email}</p>
+                          <div className="flex gap-1">
+                            <p>{userData.firstname}</p>
+                            <p>{userData.lastname}</p>
+                          </div>
                         </div>
                         <div className="flex  cursor-pointer bg-mainclr text-white p-2 shadow-md rounded-lg justify-between items-center">
                           <p className="" onClick={handleLogout}>

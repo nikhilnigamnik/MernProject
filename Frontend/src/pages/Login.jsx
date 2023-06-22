@@ -41,7 +41,7 @@ export default function Login() {
       );
       const dataRes = await fetchData.json();
 
-      toast(userData.user.email + dataRes.message);
+      toast.success(userData.user.email + dataRes.message);
       if (dataRes.alert) {
         dispatch(loginRedux(dataRes));
         navigate("/");
@@ -59,7 +59,7 @@ export default function Login() {
           Enter your details to login
         </h1>
         <form
-          className=" border shadow-sm w-80 p-4 max-w-screen-lg sm:w-96"
+          className="sha2 rounded-xl shadow-sm w-80 p-8 max-w-screen-lg sm:w-96"
           onSubmit={handleSubmit}
         >
           <div className=" flex flex-col gap-6">
@@ -69,7 +69,7 @@ export default function Login() {
                 size="lg"
                 id="email"
                 name="email"
-                className="border rounded"
+                className="border p-1 rounded-lg"
                 label="Email"
                 value={data.email}
                 onChange={handleOnChange}
@@ -79,7 +79,7 @@ export default function Login() {
             <div className="flex flex-col gap-2">
               <label className="capitalize text-normal">Password</label>
               <input
-                className="border rounded"
+                className="border p-1 rounded-lg"
                 type="password"
                 id="password"
                 name="password"

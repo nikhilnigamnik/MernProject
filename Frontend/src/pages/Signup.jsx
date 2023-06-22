@@ -54,10 +54,10 @@ export default function Signup() {
           navigate("/login");
         }
       } else {
-        alert("pass and confirm pass not match");
+        toast.error("password and confirm password do not match");
       }
     } else {
-      alert("please enter require field");
+      toast.error("please enter require field");
     }
   };
 
@@ -69,7 +69,7 @@ export default function Signup() {
           Enter your details to Signup.
         </h1>
         <form
-          className="border shadow-sm p-4 w-80 max-w-screen-lg sm:w-96"
+          className="sha2 rounded-xl shadow-sm p-8 w-80 max-w-screen-lg sm:w-96"
           onSubmit={handleSubmit}
         >
           <div className="mb-4 flex flex-col gap-6">
@@ -80,7 +80,7 @@ export default function Signup() {
                 id="firstname"
                 name="firstname"
                 label="First Name"
-                className="border w-full rounded"
+                className="border p-1 rounded-lg"
                 value={data.firstname}
                 onChange={handleOnChange}
               />
@@ -92,7 +92,7 @@ export default function Signup() {
                 id="lastname"
                 name="lastname"
                 label="First Name"
-                className="border w-full rounded"
+                className="border p-1 rounded-lg"
                 value={data.lastname}
                 onChange={handleOnChange}
               />
@@ -102,7 +102,7 @@ export default function Signup() {
               <label className="capitalize text-normal">Email</label>
               <input
                 size="lg"
-                className="border w-full rounded"
+                className="border p-1 rounded-lg"
                 id="email"
                 name="email"
                 label="Email"
@@ -115,7 +115,7 @@ export default function Signup() {
               <label className="capitalize text-normal">Password</label>
               <input
                 type="password"
-                className="border w-full rounded"
+                className="border p-1 rounded-lg"
                 id="password"
                 name="password"
                 size="lg"
@@ -127,17 +127,18 @@ export default function Signup() {
 
             <div className="flex flex-col gap-2">
               <label className="capitalize text-normal">Confirm Password</label>
-              <div className="border flex justify-between rounded">
+              <div className="flex relative  justify-between">
                 <input
                   type={showPass ? "text" : "password"}
                   name="confirmpassword"
                   size="lg"
+                  className="border p-1 rounded-lg"
                   label="Confirm Password"
                   value={data.confirmpassword}
                   onChange={handleOnChange}
                 />
                 <span
-                  className="flex justify-center mr-4 items-center cursor-pointer"
+                  className="flex right-2 top-2 absolute justify-center mr-4 items-center cursor-pointer"
                   onClick={handleShowPass}
                 >
                   {showPass ? <BiShow /> : <BiHide />}
@@ -148,8 +149,7 @@ export default function Signup() {
 
           <button
             type="submit"
-            className=" bg-mainclr my-4 rounded-full px-4 py-2 text-white"
-            fullWidth
+            className=" bg-mainclr w-full my-4 rounded-full px-4 py-2 text-white"
           >
             Signup
           </button>
