@@ -43,7 +43,7 @@ const Navbar = () => {
             <Link to="/">
               <img
                 width={120}
-                src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687178864/DIGITALY_4_dhwooi.png"
+                src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687529082/S_p0d2fn.png"
               />
             </Link>
 
