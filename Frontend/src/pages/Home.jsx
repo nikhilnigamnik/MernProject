@@ -5,7 +5,6 @@ import CardFeatures from "../components/CardFeatures";
 import left from "../asset/left.png";
 import right from "../asset/right.png";
 
-
 import FilterProduct from "../components/FilterProduct";
 import productSlice from "../redux/productSlice";
 import AllProduct from "../components/AllProduct";
@@ -15,7 +14,7 @@ import MainLoader from "../components/MainLoader";
 
 const Home = () => {
   const productData = useSelector((state) => state.product.productList);
-  const homeProductCartList = productData.slice(0, 5);
+  const homeProductCartList = productData.slice(0, 4);
   const productCartVegetableCardList = productData.filter(
     (el) => el.category === "cake",
     []
@@ -36,7 +35,9 @@ const Home = () => {
   const [filterBy, setfilterBy] = useState("");
   const [filterByCategory, setFilterByCategory] = useState(productData);
 
-  return productData?.length === 0 ? <MainLoader/> : (
+  return productData?.length === 0 ? (
+    <MainLoader />
+  ) : (
     <div className="p-2 md:p-4 ">
       <div className="md:flex w-full justify-center items-center gap-4 py-2">
         <div className="md:w-1/2">
@@ -82,7 +83,10 @@ const Home = () => {
             className="w-full relative max-w-lg"
             src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687411927/image_1_kmbet2.png"
           />
-          <img className="absolute top-4 md:right-40 -z-10" src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687411927/Pngtree_hand-painted_noise_green_leaf_element_4054582_1_ckvrcy.png"/>
+          <img
+            className="absolute top-4 md:right-40 -z-10"
+            src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687411927/Pngtree_hand-painted_noise_green_leaf_element_4054582_1_ckvrcy.png"
+          />
         </div>
       </div>
 
@@ -95,7 +99,7 @@ const Home = () => {
         </p>
       </div>
 
-      <div className="flex mt-6 flex-wrap justify-center gap-4">
+      <div className="mt-6 gap-4 grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3">
         {homeProductCartList[0]
           ? homeProductCartList.map((el) => {
               return (
@@ -106,6 +110,8 @@ const Home = () => {
                   name={el.name}
                   price={el.price}
                   category={el.category}
+                  rating={el.rating}
+                  discount={el.discount}
                 />
               );
             })
@@ -151,6 +157,8 @@ const Home = () => {
                 price={el.price}
                 category={el.category}
                 image={el.image}
+                rating={el.rating}
+                discount={el.discount}
               />
             );
           })}
