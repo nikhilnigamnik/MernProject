@@ -5,11 +5,13 @@ import CardFeatures from "../components/CardFeatures";
 import left from "../asset/left.png";
 import right from "../asset/right.png";
 
+
 import FilterProduct from "../components/FilterProduct";
 import productSlice from "../redux/productSlice";
 import AllProduct from "../components/AllProduct";
 import RatingAvatar from "../components/RatingAvatar";
 import RatingIcons from "../components/RatingIcons";
+import MainLoader from "../components/MainLoader";
 
 const Home = () => {
   const productData = useSelector((state) => state.product.productList);
@@ -34,7 +36,7 @@ const Home = () => {
   const [filterBy, setfilterBy] = useState("");
   const [filterByCategory, setFilterByCategory] = useState(productData);
 
-  return (
+  return productData?.length === 0 ? <MainLoader/> : (
     <div className="p-2 md:p-4 ">
       <div className="md:flex w-full justify-center items-center gap-4 py-2">
         <div className="md:w-1/2">
