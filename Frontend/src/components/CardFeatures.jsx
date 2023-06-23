@@ -2,6 +2,7 @@ import { Button } from "@material-tailwind/react";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { BiShoppingBag } from "react-icons/bi";
 import { addCartItems } from "../redux/productSlice";
 
 const CardFeature = ({ image, name, price, category, loading, id }) => {
@@ -39,12 +40,15 @@ const CardFeature = ({ image, name, price, category, loading, id }) => {
               <span>{price}</span>
             </p>
           </Link>
+          <div className="flex mt-2 bg-mainclr text-white p-1 items-center justify-around rounded-full">
+            <BiShoppingBag/>
           <button
             onClick={handleAddToCart}
-            className="bg-mainclr mt-2 py-2 rounded-full text-white"
+            
           >
-            Add Cart
+            Add to cart
           </button>
+          </div>
 
           
         </>

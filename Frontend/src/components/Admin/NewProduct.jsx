@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { BsCloudUpload } from "react-icons/bs";
-// import { ImagetoBase64 } from "../../utils/ImagetoBase62";
 
 const NewProduct = () => {
   const [data, setData] = useState({

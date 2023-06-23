@@ -48,7 +48,7 @@ export default function Signup() {
         const dataRes = await fetchData.json();
 
         // alert(dataRes.message);
-        toast.success(dataRes.message);
+        toast(dataRes.message);
 
         if (dataRes.alert) {
           navigate("/login");

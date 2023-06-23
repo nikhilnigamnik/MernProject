@@ -41,7 +41,7 @@ export default function Login() {
       );
       const dataRes = await fetchData.json();
 
-      toast.success(userData.user.email + dataRes.message);
+      toast(userData.user.email + dataRes.message);
       if (dataRes.alert) {
         dispatch(loginRedux(dataRes));
         navigate("/");
