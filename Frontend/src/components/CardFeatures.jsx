@@ -30,7 +30,7 @@ const CardFeature = ({
   };
 
   return (
-    <div className="cursor-pointer p-4 hover:shadow-md transition-all sha3 rounded-xl grid grid-cols-2 sm:justify-between sm:flex sm:flex-col">
+    <div className="cursor-pointer gap-4 items-center sm:items-stretch p-4 hover:shadow-md transition-all sha3 rounded-xl grid grid-cols-2 sm:justify-between sm:flex sm:flex-col">
       <Link
         className="w-full flex items-center justify-center"
         to={`/menu/${id}`}
@@ -39,7 +39,7 @@ const CardFeature = ({
         <img src={image} className="w-full rounded-md" />
       </Link>
 
-      <div className="mt-4 ">
+      <div className="">
         <div className="flex justify-between">
           <div className="">
             <h3 className="font-semibold text-slate-600  capitalize text-lg overflow-hidden">
@@ -51,12 +51,12 @@ const CardFeature = ({
             <p className=" text-slate-500 text-sm ">{category}</p>
           </div>
 
-          <div>
+          <div className="flex justify-center flex-col items-center">
             <p className="font-normal ">
               <span className="text-red-500 font-normal">₹</span>
               <span>{price}</span>
             </p>
-            <del className=" text-slate-500">{discount}</del>
+            <del className=" text-slate-500 text-sm ">{discount}</del>
           </div>
         </div>
 
