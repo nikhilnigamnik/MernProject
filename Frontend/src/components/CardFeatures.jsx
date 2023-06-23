@@ -30,14 +30,13 @@ const CardFeature = ({
   };
 
   return (
-    <div className="cursor-pointer p-4 hover:shadow-md transition-all sha3 rounded-xl flex flex-col justify-between">
+    <div className="cursor-pointer p-4 hover:shadow-md transition-all sha3 rounded-xl grid grid-cols-2 sm:justify-between sm:flex sm:flex-col">
       <Link
+        className="w-full flex items-center justify-center"
         to={`/menu/${id}`}
         onClick={() => window.scrollTo({ top: "0", behavior: "smooth" })}
       >
-        <div className="flex  flex-col justify-center items-center">
-          <img src={image} className=" sm:w-full rounded-md" />
-        </div>
+        <img src={image} className="w-full rounded-md" />
       </Link>
 
       <div className="mt-4 ">
