@@ -8,8 +8,8 @@ const HomeCard = ({ name, image, category, price, id }) => {
       {name && (
         <div className="flex justify-center items-center">
           <div className="flex flex-col gap-2">
-            <div className="w-40  shadow-md rounded-full    min-h-[150px]">
-              <img src={image} className="h-full w-full" />
+            <div className="w-40">
+              <img src={image} className="h-full rounded-md w-full" />
             </div>
             <RatingIcons />
             <div>
@@ -19,7 +19,7 @@ const HomeCard = ({ name, image, category, price, id }) => {
 
             <div className="flex justify-between items-center">
               <p className="font-bold ">
-                <span className="text-red-500 hover:text-white">Rs.</span>
+                <span className="text-red-500 ">Rs.</span>
                 <span>{price}</span>
               </p>
               <Link

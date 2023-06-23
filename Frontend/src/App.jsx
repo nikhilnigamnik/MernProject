@@ -11,10 +11,10 @@ const App = () => {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch("https://foodwaalaapi.onrender.com/product");
+      const res = await fetch("http://localhost:8000/product");
       const resData = await res.json();
       dispatch(setDataProduct(resData));
-      console.log(resData)
+      console.log(resData);
 
     })();
   }, []);

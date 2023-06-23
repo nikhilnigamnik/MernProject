@@ -28,7 +28,7 @@ const CardFeature = ({ image, name, price, category, loading, id }) => {
             onClick={() => window.scrollTo({ top: "0", behavior: "smooth" })}
           >
             <div className="h-28 flex flex-col justify-center items-center">
-              <img src={image} className="h-full" />
+              <img src={image} className="h-full rounded-md" />
             </div>
             <h3 className="font-semibold text-slate-600  capitalize text-lg mt-4 whitespace-nowrap overflow-hidden">
               {name}
@@ -41,7 +41,7 @@ const CardFeature = ({ image, name, price, category, loading, id }) => {
           </Link>
           <button
             onClick={handleAddToCart}
-            className="bg-mainclr px-4 py-2 rounded-full text-white"
+            className="bg-mainclr mt-2 py-2 rounded-full text-white"
           >
             Add Cart
           </button>

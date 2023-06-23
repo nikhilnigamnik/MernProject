@@ -16,7 +16,6 @@ import { toast } from "react-hot-toast";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const userData = useSelector((state) => state?.user) || [];
-  console.log(userData)
   const CartItemNum = useSelector((state) => state?.product?.cartItem) || [];
   const handleShowMenu = () => {
     setShowMenu((prev) => !prev);

@@ -13,9 +13,9 @@ import RatingIcons from "../components/RatingIcons";
 
 const Home = () => {
   const productData = useSelector((state) => state.product.productList);
-  const homeProductCartList = productData.slice(0, 4);
+  const homeProductCartList = productData.slice(0, 5);
   const productCartVegetableCardList = productData.filter(
-    (el) => el.category === "vegetable",
+    (el) => el.category === "cake",
     []
   );
 
