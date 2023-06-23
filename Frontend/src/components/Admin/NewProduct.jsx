@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { BsCloudUpload } from "react-icons/bs";
-import { ImagetoBase64 } from "../../utils/ImagetoBase62";
+// import { ImagetoBase64 } from "../../utils/ImagetoBase62";
 
 const NewProduct = () => {
   const [data, setData] = useState({
@@ -17,61 +17,71 @@ const NewProduct = () => {
   const handleOnChange = (e) => {
     const { name, value } = e.target;
 
-    setData((preve) => {
+    setData((prev) => {
       return {
-        ...preve,
+        ...prev,
         [name]: value,
       };
     });
   };
 
-  const uploadImage = async (e) => {
-    const data = await ImagetoBase64(e.target.files[0]);
-
-    setData((preve) => {
+  const uploadImage = (e) => {
+    const file = e.target.files[0];
+    setData((prev) => {
       return {
-        ...preve,
-        image: data,
+        ...prev,
+        image: file,
       };
     });
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { name, image, category, price, discount, rating } = data;
+    const { name, category, price, discount, rating } = data;
 
-    if (name && image && category && price && discount && rating) {
-      const fetchData = await fetch(
-        `https://backend-mernss.onrender.com/uploadProduct`,
-        {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(data),
+    if (name && category && price && discount && rating) {
+      const formData = new FormData();
+
+      formData.append("name", name);
+      formData.append("image", data.image,data.image.name);
+      formData.append("category", category);
+      formData.append("price", price);
+      formData.append("discount", discount);
+      formData.append("rating", rating);
+      formData.append("description", data.description);
+
+      if (name && data.image && category && price && discount && rating) {
+        try {
+          const fetchData = await fetch(`https://foodwaalaapi.onrender.com/uploadProduct`, {
+            method: "POST",
+            body: formData,
+          });
+
+          const fetchRes = await fetchData.json();
+
+          toast(fetchData.message);
+
+          setData({
+            name: "",
+            image: null,
+            category: "",
+            price: "",
+            discount: "",
+            description: "",
+            rating: "",
+          });
+        } catch (error) {
+          toast.error("Upload Failed");
+          console.error(error);
         }
-      );
-
-      const fetchRes = await fetchData.json();
-
-      toast.success(fetchRes.message);
-
-      setData(() => {
-        return {
-          name: "",
-          category: "",
-          image: "",
-          price: "",
-          description: "",
-          discount: "",
-          rating: "",
-        };
-      });
-    } else {
-      toast.error("Enter required Fields");
+      } else {
+        toast.error("Enter required Field");
+      }
     }
   };
+
   return (
     <div className="p-4">
       <form className=" rounded-md flex flex-col p-4 " onSubmit={handleSubmit}>
@@ -110,7 +120,11 @@ const NewProduct = () => {
           Image
           <div className="h-40 rounded-lg border w-full bg-slate-200  rounded flex items-center justify-center cursor-pointer">
             {data.image ? (
-              <img src={data.image} className="h-full " />
+              <img
+                src={URL.createObjectURL(data.image)}
+                alt="product"
+                className="h-full "
+              />
             ) : (
               <span className="text-5xl">
                 <BsCloudUpload />
@@ -174,5 +188,4 @@ const NewProduct = () => {
     </div>
   );
 };
-
 export default NewProduct;

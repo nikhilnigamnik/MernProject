@@ -1,3 +1,3 @@
 
-export const baseURL = "https://backend-mernss.onrender.com";
+export const baseURL = "https://foodwaalaapi.onrender.com/";
 

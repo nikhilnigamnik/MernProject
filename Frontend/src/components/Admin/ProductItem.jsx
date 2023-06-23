@@ -7,7 +7,7 @@ import axios from "axios";
 const handleDelete = async (productId) => {
   try {
     const response = await axios.delete(
-      `https://backend-mernss.onrender.com/product/${productId}`
+      `https://foodwaalaapi.onrender.com/product/${productId}`
     );
     if (response.status === 200) {
       toast.success("Product deleted successfully!");

@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 const handleDelete = async (userId) => {
   try {
     const response = await axios.delete(
-      `https://backend-mernss.onrender.com/users/${userId}`
+      `https://foodwaalaapi.onrender.com/users/${userId}`
     );
     if (response.status === 200) {
       toast.success("Deleting...");

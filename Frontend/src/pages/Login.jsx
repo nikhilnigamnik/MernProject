@@ -30,7 +30,7 @@ export default function Login() {
     const { email, password } = data;
     if (email && password) {
       const fetchData = await fetch(
-        "https://backend-mernss.onrender.com/login",
+        "https://foodwaalaapi.onrender.com/login",
         {
           method: "POST",
           headers: {

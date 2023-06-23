@@ -36,7 +36,7 @@ export default function Signup() {
     if (firstname && email && password && confirmpassword) {
       if (password === confirmpassword) {
         const fetchData = await fetch(
-          "https://backend-mernss.onrender.com/signup",
+          "https://foodwaalaapi.onrender.com/signup",
           {
             method: "POST",
             headers: {
