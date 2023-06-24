@@ -56,7 +56,7 @@ const CardFeature = ({
               <span className="text-red-500 font-normal">₹</span>
               <span>{price}</span>
             </p>
-            <del className=" text-slate-500 text-sm ">{discount}</del>
+            <del className=" text-slate-500 text-sm ">₹ {discount}</del>
           </div>
         </div>
 
