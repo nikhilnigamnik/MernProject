@@ -83,12 +83,12 @@ const NewProduct = () => {
 
   return (
     <div className="p-4">
-      <form className=" rounded-md flex flex-col p-4 " onSubmit={handleSubmit}>
+      <form className="flex flex-col p-4 rounded-md " onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
         <input
           type={"text"}
           name="name"
-          className="border rounded-lg p-1 my-1"
+          className="p-1 my-1 border rounded-lg"
           onChange={handleOnChange}
           value={data.name}
         />
@@ -96,7 +96,7 @@ const NewProduct = () => {
         <label htmlFor="category">Category</label>
 
         <select
-          className="bg-slate-200 rounded-lg capitalize p-1 my-1"
+          className="p-1 my-1 capitalize rounded-lg bg-slate-200"
           id="category"
           name="category"
           onChange={handleOnChange}
@@ -116,7 +116,7 @@ const NewProduct = () => {
 
         <label htmlFor="image">
           Image
-          <div className="h-40 rounded-lg border w-full bg-slate-200  rounded flex items-center justify-center cursor-pointer">
+          <div className="flex items-center justify-center w-full h-40 border rounded rounded-lg cursor-pointer bg-slate-200">
             {data.image ? (
               <img
                 src={URL.createObjectURL(data.image)}
@@ -144,7 +144,7 @@ const NewProduct = () => {
         </label>
         <input
           type={"text"}
-          className="border rounded-lg p-1 my-1"
+          className="p-1 my-1 border rounded-lg"
           name="price"
           onChange={handleOnChange}
           value={data.price}
@@ -154,7 +154,7 @@ const NewProduct = () => {
         </label>
         <input
           type={"text"}
-          className="border rounded-lg p-1 my-1"
+          className="p-1 my-1 border rounded-lg"
           name="discount"
           onChange={handleOnChange}
           value={data.discount}
@@ -164,9 +164,11 @@ const NewProduct = () => {
         </label>
         <input
           type={"text"}
-          className="border rounded-lg p-1 my-1"
+          className="p-1 my-1 border rounded-lg"
           name="rating"
           onChange={handleOnChange}
+          pattern="\d{1,2}\.\d"
+          title="Please enter a two-digit number with one decimal place."
           value={data.rating}
         />
 
@@ -174,7 +176,7 @@ const NewProduct = () => {
         <textarea
           rows={2}
           value={data.description}
-          className="border rounded-lg p-1 my-1 resize-none"
+          className="p-1 my-1 border rounded-lg resize-none"
           name="description"
           onChange={handleOnChange}
         ></textarea>
