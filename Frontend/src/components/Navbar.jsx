@@ -87,7 +87,7 @@ const Navbar = () => {
                             <p>{userData.lastname}</p>
                           </div>
                         </div>
-                        <div className="flex items-center justify-between p-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
+                        <div className="flex items-center justify-between px-4 py-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
                           <p className="" onClick={handleLogout}>
                             Logout
                           </p>
@@ -95,7 +95,7 @@ const Navbar = () => {
                         </div>
                       </div>
                     ) : (
-                      <div className="flex items-center justify-between gap-6 p-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
+                      <div className="flex items-center justify-between gap-6 px-4 py-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
                         <Link to={"/login"}>Login</Link>
                         <IoLogInOutline />
                       </div>
@@ -217,7 +217,7 @@ const Navbar = () => {
                             <p>{userData.lastname}</p>
                           </div>
                         </div>
-                        <div className="flex items-center justify-between p-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
+                        <div className="flex items-center justify-between px-4 py-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
                           <p className="" onClick={handleLogout}>
                             Logout
                           </p>
@@ -225,7 +225,7 @@ const Navbar = () => {
                         </div>
                       </div>
                     ) : (
-                      <div className="flex items-center justify-between gap-6 p-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
+                      <div className="flex items-center justify-between gap-6 px-4 py-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
                         <Link to={"/login"}>Login</Link>
                         <IoLogInOutline />
                       </div>

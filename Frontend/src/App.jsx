@@ -24,8 +24,8 @@ const App = () => {
       <Navbar />
       <main className="px-2 mx-auto mt-24 overflow-hidden max-w-7xl">
         <Outlet />
-        <Footer/>
       </main>
+      <Footer />
       <img
         width={50}
         onClick={() => window.scrollTo({ top: "0", behavior: "smooth" })}
