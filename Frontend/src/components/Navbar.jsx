@@ -35,10 +35,10 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-50 sha border">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="relative justify-between flex items-center  h-16">
-          <div className="flex justify-between items-center w-full">
+    <nav className="border bg-gray-50 sha">
+      <div className="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="relative flex items-center justify-between p-4">
+          <div className="flex items-center justify-between w-full">
             {/* Your logo or brand */}
             <Link to="/">
               <img
@@ -47,13 +47,13 @@ const Navbar = () => {
               />
             </Link>
 
-            <div className="hidden z-10 sm:block sm:ml-6">
+            <div className="z-10 hidden sm:block sm:ml-6">
               {showMenu && (
                 <div>
-                  <div className="absolute flex flex-col p-4 justify-center gap-1 mt-10 right-0 bg-white border shadow-md rounded-xl">
+                  <div className="absolute right-0 flex flex-col justify-center gap-1 p-4 mt-10 bg-white border shadow-md rounded-xl">
                     {userData.email === "nik@gmail.com" && (
                       <Link to={"admin"}>
-                        <div className="flex cursor-pointer gap-4  text-black border shadow-md p-2 rounded-lg  items-center">
+                        <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
                           <FaUserCircle size={20} />
 
                           <p>Admin</p>
@@ -63,7 +63,7 @@ const Navbar = () => {
 
                     {userData.email ? (
                       <div className="flex flex-col gap-1">
-                        <div className="flex cursor-pointer gap-4  text-black border shadow-md p-2 rounded-lg  items-center">
+                        <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
                           <FaUserCircle size={20} />
 
                           <div className="flex gap-1">
@@ -71,7 +71,7 @@ const Navbar = () => {
                             <p>{userData.lastname}</p>
                           </div>
                         </div>
-                        <div className="flex  cursor-pointer bg-mainclr text-white p-2 shadow-md rounded-lg justify-between items-center">
+                        <div className="flex items-center justify-between p-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
                           <p className="" onClick={handleLogout}>
                             Logout
                           </p>
@@ -79,7 +79,7 @@ const Navbar = () => {
                         </div>
                       </div>
                     ) : (
-                      <div className="flex gap-6 cursor-pointer bg-mainclr text-white p-2 shadow-md rounded-lg justify-between items-center">
+                      <div className="flex items-center justify-between gap-6 p-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
                         <Link to={"/login"}>Login</Link>
                         <IoLogInOutline />
                       </div>
@@ -88,15 +88,24 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <div className="rounded-full hidden lg:block p-2 sha2">
-              <input type="text" className="rounded-l-lg bg-transparent outline-none px-2" placeholder="Search product..." />
-              <button className="bg-mainclr hover:bg-red-800 transition-all text-white rounded-full px-4 py-1">Search</button>
+            <div className="hidden p-2 rounded-full lg:block sha2">
+              <input
+                type="text"
+                className="px-2 bg-transparent rounded-l-lg outline-none"
+                placeholder="Search product..."
+              />
+              <button className="px-4 py-1 text-white transition-all rounded-full bg-mainclr hover:bg-red-800">
+                Search
+              </button>
             </div>
-            <div className="hidden sm:block justify-between items-center">
+            <div className="items-center justify-between hidden sm:block">
               {/* Your navigation links */}
               <div className="flex gap-6">
                 <Link className="text-mainclr" to="/">
                   <p>Home</p>
+                </Link>
+                <Link to="/product">
+                  <p>Product</p>
                 </Link>
 
                 <Link to="/contact">
@@ -108,8 +117,8 @@ const Navbar = () => {
               </div>
             </div>
 
-            <div className="hidden  sm:block ">
-              <div className="flex justify-center items-center gap-8">
+            <div className="hidden sm:block ">
+              <div className="flex items-center justify-center gap-8">
                 <Link to="/cart">
                   <Badge
                     color="red"
@@ -139,7 +148,7 @@ const Navbar = () => {
             {/* Mobile Menu  */}
 
             <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
-              <div className="flex justify-center gap-6 items-center">
+              <div className="flex items-center justify-center gap-6">
                 <div>
                   <Link to="/cart">
                     <Badge
@@ -174,19 +183,19 @@ const Navbar = () => {
                   className="inline-flex items-center justify-center p-2"
                 >
                   {isOpen ? (
-                    <RxCross2 className="block h-6 w-6" aria-hidden="true" />
+                    <RxCross2 className="block w-6 h-6" aria-hidden="true" />
                   ) : (
-                    <IoMenu className="block  h-6 w-6" aria-hidden="true" />
+                    <IoMenu className="block w-6 h-6" aria-hidden="true" />
                   )}
                 </button>
               </div>
 
               {showMenu && (
                 <div>
-                  <div className="absolute z-10 flex flex-col p-4 justify-center gap-1 mt-10 right-0 bg-white border shadow-md rounded-xl">
+                  <div className="absolute right-0 z-10 flex flex-col justify-center gap-1 p-4 mt-10 bg-white border shadow-md rounded-xl">
                     {userData.email === "nik@gmail.com" && (
                       <Link to={"admin"}>
-                        <div className="flex cursor-pointer gap-4  text-black border shadow-md p-2 rounded-lg  items-center">
+                        <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
                           <FaUserCircle size={20} />
 
                           <p>Admin</p>
@@ -196,7 +205,7 @@ const Navbar = () => {
 
                     {userData.email ? (
                       <div className="flex flex-col gap-1">
-                        <div className="flex cursor-pointer gap-4  text-black border shadow-md p-2 rounded-lg  items-center">
+                        <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
                           <FaUserCircle size={20} />
 
                           <div className="flex gap-1">
@@ -204,7 +213,7 @@ const Navbar = () => {
                             <p>{userData.lastname}</p>
                           </div>
                         </div>
-                        <div className="flex  cursor-pointer bg-mainclr text-white p-2 shadow-md rounded-lg justify-between items-center">
+                        <div className="flex items-center justify-between p-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
                           <p className="" onClick={handleLogout}>
                             Logout
                           </p>
@@ -212,7 +221,7 @@ const Navbar = () => {
                         </div>
                       </div>
                     ) : (
-                      <div className="flex gap-6 cursor-pointer bg-mainclr text-white p-2 shadow-md rounded-lg justify-between items-center">
+                      <div className="flex items-center justify-between gap-6 p-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
                         <Link to={"/login"}>Login</Link>
                         <IoLogInOutline />
                       </div>
@@ -236,10 +245,15 @@ const Navbar = () => {
       >
         {(ref) => (
           <div className="sm:hidden" ref={ref}>
-            <div className="text-white text-center py-10 px-20 flex flex-col gap-4">
+            <div className="flex flex-col gap-4 px-20 py-10 text-center text-white">
               <div className="bg-[#d5294d] shadow-sm   hover:scale-[0.9] transition-all hover:bg-[#b31d3f] rounded-full px-4 py-2">
                 <Link to="/">
                   <p>Home</p>
+                </Link>
+              </div>
+              <div className="bg-[#d5294d] shadow-sm   hover:scale-[0.9] transition-all hover:bg-[#b31d3f] rounded-full px-4 py-2">
+                <Link to="/product">
+                  <p>Product</p>
                 </Link>
               </div>
               <div className="bg-mainclr hover:scale-[0.9] transition-all hover:bg-[#b31d3f] rounded-full px-4 py-2">
