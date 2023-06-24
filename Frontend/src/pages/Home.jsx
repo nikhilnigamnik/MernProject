@@ -22,15 +22,6 @@ const Home = () => {
 
   const loadingArray = new Array(4).fill(null);
 
-  const slideProductRef = useRef();
-
-  const nextProduct = () => {
-    slideProductRef.current.scrollLeft += 200;
-  };
-  const prevProduct = () => {
-    slideProductRef.current.scrollLeft -= 200;
-  };
-
   // filterData
   const [filterBy, setfilterBy] = useState("");
   const [filterByCategory, setFilterByCategory] = useState(productData);
@@ -93,31 +84,27 @@ const Home = () => {
       <div className="flex gap-2 mt-6 flex-col justify-center items-center">
         <p className="text-mainclr font-medium">MENU</p>
         <h1 className="text-4xl font-bold">Explore Our Best Menu</h1>
-        <p className="text-gray-600 w-1/2 md:w-full  inline-block text-center">
+        <p className="text-gray-600  text-center">
           Choose your meals from our diverse weekly menu. Find gluten or dairy
           free, low carb & veggie options.
         </p>
       </div>
 
       <div className="mt-6 gap-4 grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3">
-        {homeProductCartList[0]
-          ? homeProductCartList.map((el) => {
-              return (
-                <HomeCard
-                  key={el._id}
-                  id={el._id}
-                  image={el.image}
-                  name={el.name}
-                  price={el.price}
-                  category={el.category}
-                  rating={el.rating}
-                  discount={el.discount}
-                />
-              );
-            })
-          : loadingArray.map((el, index) => {
-              return <HomeCard key={index} loading={"loading"} />;
-            })}
+        {homeProductCartList.map((el) => {
+          return (
+            <HomeCard
+              key={el._id}
+              id={el._id}
+              image={el.image}
+              name={el.name}
+              price={el.price}
+              category={el.category}
+              rating={el.rating}
+              discount={el.discount}
+            />
+          );
+        })}
       </div>
 
       <div className="mt-20">
@@ -128,26 +115,9 @@ const Home = () => {
           <h2 className="text-4xl text-center  capitalize font-bold">
             That Always makes you fall in love
           </h2>
-          <div className="flex my-6 justify-center gap-4">
-            <button
-              className="rounded-full bg-mainclr p-2"
-              onClick={prevProduct}
-            >
-              <img src={left} />
-            </button>
-            <button
-              className="rounded-full bg-mainclr p-2"
-              onClick={nextProduct}
-            >
-              <img src={right} />
-            </button>
-          </div>
         </div>
 
-        <div
-          className="ml-auto flex gap-4 overflow-scroll p-2  scrollbar-none scroll-smooth transition-all"
-          ref={slideProductRef}
-        >
+        <div className="sm:grid grid-cols-4 gap-4 mt-6">
           {productCartVegetableCardList.map((el) => {
             return (
               <CardFeatures
