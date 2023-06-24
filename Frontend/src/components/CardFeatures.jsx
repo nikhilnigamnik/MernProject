@@ -64,12 +64,12 @@ const CardFeature = ({
 
         <div className="flex w-full items-center mt-4  justify-between">
           <button
-            className="border border-mainclr px-4 py-1 rounded-full"
+            className="hover:bg-red-800 onhover text-white bg-mainclr px-4 py-1 rounded-full"
             onClick={handleAddToCart}
           >
             Add to cart
           </button>
-          <span>
+          <span className="hover:-scale-x-110 onhover">
             <BsBookmarkHeart />
           </span>
         </div>
