@@ -21,13 +21,14 @@ const App = () => {
     <>
       <Toaster />
       <Navbar />
-      <main className="max-w-7xl  mx-auto mt-4 px-2 overflow-hidden">
+      <main className="px-2 mx-auto mt-4 overflow-hidden max-w-7xl">
         <Outlet />
       </main>
+      <div></div>
       <img
         width={50}
         onClick={() => window.scrollTo({ top: "0", behavior: "smooth" })}
-        className="bottom-9 bg-white p-0 rounded-full cursor-pointer fixed right-9"
+        className="fixed p-0 bg-white rounded-full cursor-pointer bottom-9 right-9"
         src="https://img.icons8.com/ios-filled/100/000000/circled-up-2.png"
         alt="circled-up-2"
       />
