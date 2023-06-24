@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { IoMenu } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -22,6 +22,22 @@ const Navbar = () => {
   };
 
   const [showMenu, setShowMenu] = useState(false);
+  const[colorChange, setColorChange] = useState(false);
+
+  const changeNavbarShadow = () => {
+    if (window.scrollY >=  160) {
+      setColorChange(true);
+    } else {
+      setColorChange(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeNavbarShadow);
+    return () => {
+      window.removeEventListener("scroll", () => {});
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -35,7 +51,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="border bg-gray-50 sha">
+    <nav className={`fixed top-0 left-0 bg-white right-0 ${colorChange ? "sha " : ""} z-10 transition delay-75 ease-in-out`}>
       <div className="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between p-4">
           <div className="flex items-center justify-between w-full">
@@ -131,12 +147,11 @@ const Navbar = () => {
                   )}
                 </Link>
 
-                <div className=" p-2 text-white bg-gray-800  onhover rounded-full cursor-pointer hover:bg-mainclr" onClick={handleShowMenu}>
-                  {showMenu ? (
-                    <FaUserCircle  />
-                  ) : (
-                    <FaUserCircle />
-                  )}
+                <div
+                  className=" p-2 text-white bg-gray-800  onhover rounded-full cursor-pointer hover:bg-mainclr"
+                  onClick={handleShowMenu}
+                >
+                  {showMenu ? <FaUserCircle /> : <FaUserCircle />}
                 </div>
               </div>
             </div>
@@ -144,7 +159,7 @@ const Navbar = () => {
             {/* Mobile Menu  */}
 
             <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
-            <div className="flex items-center justify-center gap-4">
+              <div className="flex items-center justify-center gap-4">
                 <Link
                   to={"/cart"}
                   className="relative p-2 mx-2 text-white transition bg-yellow-900 rounded-full shadow-sm cursor-pointer hover:bg-yellow-800"
@@ -157,12 +172,11 @@ const Navbar = () => {
                   )}
                 </Link>
 
-                <div className=" p-2 text-white bg-gray-800  onhover rounded-full cursor-pointer hover:bg-mainclr" onClick={handleShowMenu}>
-                  {showMenu ? (
-                    <FaUserCircle  />
-                  ) : (
-                    <FaUserCircle />
-                  )}
+                <div
+                  className=" p-2 text-white bg-gray-800  onhover rounded-full cursor-pointer hover:bg-mainclr"
+                  onClick={handleShowMenu}
+                >
+                  {showMenu ? <FaUserCircle /> : <FaUserCircle />}
                 </div>
               </div>
 
