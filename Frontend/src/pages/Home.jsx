@@ -117,7 +117,7 @@ const Home = () => {
           </h2>
         </div>
 
-        <div className="sm:grid grid-cols-4 gap-4 mt-6">
+        <div className="gap-4 grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3">
           {productCartVegetableCardList.map((el) => {
             return (
               <CardFeatures

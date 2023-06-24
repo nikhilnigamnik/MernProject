@@ -34,7 +34,7 @@ const AllProduct = () => {
         <h1 className="text-4xl text-center font-bold">Menu Category</h1>
       </div>
 
-      <div className="px-4 flex gap-4 overflow-scroll scrollbar-none">
+      <div className=" grid grid-flow-col gap-3 justify-center overflow-scroll scrollbar-none">
         {categoryList[0] &&
           categoryList.map((el) => {
             return (
