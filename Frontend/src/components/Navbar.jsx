@@ -118,7 +118,7 @@ const Navbar = () => {
             </div>
 
             <div className="hidden sm:block ">
-              <div className="flex items-center justify-center gap-8">
+              <div className="flex items-center justify-center gap-4">
                 <Link
                   to={"/cart"}
                   className="relative p-2 mx-2 text-white transition bg-yellow-900 rounded-full shadow-sm cursor-pointer hover:bg-yellow-800"
@@ -131,11 +131,11 @@ const Navbar = () => {
                   )}
                 </Link>
 
-                <div className="cursor-pointer" onClick={handleShowMenu}>
+                <div className=" p-2 text-white bg-gray-800  onhover rounded-full cursor-pointer hover:bg-mainclr" onClick={handleShowMenu}>
                   {showMenu ? (
-                    <FaUserCircle size={24} />
+                    <FaUserCircle  />
                   ) : (
-                    <FaUserCircle size={24} />
+                    <FaUserCircle />
                   )}
                 </div>
               </div>
@@ -144,7 +144,7 @@ const Navbar = () => {
             {/* Mobile Menu  */}
 
             <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
-              <div className="flex items-center justify-center gap-6">
+            <div className="flex items-center justify-center gap-4">
                 <Link
                   to={"/cart"}
                   className="relative p-2 mx-2 text-white transition bg-yellow-900 rounded-full shadow-sm cursor-pointer hover:bg-yellow-800"
@@ -157,11 +157,11 @@ const Navbar = () => {
                   )}
                 </Link>
 
-                <div className="text-sm cursor-pointer" onClick={handleShowMenu}>
+                <div className=" p-2 text-white bg-gray-800  onhover rounded-full cursor-pointer hover:bg-mainclr" onClick={handleShowMenu}>
                   {showMenu ? (
-                    <FaUserCircle size={24} />
+                    <FaUserCircle  />
                   ) : (
-                    <FaUserCircle size={24} />
+                    <FaUserCircle />
                   )}
                 </div>
               </div>
