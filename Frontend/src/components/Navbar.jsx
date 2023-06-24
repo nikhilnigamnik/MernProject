@@ -7,7 +7,7 @@ import { FaOpencart } from "react-icons/fa";
 import { FaUserCircle } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
 import { IoLogInOutline } from "react-icons/io5";
-import { FaUserTie } from "react-icons/fa";
+import { HiOutlineShoppingBag } from "react-icons/hi";
 import { Badge } from "@material-tailwind/react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutRedux } from "../redux/userSlice";
@@ -119,25 +119,21 @@ const Navbar = () => {
 
             <div className="hidden sm:block ">
               <div className="flex items-center justify-center gap-8">
-                <Link to="/cart">
-                  <Badge
-                    color="red"
-                    placement="top-end"
-                    overlap="top-end"
-                    content={CartItemNum.length}
-                    withBorder
-                  >
-                    <FaOpencart size={24} />
-                  </Badge>
+                <Link
+                  to={"/cart"}
+                  className="relative p-2 mx-2 text-white transition bg-yellow-900 rounded-full shadow-sm cursor-pointer hover:bg-yellow-800"
+                >
+                  <HiOutlineShoppingBag />
+                  {CartItemNum.length > 0 && (
+                    <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white border-2 rounded-full bg-mainclr -top-2 -right-2 ">
+                      {CartItemNum.length}
+                    </div>
+                  )}
                 </Link>
 
                 <div className="cursor-pointer" onClick={handleShowMenu}>
                   {showMenu ? (
-                    userData.email ? (
-                      <FaUserTie size={24} />
-                    ) : (
-                      <FaUserCircle size={24} />
-                    )
+                    <FaUserCircle size={24} />
                   ) : (
                     <FaUserCircle size={24} />
                   )}
@@ -149,27 +145,21 @@ const Navbar = () => {
 
             <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
               <div className="flex items-center justify-center gap-6">
-                <div>
-                  <Link to="/cart">
-                    <Badge
-                      color="red"
-                      placement="top-end"
-                      overlap="top-end"
-                      content={CartItemNum.length}
-                      withBorder
-                    >
-                      <FaOpencart size={24} />
-                    </Badge>
-                  </Link>
-                </div>
+                <Link
+                  to={"/cart"}
+                  className="relative p-2 mx-2 text-white transition bg-yellow-900 rounded-full shadow-sm cursor-pointer hover:bg-yellow-800"
+                >
+                  <HiOutlineShoppingBag />
+                  {CartItemNum.length > 0 && (
+                    <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white border-2 rounded-full bg-mainclr -top-2 -right-2 ">
+                      {CartItemNum.length}
+                    </div>
+                  )}
+                </Link>
 
-                <div className="cursor-pointer" onClick={handleShowMenu}>
+                <div className="text-sm cursor-pointer" onClick={handleShowMenu}>
                   {showMenu ? (
-                    userData.email ? (
-                      <FaUserTie size={24} />
-                    ) : (
-                      <FaUserCircle size={24} />
-                    )
+                    <FaUserCircle size={24} />
                   ) : (
                     <FaUserCircle size={24} />
                   )}
