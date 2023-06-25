@@ -8,7 +8,7 @@ import { SlSocialLinkedin } from "react-icons/sl";
 const Footer = () => {
   return (
     <div className="sha2">
-      <div className="py-4 w-[80vw] justify-between gap-4 m-auto sm:flex-row flex flex-col items-center">
+      <div className="py-6 w-[80vw] justify-between gap-4 m-auto sm:flex-row flex flex-col items-center">
         <Link className="" to="/">
           <img
             width={120}
