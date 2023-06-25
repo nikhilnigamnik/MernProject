@@ -12,7 +12,7 @@ const ErrorPage = () => {
         we are sorry :( the page you requested cannot be found
       </p>
       <Link to={"/"}>
-        <button className="bg-mainclr text-white rounded-full px-4 py-2">
+        <button className="bg-mainclr onhover hover:bg-red-800 text-white rounded-full px-4 py-2">
           Return Home
         </button>
       </Link>
