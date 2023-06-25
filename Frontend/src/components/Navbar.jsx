@@ -247,8 +247,8 @@ const Navbar = () => {
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
       >
-        {(ref) => (
-          <div className="sm:hidden" ref={ref}>
+        {  (
+          <div className="sm:hidden" >
             <div className="flex flex-col gap-4 px-20 py-10 text-center text-white">
               <div className="bg-[#d5294d] shadow-sm   hover:scale-[0.9] transition-all hover:bg-[#b31d3f] rounded-full px-4 py-2">
                 <Link to="/">

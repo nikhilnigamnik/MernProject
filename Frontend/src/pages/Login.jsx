@@ -7,7 +7,7 @@ import { loginRedux } from "../redux/userSlice";
 export default function Login() {
   const navigate = useNavigate();
 
-  const userData = useSelector((state) => state);
+  const userData = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
 
@@ -41,7 +41,7 @@ export default function Login() {
       );
       const dataRes = await fetchData.json();
 
-      toast(userData.user.email + dataRes.message);
+      toast(userData.email + dataRes.message);
       if (dataRes.alert) {
         dispatch(loginRedux(dataRes));
         navigate("/");
