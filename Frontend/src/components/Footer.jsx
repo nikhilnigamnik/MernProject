@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
       </div>
       
-        <h1 className="text-center bg-mainclr p-3 text-white font-medium tracking-widest text-xl">All Right Reserved</h1>
+        <h1 className="text-center bg-mainclr p-2 text-white font-medium tracking-widest text-xl">All Right Reserved</h1>
       
     </div>
   );
