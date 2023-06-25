@@ -11,22 +11,20 @@ import Signup from "./pages/Signup.jsx";
 import Cart from "./pages/Cart.jsx";
 import About from "./pages/About.jsx";
 import "./index.css";
-import {
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/index.js";
 import Menu from "./pages/Menu.jsx";
-import ErrorPage from './components/ErrorPage.jsx'
+import ErrorPage from "./components/ErrorPage.jsx";
 import Admin from "./components/Admin/Admin.jsx";
 import UserDetails from "./components/Admin/UserDetails.jsx";
+import AllProduct from "./components/AllProduct.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -43,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/product",
+        element: <AllProduct />,
       },
       {
         path: "/login",
@@ -66,7 +68,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/cancel",
-        element: <Cancel/> ,
+        element: <Cancel />,
       },
       {
         path: "/admin/*",
@@ -74,8 +76,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/userdetails",
-        element: <UserDetails/>
-      }
+        element: <UserDetails />,
+      },
     ],
   },
 ]);

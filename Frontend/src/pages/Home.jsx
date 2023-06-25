@@ -134,7 +134,7 @@ const Home = () => {
           })}
         </div>
       </div>
-      <AllProduct heading={"Your Product"} />
+      {/* <AllProduct heading={"Your Product"} /> */}
     </div>
   );
 };

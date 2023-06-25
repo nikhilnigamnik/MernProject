@@ -2,7 +2,6 @@ import { Button } from "@material-tailwind/react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import AllProduct from "../components/AllProduct";
 import { addCartItems } from "../redux/productSlice";
 import RatingIcons from "../components/RatingIcons";
 
@@ -71,7 +70,7 @@ const Menu = () => {
         </div>
       </div>
 
-      {/* <AllProduct heading={"Related Product"} /> */}
+    
     </div>
   );
 };
