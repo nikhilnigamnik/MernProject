@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import FilterProduct from "./FilterProduct";
 import CardFeature from "./CardFeatures";
 import { useSelector } from "react-redux";
+import MainLoader from "./MainLoader";
 
 const AllProduct = () => {
   const productData = useSelector((state) => state.product.productList);
@@ -25,9 +26,11 @@ const AllProduct = () => {
     });
   };
 
-  const loadingArrayFeature = new Array(10).fill(null);
 
-  return (
+
+  return productData?.length === 0 ? (
+    <MainLoader/>
+  ) : (
     <div className="my-20">
       <div className="flex flex-col gap-2">
         <p className="text-mainclr text-center font-medium">Our Category</p>
