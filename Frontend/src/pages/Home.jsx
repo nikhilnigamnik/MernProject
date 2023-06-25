@@ -11,6 +11,7 @@ import AllProduct from "../components/AllProduct";
 import RatingAvatar from "../components/RatingAvatar";
 import RatingIcons from "../components/RatingIcons";
 import MainLoader from "../components/MainLoader";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const productData = useSelector((state) => state.product.productList);
@@ -52,9 +53,11 @@ const Home = () => {
             >
               Order Now
             </button>
-            <button className=" hover:bg-mainclr hover:text-white hover:border-none transition-all border-red-300 px-4 py-2 rounded-full shadow-md text-black">
-              Explore Food
-            </button>
+            <Link to={"/product"}>
+              <button className=" hover:bg-mainclr hover:text-white hover:border-none transition-all border-red-300 px-4 py-2 rounded-full shadow-md text-black">
+                Explore Food
+              </button>
+            </Link>
           </div>
 
           <div className="flex justify-center md:justify-start items-center gap-4 mt-10">
