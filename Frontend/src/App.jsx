@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 
 const App = () => {
   const dispatch = useDispatch();
-  const productData = useSelector((state) => state.product);
+  // const productData = useSelector((state) => state.product);
 
   useEffect(() => {
     (async () => {
