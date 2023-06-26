@@ -244,16 +244,16 @@ const Navbar = () => {
 
       <Transition
         show={isOpen}
-        enter="transition ease-out duration-400 transform"
+        enter="transition ease-out duration-900 transform transition-all"
         enterFrom="opacity-0 scale-95"
         enterTo="opacity-100 scale-100"
-        leave="transition ease-in duration-125 transform"
+        leave="transition ease-in duration-125 transform transition-all"
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
       >
         {
           <div className="sm:hidden">
-            <div className="flex flex-col shadow-2xl gap-4 px-20 py-10 text-center text-white">
+            <div className="flex flex-col border-b-2 border-black  gap-4 px-20 py-10 text-center text-white">
               <div className="bg-[#d5294d] shadow-sm   hover:scale-[0.9] transition-all hover:bg-[#b31d3f] rounded-full px-4 py-2">
                 <Link to="/">
                   <p>Home</p>

@@ -20,6 +20,7 @@ export const productSlice = createSlice({
       if (check) {
         toast(`${itemName} is already added in cart`);
       } else {
+        
         const itemName = action.payload.name
         
         toast(`${itemName} added to cart`);
