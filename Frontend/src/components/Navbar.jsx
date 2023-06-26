@@ -68,48 +68,50 @@ const Navbar = () => {
             </Link>
 
             <div className="z-10 hidden sm:block sm:ml-6">
-              {showMenu && (
-                <div>
-                  <div className="absolute right-0 flex flex-col justify-center gap-1 p-4 mt-10 bg-white border shadow-md rounded">
-                    <div>
-                      <h1 className="font-semibold text-lg">User Account</h1>
-                    </div>
-                    {userData.email === "nik@gmail.com" && (
-                      <Link to={"admin"}>
-                        <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
-                          <FaUserCircle size={20} />
-
-                          <p>Admin</p>
-                        </div>
-                      </Link>
-                    )}
-
-                    {userData.email ? (
-                      <div className="flex flex-col gap-1">
-                        <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
-                          <FaUserCircle size={20} />
-
-                          <div className="flex gap-1">
-                            <p>{userData.firstname}</p>
-                            <p>{userData.lastname}</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center justify-between px-4 py-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
-                          <p className="" onClick={handleLogout}>
-                            Logout
-                          </p>
-                          <IoLogOutOutline size={20} />
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="flex items-center justify-between gap-6 px-4 py-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
-                        <Link to={"/login"}>Login</Link>
-                        <IoLogInOutline />
-                      </div>
-                    )}
+              <div>
+                <div
+                  className={`absolute right-0 flex flex-col justify-center gap-1 p-4 mt-10 bg-white border shadow-md rounded transition-all ease-in-out duration-300 ${
+                    showMenu ? "right-0" : "-right-80"
+                  }`}
+                >
+                  <div>
+                    <h1 className="font-semibold text-lg">User Account</h1>
                   </div>
+                  {userData.email === "nik@gmail.com" && (
+                    <Link to={"admin"}>
+                      <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
+                        <FaUserCircle size={20} />
+
+                        <p>Admin</p>
+                      </div>
+                    </Link>
+                  )}
+
+                  {userData.email ? (
+                    <div className="flex flex-col gap-1">
+                      <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
+                        <FaUserCircle size={20} />
+
+                        <div className="flex gap-1">
+                          <p>{userData.firstname}</p>
+                          <p>{userData.lastname}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between px-4 py-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
+                        <p className="" onClick={handleLogout}>
+                          Logout
+                        </p>
+                        <IoLogOutOutline size={20} />
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-between gap-6 px-4 py-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
+                      <Link to={"/login"}>Login</Link>
+                      <IoLogInOutline />
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
             </div>
             <div className="hidden p-2 rounded-full lg:block sha2">
               <input
@@ -201,48 +203,50 @@ const Navbar = () => {
                 </button>
               </div>
 
-              {showMenu && (
-                <div>
-                  <div className="absolute right-0 z-10 flex flex-col  gap-1 w-[10rem]  p-4 mt-10 bg-white border shadow-md rounded">
-                    <div>
-                      <h1 className="font-semibold text-lg text-center">User Account</h1>
-                    </div>
-                    {userData.email === "nik@gmail.com" && (
-                      <Link to={"admin"}>
-                        <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
-                          <FaUserCircle size={20} />
-
-                          <p>Admin</p>
-                        </div>
-                      </Link>
-                    )}
-
-                    {userData.email ? (
-                      <div className="flex flex-col gap-1">
-                        <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
-                          <FaUserCircle size={20} />
-
-                          <div className="flex gap-1">
-                            <p>{userData.firstname}</p>
-                            <p>{userData.lastname}</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center justify-between px-4 py-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
-                          <p className="" onClick={handleLogout}>
-                            Logout
-                          </p>
-                          <IoLogOutOutline size={20} />
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="flex items-center justify-between gap-6 px-4 py-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
-                        <Link to={"/login"}>Login</Link>
-                        <IoLogInOutline />
-                      </div>
-                    )}
+              <div>
+                <div
+                  className={`absolute right-0 flex flex-col justify-center gap-1 p-4 mt-10 bg-white border shadow-md rounded transition-all ease-in-out duration-300 ${
+                    showMenu ? "right-0" : "-right-40"
+                  }`}
+                >
+                  <div>
+                    <h1 className="font-semibold text-lg">User Account</h1>
                   </div>
+                  {userData.email === "nik@gmail.com" && (
+                    <Link to={"admin"}>
+                      <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
+                        <FaUserCircle size={20} />
+
+                        <p>Admin</p>
+                      </div>
+                    </Link>
+                  )}
+
+                  {userData.email ? (
+                    <div className="flex flex-col gap-1">
+                      <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
+                        <FaUserCircle size={20} />
+
+                        <div className="flex gap-1">
+                          <p>{userData.firstname}</p>
+                          <p>{userData.lastname}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between px-4 py-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
+                        <p className="" onClick={handleLogout}>
+                          Logout
+                        </p>
+                        <IoLogOutOutline size={20} />
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-between gap-6 px-4 py-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
+                      <Link to={"/login"}>Login</Link>
+                      <IoLogInOutline />
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
             </div>
           </div>
         </div>
