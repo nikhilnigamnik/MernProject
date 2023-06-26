@@ -16,12 +16,12 @@ import { Link } from "react-router-dom";
 const Home = () => {
   const productData = useSelector((state) => state.product.productList);
   const homeProductCartList = productData.slice(0, 4);
-  const productCartVegetableCardList = productData.filter(
-    (el) => el.category === "cake",
-    []
-  );
+  // const productCartVegetableCardList = productData.filter(
+  //   (el) => el.category === "cake",
+  //   []
+  // );
 
-  const loadingArray = new Array(4).fill(null);
+
 
   // filterData
   const [filterBy, setfilterBy] = useState("");
@@ -120,7 +120,7 @@ const Home = () => {
           </h2>
         </div>
 
-        <div className="gap-4 grid mt-6 lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3">
+        {/* <div className="gap-4 grid mt-6 lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3">
           {productCartVegetableCardList.map((el) => {
             return (
               <CardFeatures
@@ -135,7 +135,7 @@ const Home = () => {
               />
             );
           })}
-        </div>
+        </div> */}
       </div>
       {/* <AllProduct heading={"Your Product"} /> */}
     </div>
