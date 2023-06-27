@@ -59,7 +59,7 @@ const CardFeature = ({
               <span>{price}</span>
             </p>
             <del className=" text-slate-500 text-sm ">₹ {discount}</del>
-            <p className=" text-green-700 text-sm ">{percent}%</p>
+            <p className=" text-green-700 text-sm ">{percent}% off</p>
           </div>
         </div>
 
