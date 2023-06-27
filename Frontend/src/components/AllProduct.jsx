@@ -3,15 +3,21 @@ import { useSelector } from "react-redux";
 import FilterProduct from "./FilterProduct";
 import CardFeature from "./CardFeatures";
 import MainLoader from "./MainLoader";
-import { RiCloseFill } from "react-icons/ri";
+import { BiFilter } from "react-icons/bi";
+import { RxCross2 } from "react-icons/rx";
 
 const AllProduct = () => {
   const productData = useSelector((state) => state.product.productList);
   const categoryList = [...new Set(productData.map((el) => el.category))];
-
   const [filterBy, setFilterBy] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const handleToggle = () => {
+    console.log("first");
+    setIsFilterOpen(!isFilterOpen);
+  };
 
   useEffect(() => {
     setSearchResults(productData);
@@ -84,36 +90,48 @@ const AllProduct = () => {
         </div>
       </div>
 
-      {/* <div className="flex justify-center items-center">
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={handleSearchChange}
-          placeholder="Search..."
-          className=""
-        />
-        <RiCloseFill onClick={() => setSearchQuery("")} className="" />
-      </div> */}
+      {/* Filter Product Menu */}
 
-      <div className="grid grid-flow-col gap-3 justify-center overflow-scroll scrollbar-none">
-        {categoryList[0] &&
-          categoryList.map((el) => {
-            return (
-              <FilterProduct
-                category={el}
-                key={el}
-                isActive={el.toLowerCase() === filterBy.toLowerCase()}
-                onClick={() => handleFilterProduct(el)}
-              />
-            );
-          })}
-      </div>
-
-      <button
-        className="bg-mainclr text-white px-6 py-2 rounded-full"
-        onClick={() => setFilterBy("")}
+      <section
+        className={`bg-white/70 backdrop-blur-3xl shadow-xl py-4 px-4 w-[20rem] h-screen top-0 fixed z-10 transition-all ease-in-out duration-300 ${
+          isFilterOpen ? "left-0" : "-left-80"
+        }`}
       >
-        Clear
+        <div className="flex justify-between items-center">
+          <h1 className="text-xl font-semibold">Filter Products</h1>
+          <RxCross2
+            className="cursor-pointer"
+            onClick={handleToggle}
+            size={20}
+          />
+        </div>
+        <button
+          className="bg-mainclr mt-4 text-sm text-white px-6 py-1 rounded-lg"
+          onClick={() => setFilterBy("")}
+        >
+          Clear
+        </button>
+        <div className="mt-4 flex flex-col gap-2">
+          <h1 className="text-lg font-semibold">Category</h1>
+          {categoryList[0] &&
+            categoryList.map((el) => {
+              return (
+                <FilterProduct
+                  category={el}
+                  key={el}
+                  isActive={el.toLowerCase() === filterBy.toLowerCase()}
+                  onClick={() => handleFilterProduct(el)}
+                />
+              );
+            })}
+        </div>
+      </section>
+      <button
+        onClick={handleToggle}
+        className="float-right px-4 py-1 bg-gray-900 rounded-full text-white flex items-center"
+      >
+        <BiFilter size={22} />
+        Filter
       </button>
 
       {searchResults.length > 0 && (
