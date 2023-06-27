@@ -67,8 +67,8 @@ const AllProduct = () => {
     <div className="mb-20">
       <Carausel/>
       <div className="flex flex-col gap-2">
-        <p className="text-mainclr text-center font-medium">Our Category</p>
-        <h1 className="text-4xl text-center font-bold">Menu Category</h1>
+        <p className="text-mainclr text-center font-medium">Our Product</p>
+        <h1 className="text-4xl text-center font-bold">Menu Product</h1>
       </div>
       <div className="text-center flex flex-col sm:flex-row justify-between items-center mt-8">
         <div className="p-1 flex justify-between items-center rounded-full sha2 mb-4 sm:mb-0">

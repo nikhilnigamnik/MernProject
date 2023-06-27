@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 
 const Carausel = () => {
   const dummyImages = [
-    "https://res.cloudinary.com/dtmp7op6k/image/upload/v1687524896/product-images/vr3hxrcktximut0ocswz.webp",
-    "https://res.cloudinary.com/dtmp7op6k/image/upload/v1687525681/product-images/jd9sc7hj7fvmlzjqiodj.webp",
-    "https://res.cloudinary.com/dtmp7op6k/image/upload/v1687526149/product-images/tubirwmpogxon25slgyv.webp",
-    "https://res.cloudinary.com/dtmp7op6k/image/upload/v1687526179/product-images/kumemkncfxwx9znkasyl.webp",
+    "https://res.cloudinary.com/dtmp7op6k/image/upload/v1687889051/pexels-engin-akyurt-2725744_korpmy.jpg",
+    "https://res.cloudinary.com/dtmp7op6k/image/upload/v1687889048/pexels-ella-olsson-1334131_cv2ebg.jpg",
+    "https://res.cloudinary.com/dtmp7op6k/image/upload/v1687889046/pexels-taryn-elliott-7172067_yksfxe.jpg",
+    "https://res.cloudinary.com/dtmp7op6k/image/upload/v1687889043/pexels-anush-gorak-1431305_cz1ak7.jpg",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,7 +21,7 @@ const Carausel = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className="mb-8">
       <img
         className="w-full rounded-2xl"
         src={dummyImages[currentIndex]}
