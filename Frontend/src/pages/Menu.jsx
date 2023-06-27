@@ -3,7 +3,6 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { addCartItems } from "../redux/productSlice";
-import RatingIcons from "../components/RatingIcons";
 
 const Menu = () => {
   const { filterby } = useParams();
@@ -24,6 +23,10 @@ const Menu = () => {
   if (!productDisplay) {
     return <div>Loading...</div>; // or any other fallback UI when products are undefined
   }
+  const percent = (
+    (productDisplay.discount / productDisplay.price) *
+    100
+  ).toFixed(0);
 
   return (
     <div className="p-2 md:p-4">
@@ -39,17 +42,30 @@ const Menu = () => {
             <h1 className="capitalize text-normal font-semibold">
               {productDisplay.name}
             </h1>
-            <h1 className="capitalize">Category : {productDisplay.category}</h1>
-            <h1>
-              <span className="text-mainclr font-semibold">Rs. </span>
-              {productDisplay.price}
-            </h1>
-            <RatingIcons />
+
+            <div className="flex justify-between">
+              <div>
+                <h1 className="capitalize">{productDisplay.category}</h1>
+                <p className="font-normal ">
+                  <span className="text-red-500 font-normal">₹</span>
+                  <span>{productDisplay.price}</span>
+                </p>
+              </div>
+              <div>
+                <del className=" text-slate-500 text-sm ">
+                  ₹ {productDisplay.discount}
+                </del>
+                <p className=" text-green-700 text-sm ">
+                  {productDisplay.rating}% off
+                </p>
+              </div>
+            </div>
           </div>
 
           <div>
             <p className="text-gray-900 text-left  text-xs">
-              Description : {productDisplay.description}
+              Description : {productDisplay.description.slice(0, 100)}
+              {productDisplay.description.length > 100 && "..."}
             </p>
           </div>
         </div>
@@ -69,8 +85,6 @@ const Menu = () => {
           </button>
         </div>
       </div>
-
-    
     </div>
   );
 };

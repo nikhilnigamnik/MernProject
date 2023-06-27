@@ -15,7 +15,6 @@ const AllProduct = () => {
 
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const handleToggle = () => {
-    console.log("first");
     setIsFilterOpen(!isFilterOpen);
   };
 

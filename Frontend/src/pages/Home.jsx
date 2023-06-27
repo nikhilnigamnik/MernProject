@@ -1,14 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import HomeCard from "../components/HomeCard";
 import CardFeatures from "../components/CardFeatures";
-import left from "../asset/left.png";
-import right from "../asset/right.png";
 
-import FilterProduct from "../components/FilterProduct";
-import productSlice from "../redux/productSlice";
-import AllProduct from "../components/AllProduct";
-import RatingAvatar from "../components/RatingAvatar";
 import RatingIcons from "../components/RatingIcons";
 import MainLoader from "../components/MainLoader";
 import { Link } from "react-router-dom";
@@ -54,7 +48,7 @@ const Home = () => {
 
           <div className="flex justify-center md:justify-start items-center gap-4 mt-10">
             <div className="flex gap-4 items-center">
-              <RatingAvatar />
+        
             </div>
 
             <div className="">
@@ -85,7 +79,7 @@ const Home = () => {
         </p>
       </div>
 
-      <div className="mt-6 gap-4 grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3">
+      <div className="gap-4 grid mt-6 lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3">
         {homeProductCartList.map((el) => {
           return (
             <HomeCard
