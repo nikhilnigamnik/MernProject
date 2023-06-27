@@ -12,10 +12,21 @@ const CardFeature = ({
   rating,
   discount,
   category,
-  loading,
   id,
 }) => {
   const dispatch = useDispatch();
+
+  const handleAddBookmarkItem = (e) => {
+    dispatch(
+      addBookmark({
+        _id: id,
+        name: name,
+        price: price,
+        category: category,
+        image: image,
+      })
+    );
+  };
 
   const handleAddToCart = (e) => {
     dispatch(
@@ -73,7 +84,7 @@ const CardFeature = ({
             Add to cart
           </button>
           <span className="hover:-scale-x-110 onhover">
-            <BsBookmarkHeart />
+            <BsBookmarkHeart onClick={handleAddBookmarkItem} />
           </span>
         </div>
       </div>

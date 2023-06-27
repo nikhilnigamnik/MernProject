@@ -5,6 +5,7 @@ import CardFeature from "./CardFeatures";
 import MainLoader from "./MainLoader";
 import { BiFilter } from "react-icons/bi";
 import { RxCross2 } from "react-icons/rx";
+import Carausel from "./Carausel";
 
 const AllProduct = () => {
   const productData = useSelector((state) => state.product.productList);
@@ -63,7 +64,8 @@ const AllProduct = () => {
   return productData?.length === 0 ? (
     <MainLoader />
   ) : (
-    <div className="my-20">
+    <div className="mb-20">
+      <Carausel/>
       <div className="flex flex-col gap-2">
         <p className="text-mainclr text-center font-medium">Our Category</p>
         <h1 className="text-4xl text-center font-bold">Menu Category</h1>

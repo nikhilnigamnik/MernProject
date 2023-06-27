@@ -3,12 +3,12 @@ import { Transition } from "@headlessui/react";
 import { IoMenu } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
-import { FaOpencart } from "react-icons/fa";
+
 import { FaUserCircle } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
 import { IoLogInOutline } from "react-icons/io5";
 import { HiOutlineShoppingBag } from "react-icons/hi";
-import { Badge } from "@material-tailwind/react";
+import { BsBookmarkHeart } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutRedux } from "../redux/userSlice";
 import { toast } from "react-hot-toast";
@@ -111,16 +111,7 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            {/* <div className="hidden p-2 rounded-full lg:block sha2">
-              <input
-                type="text"
-                className="px-2 bg-transparent rounded-l-lg outline-none"
-                placeholder="Search product..."
-              />
-              <button className="px-4 py-1 text-white transition-all rounded-full bg-mainclr hover:bg-red-800">
-                Search
-              </button>
-            </div> */}
+
             <div className="items-center justify-between hidden sm:block">
               {/* Your navigation links */}
               <div className="flex gap-6">
@@ -141,10 +132,10 @@ const Navbar = () => {
             </div>
 
             <div className="hidden sm:block ">
-              <div className="flex items-center justify-center gap-4">
+              <div className="flex items-center justify-center">
                 <Link
                   to={"/cart"}
-                  className="relative p-2 mx-2 text-white transition bg-yellow-900 rounded-full shadow-sm cursor-pointer hover:bg-yellow-800"
+                  className="relative p-2 ml-2 text-white transition bg-yellow-900 rounded-full shadow-sm cursor-pointer hover:bg-yellow-800"
                 >
                   <HiOutlineShoppingBag />
                   {CartItemNum.length > 0 && (
@@ -152,6 +143,12 @@ const Navbar = () => {
                       {CartItemNum.length}
                     </div>
                   )}
+                </Link>
+                <Link
+                  className="relative p-2 mx-2 text-white transition bg-yellow-900 rounded-full shadow-sm cursor-pointer hover:bg-yellow-800"
+                  to={"/bookmark"}
+                >
+                  <BsBookmarkHeart />
                 </Link>
 
                 <div
@@ -166,10 +163,10 @@ const Navbar = () => {
             {/* Mobile Menu  */}
 
             <div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
-              <div className="flex items-center justify-center gap-4">
+              <div className="flex items-center justify-center">
                 <Link
                   to={"/cart"}
-                  className="relative p-2 mx-2 text-white transition bg-yellow-900 rounded-full shadow-sm cursor-pointer hover:bg-yellow-800"
+                  className="relative p-2 ml-2 text-white transition bg-yellow-900 rounded-full shadow-sm cursor-pointer hover:bg-yellow-800"
                 >
                   <HiOutlineShoppingBag />
                   {CartItemNum.length > 0 && (
@@ -177,6 +174,13 @@ const Navbar = () => {
                       {CartItemNum.length}
                     </div>
                   )}
+                </Link>
+
+                <Link
+                  className="relative p-2 mx-2 text-white transition bg-yellow-900 rounded-full shadow-sm cursor-pointer hover:bg-yellow-800"
+                  to={"/bookmark"}
+                >
+                  <BsBookmarkHeart />
                 </Link>
 
                 <div
@@ -205,7 +209,9 @@ const Navbar = () => {
                 <div>
                   <div className="absolute right-0 z-10 flex flex-col  gap-1 w-[10rem]  p-4 mt-10 bg-white border shadow-md rounded">
                     <div>
-                      <h1 className="font-semibold text-lg text-center">User Account</h1>
+                      <h1 className="font-semibold text-lg text-center">
+                        User Account
+                      </h1>
                     </div>
                     {userData.email === "nik@gmail.com" && (
                       <Link to={"admin"}>

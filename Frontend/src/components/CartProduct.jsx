@@ -1,4 +1,3 @@
-import { Button } from "@material-tailwind/react";
 import React from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
@@ -9,7 +8,7 @@ import {
   decreaseItem,
 } from "../redux/productSlice";
 
-const CartProduct = ({ id, name, image, category, total, qty, price }) => {
+const CartProduct = ({ id, name, image, total, qty, price }) => {
   const dispatch = useDispatch();
   // const
   return (
