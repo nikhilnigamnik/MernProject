@@ -17,13 +17,8 @@ const Home = () => {
   const productData = useSelector((state) => state.product.productList);
   const homeProductCartList = productData.slice(0, 4);
   const productCartVegetableCardList = productData.slice(8, 12);
-  // (el) => el.category === "cake",
-  // []
 
-  // filterData
-  // const [filterBy, setfilterBy] = useState("");
-  // const [filterByCategory, setFilterByCategory] = useState(productData);
-
+  
   return productData?.length === 0 ? (
     <MainLoader />
   ) : (

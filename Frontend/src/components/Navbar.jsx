@@ -111,7 +111,7 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <div className="hidden p-2 rounded-full lg:block sha2">
+            {/* <div className="hidden p-2 rounded-full lg:block sha2">
               <input
                 type="text"
                 className="px-2 bg-transparent rounded-l-lg outline-none"
@@ -120,7 +120,7 @@ const Navbar = () => {
               <button className="px-4 py-1 text-white transition-all rounded-full bg-mainclr hover:bg-red-800">
                 Search
               </button>
-            </div>
+            </div> */}
             <div className="items-center justify-between hidden sm:block">
               {/* Your navigation links */}
               <div className="flex gap-6">
