@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import CartProduct from "../components/CartProduct";
 import { Button } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { loadStripe } from "@stripe/stripe-js";
+import { RxCross2 } from "react-icons/rx";
 
 const Cart = () => {
   const productcartItems = useSelector((state) => state.product.cartItem);
   const navigate = useNavigate();
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
   const user = useSelector((state) => state.user);
   const totalPrice = productcartItems.reduce(
     (acc, curr) => acc + parseInt(curr.total),
@@ -74,6 +85,56 @@ const Cart = () => {
                   </h1>
                 </div>
 
+                {/* Modal */}
+
+                <div>
+                  {isOpen && (
+                    <div className="fixed inset-0 flex items-center justify-center z-50">
+                      <div className="absolute inset-0 bg-black opacity-50"></div>
+                      <div className="bg-white flex flex-col justify-between  h-1/2 p-6 rounded-lg relative">
+                        <div className="flex justify-end">
+                          <button
+                            
+                            onClick={closeModal}
+                          >
+                           <RxCross2/>
+                          </button>
+                        </div>
+                        <h2 className="text-xl font-bold mb-4">Your Total Products</h2>
+                        <div>
+                          <div className="flex justify-between">
+                            <p className="text-sm font-semibold">
+                              Total Quantity
+                            </p>
+                            <p>{totalQty}</p>
+                          </div>
+                          <div className="flex justify-between">
+                            <p className="text-sm font-semibold">Discount</p>
+                            <p>0%</p>
+                          </div>
+                          <div className="flex mb-2 justify-between">
+                            <p className="text-sm font-semibold">Shipping</p>
+                            <p>Free</p>
+                          </div>
+                          <hr></hr>
+                        </div>
+                        <div className="flex justify-between">
+                          <p className="text-sm font-semibold">Total Price</p>
+                          <p>{totalPrice}</p>
+                        </div>
+                        <button
+                          onClick={handlePayment}
+                          className="bg-mainclr px-4 py-2 rounded-full text-white"
+                        >
+                          Proceed To Payment
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Modal End */}
+
                 {productcartItems.map((el) => {
                   return (
                     <CartProduct
@@ -98,10 +159,7 @@ const Cart = () => {
                     <p className="text-sm font-semibold">Total Quantity</p>
                     <p>{totalQty}</p>
                   </div>
-                  <div className="flex justify-between">
-                    <p className="text-sm font-semibold">Discount</p>
-                    <p>0%</p>
-                  </div>
+                  
                   <div className="flex mb-2 justify-between">
                     <p className="text-sm font-semibold">Shipping</p>
                     <p>Free</p>
@@ -125,7 +183,7 @@ const Cart = () => {
                 </div>
 
                 <button
-                  onClick={handlePayment}
+                  onClick={openModal}
                   className="bg-mainclr px-4 py-2 rounded-full text-white"
                 >
                   Proceed To Checkout
