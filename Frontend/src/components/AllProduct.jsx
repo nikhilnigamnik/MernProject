@@ -68,29 +68,32 @@ const AllProduct = () => {
         <p className="text-mainclr text-center font-medium">Our Category</p>
         <h1 className="text-4xl text-center font-bold">Menu Category</h1>
       </div>
-
-      <div className="text-center mt-8">
-        <div className="inline-block">
-          <div className="p-1 flex justify-between4 items-center rounded-full sha2">
-            <input
-              type="text"
-              className="px-2 bg-transparent outline-none"
-              onChange={handleSearchChange}
-              value={searchQuery}
-              placeholder="Search product..."
-            />
-            <button
-              className="bg-mainclr text-white px-6 py-2 rounded-full"
-              onClick={() => setSearchQuery("")}
-            >
-              Clear
-            </button>
-          </div>
+      <div className="text-center flex flex-col sm:flex-row justify-between items-center mt-8">
+        <div className="p-1 flex justify-between items-center rounded-full sha2 mb-4 sm:mb-0">
+          <input
+            type="text"
+            className="px-2 bg-transparent outline-none"
+            onChange={handleSearchChange}
+            value={searchQuery}
+            placeholder="Search product..."
+          />
+          <button
+            className="bg-mainclr text-white px-6 py-2 rounded-full sm:ml-4"
+            onClick={() => setSearchQuery("")}
+          >
+            Clear
+          </button>
         </div>
+
+        <button
+          onClick={handleToggle}
+          className="px-4 py-1 bg-gray-900 rounded-full text-white flex items-center ml-auto mr-2"
+        >
+          <BiFilter size={22} />
+          Filter
+        </button>
       </div>
-
       {/* Filter Product Menu */}
-
       <section
         className={`bg-white/70 backdrop-blur-3xl shadow-xl py-4 px-4 w-[20rem] h-screen top-0 fixed z-10 transition-all ease-in-out duration-300 ${
           isFilterOpen ? "left-0" : "-left-80"
@@ -125,17 +128,11 @@ const AllProduct = () => {
             })}
         </div>
       </section>
-      <button
-        onClick={handleToggle}
-        className="float-right px-4 py-1 bg-gray-900 rounded-full text-white flex items-center"
-      >
-        <BiFilter size={22} />
-        Filter
-      </button>
 
-      {searchResults.length > 0 && (
+      {searchResults.length === 0 ? (
+        <h1 className="text-center mt-8 font-semibold ">No Search Found</h1>
+      ) : (
         <div className="my-4">
-          <h2 className="text-2xl font-semibold mb-2">Search Results:</h2>
           <div className="gap-4 grid lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3">
             {searchResults.map((el) => {
               return (
