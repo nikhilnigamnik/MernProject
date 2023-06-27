@@ -29,6 +29,8 @@ const CardFeature = ({
     );
   };
 
+  const percent = ((discount / price) * 100).toFixed(0);
+
   return (
     <div className="cursor-pointer gap-4 items-center sm:items-stretch p-4 hover:shadow-md transition-all sha3 rounded-xl grid grid-cols-2 sm:justify-between sm:flex sm:flex-col">
       <Link
@@ -57,6 +59,7 @@ const CardFeature = ({
               <span>{price}</span>
             </p>
             <del className=" text-slate-500 text-sm ">₹ {discount}</del>
+            <p className=" text-green-700 text-sm ">{percent}%</p>
           </div>
         </div>
 
