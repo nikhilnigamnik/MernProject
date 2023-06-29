@@ -72,13 +72,13 @@ const Cart = () => {
 
               {/* Modal */}
 
-              <div className="flex  w-full flex-col gap-4">
+              <div className="flex   w-full flex-col gap-4">
                 {isOpen && (
-                  <div className="fixed inset-0 flex items-center justify-center z-50">
-                    <div className="absolute inset-0 bg-black opacity-50"></div>
-                    <div className="bg-white flex flex-col justify-between  h-1/2 p-6 rounded-lg relative">
+                  <div className="fixed  inset-0 flex items-center justify-center z-50">
+                    <div className="absolute backdrop-blur-[8px] inset-0"></div>
+                    <div className="bg-white sha5 flex flex-col justify-between  h-1/2 p-6 rounded-lg relative">
                       <div className="flex justify-end">
-                        <button onClick={closeModal}>
+                        <button className="border rounded-md p-1" onClick={closeModal}>
                           <RxCross2 />
                         </button>
                       </div>
@@ -135,6 +135,8 @@ const Cart = () => {
                   );
                 })}
               </div>
+
+               {/* Modal End */}
 
               {/* Total Cart Items */}
               <div className="flex rounded-xl flex-col mt-8 md:mt-0 gap-4 h-fit w-full md:w-1/3 p-4 sha5">

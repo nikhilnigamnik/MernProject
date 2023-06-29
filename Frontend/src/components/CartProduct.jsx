@@ -63,8 +63,8 @@ const CartProduct = ({
       </div>
 
       <div className="flex gap-2 items-center justify-between">
-        <div className="flex justify-center items-center gap-4">
-          <span className="text-mainclr font-semibold">Rs. </span>
+        <div className="flex justify-center items-center gap-1">
+          <span className="text-mainclr font-semibold">Rs.</span>
           <p>{total}</p>
         </div>
         <div
