@@ -1,6 +1,4 @@
 import React from "react";
-import { AiFillDelete } from "react-icons/ai";
-import { AiFillHeart } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import {
   deleteCartItems,
@@ -8,46 +6,54 @@ import {
   decreaseItem,
 } from "../redux/productSlice";
 
-const CartProduct = ({ id, name, image, total, qty, price }) => {
+const CartProduct = ({
+  id,
+  name,
+  image,
+  rating,
+  discount,
+  total,
+  qty,
+  price,
+}) => {
   const dispatch = useDispatch();
+
+  const percent = ((discount / price) * 100).toFixed(0);
+
   // const
   return (
-    <div className="w-full grid grid-cols-3 justify-center sha2 shadow-sm rounded-xl p-8">
-      <div className="flex flex-col justify-between ">
-        <div className="bg-white md:flex justify-between items-center gap-6 rounded overflow-hidden">
-          <img className="h-20 bg-white w-40 object-cover rounded-md" src={image} />
-          <div className="flex flex-col gap-1">
-            <h1 className="capitalize text-normal font-semibold">{name}</h1>
-            <h1>
-              <span className="text-mainclr font-semibold">Rs. </span>
-              {price}
-            </h1>
-          </div>
-        </div>
-        <div className="flex mt-4 justify-around items-center">
-          <div
-            onClick={() => dispatch(deleteCartItems(id))}
-            className="cursor-pointer"
-          >
-            <AiFillDelete />
-          </div>
-          <div>
-            <AiFillHeart />
-          </div>
+    <div className="grid sm:grid-cols-4 grid-cols-1 gap-4 items-center sha5  rounded-xl p-8">
+      <div className="flex justify-center items-center">
+        <img
+          className=" bg-white md:w-full sm:w-full w-40 object-cover rounded-md"
+          src={image}
+        />
+      </div>
+
+      <div className="flex flex-col gap-1 text-center">
+        <h3 className="font-semibold text-slate-600  capitalize text-lg overflow-hidden">
+          {name}
+        </h3>
+
+        <div className="flex justify-center flex-col items-center">
+          <p className="font-normal ">
+            <span className="text-red-500 font-normal">₹</span>
+            <span>{price}</span>
+          </p>
         </div>
       </div>
 
       <div className="flex justify-center items-center">
         <div className="flex gap-2 items-center">
           <button
-            className="bg-mainclr px-4 py-2 rounded-full text-white"
+            className="bg-mainclr px-4 py-1 rounded-md text-white"
             onClick={() => dispatch(decreaseItem(id))}
           >
             -
           </button>
           <p>{qty}</p>
           <button
-            className="bg-mainclr px-4 py-2 rounded-full text-white"
+            className="bg-mainclr px-4 py-1 rounded-md text-white"
             onClick={() => dispatch(increaseItem(id))}
           >
             +
@@ -55,9 +61,19 @@ const CartProduct = ({ id, name, image, total, qty, price }) => {
         </div>
       </div>
 
-      <div className="flex justify-center items-center gap-4">
-        <span className="text-mainclr font-semibold">Rs. </span>
-        <p>{total}</p>
+      <div className="flex gap-2 items-center flex-col justify-between">
+        <div className="flex justify-center items-center gap-4">
+          <span className="text-mainclr font-semibold">Rs. </span>
+          <p>{total}</p>
+        </div>
+        <div
+          onClick={() => dispatch(deleteCartItems(id))}
+          className="cursor-pointer"
+        >
+          <button className=" bg-mainclr text-white text-sm px-2 py-[2px] rounded-lg">
+            Delete Item
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -36,16 +36,13 @@ const Cart = () => {
       const stripePromise = await loadStripe(
         "pk_test_51NKO11SFNB5NKPFS71M8pGFzVBLImxOvG2UywkJofGWrN4hsWvxXdWfFaHpGEnluZoTBTZAa3Fh9ey6l9g0ZuE5D00ypujXOtb"
       );
-      const res = await fetch(
-        `${baseURL}/checkout-payment`,
-        {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(productcartItems),
-        }
-      );
+      const res = await fetch(`${baseURL}/checkout-payment`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(productcartItems),
+      });
       if (res.statusCode === 500) return;
 
       const data = await res.json();
@@ -73,66 +70,51 @@ const Cart = () => {
             <div className="w-full my-10 gap-10 justify-between md:flex ">
               {/* Display Cart items */}
 
+              {/* Modal */}
+
               <div className="flex  w-full flex-col gap-4">
-                <div className="w-full rounded-xl shadow-sm p-4 sha2 justify-items-center grid grid-cols-3">
-                  <h1 className="capitalize text-normal font-semibold">
-                    Product Details
-                  </h1>
-                  <h1 className="capitalize text-normal font-semibold">
-                    Quantity
-                  </h1>
-                  <h1 className="capitalize text-normal font-semibold">
-                    Subtotal
-                  </h1>
-                </div>
-
-                {/* Modal */}
-
-                <div>
-                  {isOpen && (
-                    <div className="fixed inset-0 flex items-center justify-center z-50">
-                      <div className="absolute inset-0 bg-black opacity-50"></div>
-                      <div className="bg-white flex flex-col justify-between  h-1/2 p-6 rounded-lg relative">
-                        <div className="flex justify-end">
-                          <button
-                            
-                            onClick={closeModal}
-                          >
-                           <RxCross2/>
-                          </button>
-                        </div>
-                        <h2 className="text-xl font-bold mb-4">Your Total Products</h2>
-                        <div>
-                          <div className="flex justify-between">
-                            <p className="text-sm font-semibold">
-                              Total Quantity
-                            </p>
-                            <p>{totalQty}</p>
-                          </div>
-                          <div className="flex justify-between">
-                            <p className="text-sm font-semibold">Discount</p>
-                            <p>0%</p>
-                          </div>
-                          <div className="flex mb-2 justify-between">
-                            <p className="text-sm font-semibold">Shipping</p>
-                            <p>Free</p>
-                          </div>
-                          <hr></hr>
-                        </div>
-                        <div className="flex justify-between">
-                          <p className="text-sm font-semibold">Total Price</p>
-                          <p>{totalPrice}</p>
-                        </div>
-                        <button
-                          onClick={handlePayment}
-                          className="bg-mainclr px-4 py-2 rounded-full text-white"
-                        >
-                          Proceed To Payment
+                {isOpen && (
+                  <div className="fixed inset-0 flex items-center justify-center z-50">
+                    <div className="absolute inset-0 bg-black opacity-50"></div>
+                    <div className="bg-white flex flex-col justify-between  h-1/2 p-6 rounded-lg relative">
+                      <div className="flex justify-end">
+                        <button onClick={closeModal}>
+                          <RxCross2 />
                         </button>
                       </div>
+                      <h2 className="text-xl font-bold mb-4">
+                        Your Total Products
+                      </h2>
+                      <div>
+                        <div className="flex justify-between">
+                          <p className="text-sm font-semibold">
+                            Total Quantity
+                          </p>
+                          <p>{totalQty}</p>
+                        </div>
+                        <div className="flex justify-between">
+                          <p className="text-sm font-semibold">Discount</p>
+                          <p>0%</p>
+                        </div>
+                        <div className="flex mb-2 justify-between">
+                          <p className="text-sm font-semibold">Shipping</p>
+                          <p>Free</p>
+                        </div>
+                        <hr></hr>
+                      </div>
+                      <div className="flex justify-between">
+                        <p className="text-sm font-semibold">Total Price</p>
+                        <p>{totalPrice}</p>
+                      </div>
+                      <button
+                        onClick={handlePayment}
+                        className="bg-mainclr px-4 py-2 rounded-full text-white"
+                      >
+                        Proceed To Payment
+                      </button>
                     </div>
-                  )}
-                </div>
+                  </div>
+                )}
 
                 {/* Modal End */}
 
@@ -142,6 +124,8 @@ const Cart = () => {
                       id={el._id}
                       key={el._id}
                       name={el.name}
+                      discount={el.discount}
+                      rating={el.rating}
                       image={el.image}
                       price={el.price}
                       category={el.category}
@@ -153,14 +137,14 @@ const Cart = () => {
               </div>
 
               {/* Total Cart Items */}
-              <div className="flex rounded-xl flex-col mt-8 md:mt-0 gap-4 h-fit w-full md:w-1/3 p-4 sha2 border">
+              <div className="flex rounded-xl flex-col mt-8 md:mt-0 gap-4 h-fit w-full md:w-1/3 p-4 sha5">
                 <h1 className="text-2xl font-semibold">Total</h1>
                 <div>
                   <div className="flex justify-between">
                     <p className="text-sm font-semibold">Total Quantity</p>
                     <p>{totalQty}</p>
                   </div>
-                  
+
                   <div className="flex mb-2 justify-between">
                     <p className="text-sm font-semibold">Shipping</p>
                     <p>Free</p>
@@ -172,7 +156,7 @@ const Cart = () => {
                   <p>{totalPrice}</p>
                 </div>
 
-                <div className="rounded-xl py-2 px-4 sha2 flex justify-center">
+                <div className="rounded-xl py-2 px-4 sha5 flex justify-center">
                   <input
                     type="text"
                     className="bg-transparent outline-none "
