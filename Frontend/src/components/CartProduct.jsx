@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { RxCross2 } from "react-icons/rx";
 import {
   deleteCartItems,
   increaseItem,
@@ -22,10 +23,10 @@ const CartProduct = ({
 
   // const
   return (
-    <div className="grid sm:grid-cols-4 grid-cols-1 gap-4 items-center sha5  rounded-xl p-8">
+    <div className="grid sm:grid-cols-4 grid-cols-2 gap-4 items-center sha5  rounded-xl p-8">
       <div className="flex justify-center items-center">
         <img
-          className=" bg-white md:w-full sm:w-full w-40 object-cover rounded-md"
+          className=" bg-white w-20 rounded-md"
           src={image}
         />
       </div>
@@ -53,7 +54,7 @@ const CartProduct = ({
           </button>
           <p>{qty}</p>
           <button
-            className="bg-mainclr px-4 py-1 rounded-md text-white"
+            className="border border-mainclr px-4 py-1 rounded-md text-black"
             onClick={() => dispatch(increaseItem(id))}
           >
             +
@@ -61,18 +62,16 @@ const CartProduct = ({
         </div>
       </div>
 
-      <div className="flex gap-2 items-center flex-col justify-between">
+      <div className="flex gap-2 items-center justify-between">
         <div className="flex justify-center items-center gap-4">
           <span className="text-mainclr font-semibold">Rs. </span>
           <p>{total}</p>
         </div>
         <div
           onClick={() => dispatch(deleteCartItems(id))}
-          className="cursor-pointer"
+          className="cursor-pointer border rounded p-1"
         >
-          <button className=" bg-mainclr text-white text-sm px-2 py-[2px] rounded-lg">
-            Delete Item
-          </button>
+          <RxCross2 />
         </div>
       </div>
     </div>
