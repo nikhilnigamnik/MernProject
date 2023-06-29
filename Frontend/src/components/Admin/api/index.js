@@ -1,3 +1,3 @@
 
-export const baseURL = "https://foodwaalaapi.onrender.com";
+export const baseURL = "https://foodwaalabackend-production.up.railway.app";
 

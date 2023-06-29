@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { BsCloudUpload } from "react-icons/bs";
+import { baseURL } from "./api";
 
 const NewProduct = () => {
   const [data, setData] = useState({
@@ -53,7 +54,7 @@ const NewProduct = () => {
 
       if (name && data.image && category && price && discount && rating) {
         try {
-          const fetchData = await fetch(`https://foodwaalaapi.onrender.com/uploadProduct`, {
+          const fetchData = await fetch(`${baseURL}/uploadProduct`, {
             method: "POST",
             body: formData,
           });

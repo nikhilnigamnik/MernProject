@@ -13,7 +13,7 @@ const Home = () => {
   const productCartVegetableCardList = productData.slice(8, 12);
 
   
-  return productData?.length === 0 ? (
+  return productCartVegetableCardList?.length === 0 ? (
     <MainLoader />
   ) : (
     <div className="p-2 md:p-4 ">

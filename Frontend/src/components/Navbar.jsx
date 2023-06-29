@@ -70,9 +70,11 @@ const Navbar = () => {
             <div className="z-10 hidden sm:block sm:ml-6">
               {showMenu && (
                 <div>
-                  <div className="absolute right-0 flex flex-col justify-center gap-1 p-4 mt-10 bg-white border shadow-md rounded">
+                  <div className="absolute right-3 flex flex-col justify-center gap-1 mt-8 bg-white border shadow-md rounded">
                     <div>
-                      <h1 className="font-semibold text-lg">User Account</h1>
+                      <h1 className="font-semibold text-lg text-center">
+                        User Info
+                      </h1>
                     </div>
                     {userData.email === "nik@gmail.com" && (
                       <Link to={"admin"}>
@@ -83,6 +85,9 @@ const Navbar = () => {
                         </div>
                       </Link>
                     )}
+                    <div>
+                      <h1 className="text-center">Dashboard</h1>
+                    </div>
 
                     {userData.email ? (
                       <div className="flex flex-col gap-1">

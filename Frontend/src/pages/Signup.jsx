@@ -3,6 +3,7 @@ import { BiShow } from "react-icons/bi";
 import { BiHide } from "react-icons/bi";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+import { baseURL } from "../components/Admin/api";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ export default function Signup() {
     if (firstname && email && password && confirmpassword) {
       if (password === confirmpassword) {
         const fetchData = await fetch(
-          "https://foodwaalaapi.onrender.com/signup",
+          `${baseURL}/signup`,
           {
             method: "POST",
             headers: {

@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { setDataProduct } from "./redux/productSlice";
 import Footer from "./components/Footer";
+import { baseURL } from "./components/Admin/api";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const App = () => {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch("https://foodwaalaapi.onrender.com/product");
+      const res = await fetch(`${baseURL}/product`);
       const resData = await res.json();
       dispatch(setDataProduct(resData));
     })();

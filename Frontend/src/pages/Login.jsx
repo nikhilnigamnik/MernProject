@@ -3,6 +3,7 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { loginRedux } from "../redux/userSlice";
+import { baseURL } from "../components/Admin/api";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ export default function Login() {
     const { email, password } = data;
     if (email && password) {
       const fetchData = await fetch(
-        "https://foodwaalaapi.onrender.com/login",
+        `${baseURL}/login`,
         {
           method: "POST",
           headers: {
