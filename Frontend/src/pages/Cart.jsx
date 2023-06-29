@@ -6,7 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { loadStripe } from "@stripe/stripe-js";
 import { RxCross2 } from "react-icons/rx";
-import { baseURL } from "../components/Admin/api";
 
 const Cart = () => {
   const productcartItems = useSelector((state) => state.product.cartItem);
@@ -37,7 +36,7 @@ const Cart = () => {
         "pk_test_51NKO11SFNB5NKPFS71M8pGFzVBLImxOvG2UywkJofGWrN4hsWvxXdWfFaHpGEnluZoTBTZAa3Fh9ey6l9g0ZuE5D00ypujXOtb"
       );
       const res = await fetch(
-        `${baseURL}/checkout-payment`,
+        "https://foodwaalaapi.onrender.com/checkout-payment",
         {
           method: "POST",
           headers: {

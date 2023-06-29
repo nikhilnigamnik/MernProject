@@ -70,7 +70,7 @@ const Navbar = () => {
             <div className="z-10 hidden sm:block sm:ml-6">
               {showMenu && (
                 <div>
-                  <div className="absolute right-3 flex flex-col justify-center gap-1 mt-8 bg-white border shadow-md rounded">
+                  <div className="absolute px-4 py-2 right-0 flex flex-col justify-center gap-1 mt-8 bg-white border shadow-md rounded">
                     <div>
                       <h1 className="font-semibold text-lg text-center">
                         User Info
@@ -85,8 +85,10 @@ const Navbar = () => {
                         </div>
                       </Link>
                     )}
-                    <div>
-                      <h1 className="text-center">Dashboard</h1>
+                    <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
+                      <FaUserCircle size={20} />
+
+                      <p>Dashbord</p>
                     </div>
 
                     {userData.email ? (
@@ -212,12 +214,13 @@ const Navbar = () => {
 
               {showMenu && (
                 <div>
-                  <div className="absolute right-0 z-10 flex flex-col  gap-1 w-[10rem]  p-4 mt-10 bg-white border shadow-md rounded">
+                  <div className="absolute right-0 z-10 flex flex-col  gap-1   p-4 mt-10 bg-white border shadow-md rounded">
                     <div>
                       <h1 className="font-semibold text-lg text-center">
                         User Account
                       </h1>
                     </div>
+
                     {userData.email === "nik@gmail.com" && (
                       <Link to={"admin"}>
                         <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
@@ -227,6 +230,12 @@ const Navbar = () => {
                         </div>
                       </Link>
                     )}
+
+                    <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
+                      <FaUserCircle size={20} />
+
+                      <p>Dashbord</p>
+                    </div>
 
                     {userData.email ? (
                       <div className="flex flex-col gap-1">
