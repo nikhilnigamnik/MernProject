@@ -61,7 +61,7 @@ const Home = () => {
         <div>
           <img
             className="w-full relative max-w-lg"
-            src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687411927/image_1_kmbet2.png"
+            src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1688240009/Burger_mbjppd.png"
           />
           {/* <img
             className="absolute top-4 md:right-40 -z-10"
