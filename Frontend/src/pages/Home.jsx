@@ -63,10 +63,10 @@ const Home = () => {
             className="w-full relative max-w-lg"
             src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687411927/image_1_kmbet2.png"
           />
-          <img
+          {/* <img
             className="absolute top-4 md:right-40 -z-10"
             src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687411927/Pngtree_hand-painted_noise_green_leaf_element_4054582_1_ckvrcy.png"
-          />
+          /> */}
         </div>
       </div>
 
