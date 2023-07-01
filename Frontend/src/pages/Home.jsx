@@ -23,7 +23,7 @@ const Home = () => {
             Hungry?
           </p>
           <h2 className="text-5xl md:text-6xl md:text-left text-left font-semibold py-4">
-            Just Come to <span className="text-[#d5294d]">FoodWaale</span> &
+            Just Come to <span className="bg-gradient-to-r from-[#d5294d] to-[#B6035C] text-transparent bg-clip-text font-bold">FoodWaale</span> &
             Order
           </h2>
           <p className="py-3 capitalize text-base font-normal ">
@@ -63,10 +63,7 @@ const Home = () => {
             className="w-full relative max-w-lg"
             src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1688240009/Burger_mbjppd.png"
           />
-          {/* <img
-            className="absolute top-4 md:right-40 -z-10"
-            src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687411927/Pngtree_hand-painted_noise_green_leaf_element_4054582_1_ckvrcy.png"
-          /> */}
+         
         </div>
       </div>
 
