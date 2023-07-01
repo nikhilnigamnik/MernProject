@@ -35,7 +35,7 @@ const Home = () => {
               onClick={() =>
                 window.scrollTo({ top: "1100", behavior: "smooth" })
               }
-              className="bg-mainclr px-4 py-2 rounded-full text-white"
+              className="bg-gradient-to-r from-[#d5294d] to-[#B6035C]  px-4 py-2 rounded-full text-white"
             >
               Order Now
             </button>
