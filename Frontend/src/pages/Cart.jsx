@@ -158,7 +158,7 @@ const Cart = () => {
                   <p>{totalPrice}</p>
                 </div>
 
-                <div className="rounded-xl py-2 px-4 sha5 flex justify-center">
+                {/* <div className="rounded-xl py-2 px-4 sha5 flex justify-center">
                   <input
                     type="text"
                     className="bg-transparent outline-none "
@@ -167,7 +167,7 @@ const Cart = () => {
                   <button className="bg-mainclr px-2 hover:bg-red-800 transition-all text-white rounded-xl">
                     Check
                   </button>
-                </div>
+                </div> */}
 
                 <button
                   onClick={openModal}
