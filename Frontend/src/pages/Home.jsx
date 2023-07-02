@@ -12,7 +12,6 @@ const Home = () => {
   const homeProductCartList = productData.slice(0, 4);
   const productCartVegetableCardList = productData.slice(8, 12);
 
-  
   return productCartVegetableCardList?.length === 0 ? (
     <MainLoader />
   ) : (
@@ -23,8 +22,11 @@ const Home = () => {
             Hungry?
           </p>
           <h2 className="text-5xl md:text-6xl md:text-left text-left font-semibold py-4">
-            Just Come to <span className="bg-gradient-to-r from-[#d5294d] to-[#B6035C] text-transparent bg-clip-text font-bold">FoodWaale</span> &
-            Order
+            Just Come to{" "}
+            <span className="bg-gradient-to-r from-[#d5294d] to-[#B6035C] text-transparent bg-clip-text font-bold">
+              FoodWaale
+            </span>{" "}
+            & Order
           </h2>
           <p className="py-3 capitalize text-base font-normal ">
             Here you will find all the best quality and pure food. order now to
@@ -47,9 +49,7 @@ const Home = () => {
           </div>
 
           <div className="flex justify-center md:justify-start items-center gap-4 mt-10">
-            <div className="flex gap-4 items-center">
-        
-            </div>
+            <div className="flex gap-4 items-center"></div>
 
             <div className="">
               <span>Our Happy Customer</span>
@@ -58,12 +58,15 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div className="relative">
+          <div
+            className="w-full rounded-full bg-gray-200 absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+            style={{ height: "80%", width: "80%" }}
+          ></div>
           <img
-            className="w-full relative max-w-lg"
-            src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1688240009/Burger_mbjppd.png"
+            className="w-full relative max-w-lg z-10"
+            src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1688294803/My_project_jcrjbj.png"
           />
-         
         </div>
       </div>
 
