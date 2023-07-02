@@ -64,7 +64,7 @@ const Home = () => {
             style={{ height: "80%", width: "80%" }}
           ></div>
           <img
-            className="w-full relative max-w-lg z-10"
+            className="w-full relative max-w-lg"
             src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1688294803/My_project_jcrjbj.png"
           />
         </div>

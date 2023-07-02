@@ -126,14 +126,14 @@ const Navbar = () => {
                   <p>Home</p>
                 </Link>
                 <Link to="/product">
-                  <p>Product</p>
+                  <p className="hover:text-mainclr onhover">Product</p>
                 </Link>
 
                 <Link to="/contact">
-                  <p>Contact</p>
+                  <p className="hover:text-mainclr onhover">Contact</p>
                 </Link>
                 <Link to="/about">
-                  <p>About Us</p>
+                  <p className="hover:text-mainclr onhover">About Us</p>
                 </Link>
               </div>
             </div>
