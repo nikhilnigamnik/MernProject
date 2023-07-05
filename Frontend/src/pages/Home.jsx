@@ -6,6 +6,7 @@ import CardFeatures from "../components/CardFeatures";
 import RatingIcons from "../components/RatingIcons";
 import MainLoader from "../components/MainLoader";
 import { Link } from "react-router-dom";
+import SpecialServiceBanner from "../components/SpecialServiceBanner";
 
 const Home = () => {
   const productData = useSelector((state) => state.product.productList);
@@ -69,6 +70,8 @@ const Home = () => {
           />
         </div>
       </div>
+
+      <SpecialServiceBanner />
 
       <div className="flex gap-2 mt-6 flex-col justify-center items-center">
         <p className="text-mainclr font-medium">MENU</p>

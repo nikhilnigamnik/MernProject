@@ -23,12 +23,9 @@ const CartProduct = ({
 
   // const
   return (
-    <div className="grid sm:grid-cols-4 grid-cols-2 gap-4 items-center sha5  rounded-xl p-8">
+    <div className="grid sm:grid-cols-4 justify-center grid-cols-2 gap-4 items-center sha5  rounded-xl p-8">
       <div className="flex justify-center items-center">
-        <img
-          className=" bg-white w-20 rounded-md"
-          src={image}
-        />
+        <img className=" bg-white w-20 rounded-md" src={image} />
       </div>
 
       <div className="flex flex-col gap-1 text-center">
@@ -44,22 +41,20 @@ const CartProduct = ({
         </div>
       </div>
 
-      <div className="flex justify-center items-center">
-        <div className="flex gap-2 items-center">
-          <button
-            className="bg-mainclr px-4 py-1 rounded-md text-white"
-            onClick={() => dispatch(decreaseItem(id))}
-          >
-            -
-          </button>
-          <p>{qty}</p>
-          <button
-            className="border border-mainclr px-4 py-1 rounded-md text-black"
-            onClick={() => dispatch(increaseItem(id))}
-          >
-            +
-          </button>
-        </div>
+      <div className="flex justify-around border rounded-full px-4 py-1 gap-2 items-center">
+        <button
+          // className="bg-mainclr px-4 py-1 rounded-md text-white"
+          onClick={() => dispatch(decreaseItem(id))}
+        >
+          -
+        </button>
+        <p>{qty}</p>
+        <button
+          // className="border border-mainclr px-4 py-1 rounded-md text-black"
+          onClick={() => dispatch(increaseItem(id))}
+        >
+          +
+        </button>
       </div>
 
       <div className="flex gap-2 items-center justify-between">
