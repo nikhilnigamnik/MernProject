@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import FilterProduct from "./FilterProduct";
 import CardFeature from "./CardFeatures";
 import MainLoader from "./MainLoader";
-import { BiFilter } from "react-icons/bi";
 import { RxCross2 } from "react-icons/rx";
+import { BiFilter } from "react-icons/bi";
 import Carausel from "./Carausel";
 
 const AllProduct = () => {
@@ -65,13 +65,13 @@ const AllProduct = () => {
     <MainLoader />
   ) : (
     <div className="mb-20">
-      <Carausel/>
+      {/* <Carausel /> */}
       <div className="flex flex-col gap-2">
         <p className="text-mainclr text-center font-medium">Our Product</p>
         <h1 className="text-4xl text-center font-bold">Menu Product</h1>
       </div>
       <div className="text-center flex flex-col sm:flex-row justify-between items-center mt-8">
-        <div className="p-1 flex justify-between items-center rounded-full sha2 mb-4 sm:mb-0">
+        <div className="pl-3 pr-1 py-1 flex justify-between items-center rounded-full sha2 mb-4 sm:mb-0">
           <input
             type="text"
             className="px-2 bg-transparent outline-none"
@@ -83,7 +83,7 @@ const AllProduct = () => {
             className="bg-mainclr text-white px-6 py-2 rounded-full sm:ml-4"
             onClick={() => setSearchQuery("")}
           >
-            Clear
+            <RxCross2 />
           </button>
         </div>
 
@@ -104,9 +104,9 @@ const AllProduct = () => {
         <div className="flex justify-between items-center">
           <h1 className="text-xl font-semibold">Filter Products</h1>
           <RxCross2
-            className="cursor-pointer"
+            className="cursor-pointer border rounded-md p-1"
             onClick={handleToggle}
-            size={20}
+            size={25}
           />
         </div>
         <button

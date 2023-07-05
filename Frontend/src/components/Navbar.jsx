@@ -70,7 +70,7 @@ const Navbar = () => {
             <div className="z-10 hidden sm:block sm:ml-6">
               {showMenu && (
                 <div>
-                  <div className="absolute px-4 py-2 right-0 flex flex-col justify-center gap-1 mt-8 bg-white border shadow-md rounded">
+                  <div className="absolute px-4 py-2 right-0 flex flex-col justify-center gap-1 mt-8 bg-white border rounded">
                     <div>
                       <h1 className="font-semibold text-lg text-center">
                         User Info
@@ -78,14 +78,14 @@ const Navbar = () => {
                     </div>
                     {userData.email === "nik@gmail.com" && (
                       <Link to={"admin"}>
-                        <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
+                        <div className="flex items-center gap-4 p-2 text-black border rounded-lg  cursor-pointer">
                           <FaUserCircle size={20} />
 
                           <p>Admin</p>
                         </div>
                       </Link>
                     )}
-                    <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
+                    <div className="flex items-center gap-4 p-2 text-black border rounded-lg  cursor-pointer">
                       <FaUserCircle size={20} />
 
                       <p>Dashbord</p>
@@ -93,7 +93,7 @@ const Navbar = () => {
 
                     {userData.email ? (
                       <div className="flex flex-col gap-1">
-                        <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
+                        <div className="flex items-center gap-4 p-2 text-black border rounded-lg  cursor-pointer">
                           <FaUserCircle size={20} />
 
                           <div className="flex gap-1">
@@ -214,7 +214,7 @@ const Navbar = () => {
 
               {showMenu && (
                 <div>
-                  <div className="absolute right-0 z-10 flex flex-col  gap-1   p-4 mt-10 bg-white border shadow-md rounded">
+                  <div className="absolute right-0 z-10 flex flex-col  gap-1   p-4 mt-10 bg-white border  rounded">
                     <div>
                       <h1 className="font-semibold text-lg text-center">
                         User Account
@@ -223,7 +223,7 @@ const Navbar = () => {
 
                     {userData.email === "nik@gmail.com" && (
                       <Link to={"admin"}>
-                        <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
+                        <div className="flex items-center gap-4 p-2 text-black border rounded-lg cursor-pointer">
                           <FaUserCircle size={20} />
 
                           <p>Admin</p>
@@ -231,15 +231,11 @@ const Navbar = () => {
                       </Link>
                     )}
 
-                    <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
-                      <FaUserCircle size={20} />
-
-                      <p>Dashbord</p>
-                    </div>
+                  
 
                     {userData.email ? (
                       <div className="flex flex-col gap-1">
-                        <div className="flex items-center gap-4 p-2 text-black border rounded-lg shadow-md cursor-pointer">
+                        <div className="flex items-center gap-4 p-2 text-black border rounded-lg cursor-pointer">
                           <FaUserCircle size={20} />
 
                           <div className="flex gap-1">

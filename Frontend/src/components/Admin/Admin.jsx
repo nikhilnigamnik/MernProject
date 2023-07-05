@@ -24,24 +24,30 @@ const Admin = () => {
     }
   };
 
+  const submitHandler = () => {
+    if (fetchProducts === searchProduct) {
+      return resData;
+    }
+  };
+
   useEffect(() => {
     fetchProducts();
   }, []);
 
-   const fetchData = async () => {
-     try {
-       const response = await axios.get(`${baseURL}/users`);
-       if (response.data) {
-         dispatch(userRedux(response.data));
-       }
-     } catch (error) {
-       console.log(error);
-     }
-   };
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${baseURL}/users`);
+      if (response.data) {
+        dispatch(userRedux(response.data));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-   useEffect(() => {
-     fetchData();
-   }, []);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <>

@@ -71,7 +71,7 @@ const Home = () => {
         </div>
       </div>
 
-      <SpecialServiceBanner />
+      {/* <SpecialServiceBanner /> */}
 
       <div className="flex gap-2 mt-6 flex-col justify-center items-center">
         <p className="text-mainclr font-medium">MENU</p>

@@ -14,9 +14,9 @@ const SpecialServiceBanner = () => {
         <h1 className="text-4xl font-bold">Daily Service</h1>
       </div>
       <div className="flex gap-4 mt-6 items-center justify-around flex-wrap">
-        <div className="border p-2 gap-2 flex flex-col items-center justify-center  h-28 rounded-xl">
+        <div className="border hover:shadow-md onhover p-2 gap-2 flex flex-col items-center justify-center  h-28 rounded-xl">
           <p>Fast Delivery</p>
-          <TbTruckDelivery className="bg-red-900 text-white rounded-full p-1" size={35} />
+          <TbTruckDelivery className="bg-red-500 text-white rounded-full p-1" size={35} />
         </div>
         <div className="border flex flex-col items-center justify-center w-28 h-28 rounded-xl">
           <p>Fresh Food</p>

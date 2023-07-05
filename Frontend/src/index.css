@@ -9,7 +9,6 @@
   margin: 0;
   box-sizing: border-box;
   scrollbar-width: thin;
- 
 }
 
 /* For Chrome, EDGE, Opera, Others */
@@ -39,29 +38,31 @@ body {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .sha2 {
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 .sha3 {
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 .sha4 {
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 .sha5 {
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
-
+.shadowbox {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
 
 .onhover {
   transition: all 0.4s ease;
 }
 
-
-
 /* Main Loader Css */
-
 
 .text-loader {
   display: flex;
@@ -141,8 +142,3 @@ body {
 .letter:nth-child(10) {
   animation-delay: 0.9s;
 }
-
-
-
-
-

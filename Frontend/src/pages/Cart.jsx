@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import CartProduct from "../components/CartProduct";
-import { Button } from "@material-tailwind/react";
+
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { loadStripe } from "@stripe/stripe-js";
@@ -158,16 +158,6 @@ const Cart = () => {
                   <p>{totalPrice}</p>
                 </div>
 
-                {/* <div className="rounded-xl py-2 px-4 sha5 flex justify-center">
-                  <input
-                    type="text"
-                    className="bg-transparent outline-none "
-                    placeholder="Enter coupon to get discount"
-                  />
-                  <button className="bg-mainclr px-2 hover:bg-red-800 transition-all text-white rounded-xl">
-                    Check
-                  </button>
-                </div> */}
 
                 <button
                   onClick={openModal}
