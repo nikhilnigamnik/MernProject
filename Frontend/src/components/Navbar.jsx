@@ -46,8 +46,21 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
     dispatch(logoutRedux());
     toast.success("Logout Successfully");
+  };
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if(!isLoggedIn){
+      showMenu(true);
+    }
+  }, []);
+
+  const handleLogin = () => {
+    // Set localStorage
+    localStorage.setItem("isLoggedIn", "true");
   };
 
   return (
@@ -110,7 +123,7 @@ const Navbar = () => {
                       </div>
                     ) : (
                       <div className="flex items-center justify-between gap-6 px-4 py-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
-                        <Link to={"/login"}>Login</Link>
+                        <Link to={"/login"} onClick={handleLogin}>Login</Link>
                         <IoLogInOutline />
                       </div>
                     )}
@@ -230,8 +243,6 @@ const Navbar = () => {
                         </div>
                       </Link>
                     )}
-
-                  
 
                     {userData.email ? (
                       <div className="flex flex-col gap-1">
