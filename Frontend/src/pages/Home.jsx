@@ -6,7 +6,6 @@ import CardFeatures from "../components/CardFeatures";
 import RatingIcons from "../components/RatingIcons";
 import MainLoader from "../components/MainLoader";
 import { Link } from "react-router-dom";
-import SpecialServiceBanner from "../components/SpecialServiceBanner";
 
 const Home = () => {
   const productData = useSelector((state) => state.product.productList);
@@ -43,20 +42,10 @@ const Home = () => {
               Order Now
             </button>
             <Link to={"/product"}>
-              <button className=" hover:bg-mainclr hover:text-white hover:border-none transition-all border-red-300 px-4 py-2 rounded-full shadow-md text-black">
+              <button className=" hover:bg-mainclr hover:text-white  transition-all border-red-300 px-4 py-2 rounded-full shaBlack text-black">
                 Explore Food
               </button>
             </Link>
-          </div>
-
-          <div className="flex justify-center md:justify-start items-center gap-4 mt-10">
-            <div className="flex gap-4 items-center"></div>
-
-            <div className="">
-              <span>Our Happy Customer</span>
-              <RatingIcons />
-              <p>(12.5K Review)</p>
-            </div>
           </div>
         </div>
         <div className="relative">
