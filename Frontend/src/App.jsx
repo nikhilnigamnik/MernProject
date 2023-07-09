@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import { Outlet, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { Outlet} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { Toaster } from "react-hot-toast";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch,} from "react-redux";
 import { setDataProduct } from "./redux/productSlice";
 // import Footer from "./components/Footer";
 import { baseURL } from "./components/Admin/api";

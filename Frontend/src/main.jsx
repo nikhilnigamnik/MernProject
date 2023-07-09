@@ -19,6 +19,7 @@ import ErrorPage from "./components/ErrorPage.jsx";
 import Admin from "./components/Admin/Admin.jsx";
 import UserDetails from "./components/Admin/UserDetails.jsx";
 import AllProduct from "./components/AllProduct.jsx";
+import Account from "./pages/Account.jsx";
 
 const router = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
       {
         path: "/userdetails",
         element: <UserDetails />,
+      },
+      {
+        path: "/account/*",
+        element: <Account />,
       },
     ],
   },

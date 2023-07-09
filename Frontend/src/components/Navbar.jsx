@@ -93,14 +93,16 @@ const Navbar = () => {
 
                     {userData.email ? (
                       <div className="flex flex-col gap-1">
-                        <div className="flex items-center gap-4 p-2 text-black border rounded-lg  cursor-pointer">
-                          <FaUserCircle size={20} />
+                        <Link to={`/account/${userData.firstname}`}>
+                          <div className="flex items-center gap-4 p-2 text-black border rounded-lg  cursor-pointer">
+                            <FaUserCircle size={20} />
 
-                          <div className="flex gap-1">
-                            <p>{userData.firstname}</p>
-                            <p>{userData.lastname}</p>
+                            <div className="flex gap-1">
+                              <p>{userData.firstname}</p>
+                              <p>{userData.lastname}</p>
+                            </div>
                           </div>
-                        </div>
+                        </Link>
                         <div className="flex items-center justify-between px-4 py-2 text-white rounded-lg shadow-md cursor-pointer bg-mainclr">
                           <p className="" onClick={handleLogout}>
                             Logout
@@ -230,8 +232,6 @@ const Navbar = () => {
                         </div>
                       </Link>
                     )}
-
-                  
 
                     {userData.email ? (
                       <div className="flex flex-col gap-1">

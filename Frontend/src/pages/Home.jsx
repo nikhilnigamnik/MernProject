@@ -1,9 +1,6 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import HomeCard from "../components/HomeCard";
 import CardFeatures from "../components/CardFeatures";
-
-import RatingIcons from "../components/RatingIcons";
 import MainLoader from "../components/MainLoader";
 import { Link } from "react-router-dom";
 
@@ -12,7 +9,7 @@ const Home = () => {
   const homeProductCartList = productData.slice(0, 4);
   const productCartVegetableCardList = productData.slice(8, 12);
 
-  return productCartVegetableCardList?.length === 0 ? (
+  return productData?.length === 0 ? (
     <MainLoader />
   ) : (
     <div className="p-2 md:p-4 ">
