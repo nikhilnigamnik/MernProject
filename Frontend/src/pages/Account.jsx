@@ -12,6 +12,12 @@ const Account = () => {
         <p>{userData.firstname}</p>
         <p>{userData.lastname}</p>
       </div>
+      <div>
+        <p>{userData.email}</p>
+      </div>
+      <div>
+        <p>Change Password</p>
+      </div>
     </div>
   );
 };

@@ -85,11 +85,7 @@ const Navbar = () => {
                         </div>
                       </Link>
                     )}
-                    <div className="flex items-center gap-4 p-2 text-black border rounded-lg  cursor-pointer">
-                      <FaUserCircle size={20} />
-
-                      <p>Dashbord</p>
-                    </div>
+                    
 
                     {userData.email ? (
                       <div className="flex flex-col gap-1">
