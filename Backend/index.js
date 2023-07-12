@@ -97,6 +97,95 @@ app.post("/login", async (req, res) => {
   }
 });
 
+// purchase section 
+
+// User Account Section
+
+const accountSchema = mongoose.Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user",
+    unique: true,
+  },
+  purchases: [
+    {
+      productId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "product",
+      },
+      quantity: Number,
+    },
+  ],
+});
+
+const accountModel = mongoose.model("account", accountSchema);
+
+
+
+// Retrieve Order History
+app.get("/orderHistory", async (req, res) => {
+  const { userId } = req.body;
+
+  try {
+    const userAccount = await accountModel.findOne({ userId: userId }).populate("purchases.productId");
+
+    if (userAccount) {
+      const orderHistory = userAccount.purchases.map((purchase) => ({
+        _id: purchase._id,
+        product: purchase.productId,
+        quantity: purchase.quantity,
+      }));
+
+      res.send(orderHistory);
+    } else {
+      res.send([]);
+    }
+  } catch (error) {
+    console.error("Error retrieving order history:", error);
+    res.status(500).json({ error: "Error retrieving order history" });
+  }
+});
+
+
+// Purchase Product
+
+app.post("/purchase", async (req, res) => {
+  const { userId, productId, quantity } = req.body;
+
+  try {
+    const userAccount = await accountModel.findOne({ userId: userId });
+
+    if (userAccount) {
+      // User account exists, add purchase to existing account
+      userAccount.purchases.push({
+        productId: productId,
+        quantity: quantity,
+      });
+      await userAccount.save();
+    } else {
+      // User account does not exist, create a new account and add purchase
+      const newAccount = new accountModel({
+        userId: userId,
+        purchases: [
+          {
+            productId: productId,
+            quantity: quantity,
+          },
+        ],
+      });
+      await newAccount.save();
+    }
+
+    res.send({
+      message: "Product purchased successfully and added to the account.",
+      success: true,
+    });
+  } catch (error) {
+    res.status(error.statusCode || 500).json(error.message);
+  }
+});
+
+
 // Product Section
 
 const schemaProduct = mongoose.Schema({

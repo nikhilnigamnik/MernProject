@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import CartProduct from "../components/CartProduct";
-
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { loadStripe } from "@stripe/stripe-js";
@@ -13,23 +12,32 @@ const Cart = () => {
   const navigate = useNavigate();
 
   const [isOpen, setIsOpen] = useState(false);
+  const [discountCode, setDiscountCode] = useState("");
+  const [totalPrice, setTotalPrice] = useState(() => {
+    return productcartItems.reduce(
+      (acc, curr) => acc + parseInt(curr.total),
+      0
+    );
+  });
+  const [discountAmount, setDiscountAmount] = useState(0);
 
   const openModal = () => {
     setIsOpen(true);
   };
+
   const closeModal = () => {
     setIsOpen(false);
   };
 
   const user = useSelector((state) => state.user);
-  const totalPrice = productcartItems.reduce(
-    (acc, curr) => acc + parseInt(curr.total),
-    0
-  );
   const totalQty = productcartItems.reduce(
     (acc, curr) => acc + parseInt(curr.qty),
     0
   );
+
+  const handlePaymentCod = () => {
+    navigate("/success")
+  }
 
   const handlePayment = async () => {
     if (user.email) {
@@ -53,9 +61,34 @@ const Cart = () => {
       toast("You have not Login");
       setTimeout(() => {
         navigate("/login");
-      }, 100);
+      });
     }
   };
+
+  const handleDiscountCode = (event) => {
+    event.preventDefault();
+    const code = event.target.value;
+    setDiscountCode(code);
+  };
+
+  const applyDiscount = () => {
+    switch (discountCode) {
+      case "CODE1":
+        const discountedPrice1 = totalPrice * 0.8; // 20% discount
+        setDiscountAmount(totalPrice - discountedPrice1);
+        setTotalPrice(discountedPrice1);
+        break;
+      case "CODE2":
+        const discountedPrice2 = totalPrice * 0.5; // 50% discount
+        setDiscountAmount(totalPrice - discountedPrice2);
+        setTotalPrice(discountedPrice2);
+        break;
+      default:
+        toast("Invalid discount code");
+        return;
+    }
+  };
+
   return (
     <>
       <div className="">
@@ -69,16 +102,16 @@ const Cart = () => {
             </div>
             <div className="w-full my-10 gap-10 justify-between md:flex ">
               {/* Display Cart items */}
-
-              {/* Modal */}
-
               <div className="flex   w-full flex-col gap-4">
                 {isOpen && (
                   <div className="fixed  inset-0 flex items-center justify-center z-50">
                     <div className="absolute backdrop-blur-[8px] inset-0"></div>
                     <div className="bg-white sha5 flex flex-col justify-between  h-1/2 p-6 rounded-lg relative">
                       <div className="flex justify-end">
-                        <button className="border rounded-md p-1" onClick={closeModal}>
+                        <button
+                          className="border rounded-md p-1"
+                          onClick={closeModal}
+                        >
                           <RxCross2 />
                         </button>
                       </div>
@@ -94,7 +127,7 @@ const Cart = () => {
                         </div>
                         <div className="flex justify-between">
                           <p className="text-sm font-semibold">Discount</p>
-                          <p>0%</p>
+                          <p>{discountAmount.toFixed(0)}</p>
                         </div>
                         <div className="flex mb-2 justify-between">
                           <p className="text-sm font-semibold">Shipping</p>
@@ -104,20 +137,27 @@ const Cart = () => {
                       </div>
                       <div className="flex justify-between">
                         <p className="text-sm font-semibold">Total Price</p>
-                        <p>{totalPrice}</p>
+                        <p>{totalPrice.toFixed(0)}</p>
                       </div>
-                      <button
-                        onClick={handlePayment}
-                        className="bg-mainclr px-4 py-2 rounded-full text-white"
-                      >
-                        Proceed To Payment
-                      </button>
+                      <h1 className="text-center text-lg font-semibold">Proceed To Payment</h1>
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        <button
+                          onClick={handlePaymentCod}
+                          className="bg-mainclr px-4 py-2 rounded-full text-white"
+                        >
+                          Proceed With COD
+                        </button>
+                        <button
+                          onClick={handlePayment}
+                          className="bg-mainclr px-4 py-2 rounded-full text-white"
+                        >
+                          Proceed With Online Payment
+                        </button>
+                      </div>
                     </div>
                   </div>
                 )}
-
                 {/* Modal End */}
-
                 {productcartItems.map((el) => {
                   return (
                     <CartProduct
@@ -136,8 +176,6 @@ const Cart = () => {
                 })}
               </div>
 
-               {/* Modal End */}
-
               {/* Total Cart Items */}
               <div className="flex rounded-xl flex-col mt-8 md:mt-0 gap-4 h-fit w-full md:w-1/3 p-4 sha5">
                 <h1 className="text-2xl font-semibold">Total</h1>
@@ -151,13 +189,34 @@ const Cart = () => {
                     <p className="text-sm font-semibold">Shipping</p>
                     <p>Free</p>
                   </div>
+                  <div className="flex mb-2 justify-between">
+                    <p className="text-sm font-semibold">Discount</p>
+                    <p>{discountAmount.toFixed(0)}</p>
+                  </div>
                   <hr></hr>
                 </div>
                 <div className="flex justify-between">
                   <p className="text-sm font-semibold">Total Price</p>
-                  <p>{totalPrice}</p>
+                  <p>{totalPrice.toFixed(0)}</p>
                 </div>
 
+                {/* Add discount code input field */}
+                <form onSubmit={handleDiscountCode}>
+                  <input
+                    className="rounded border px-2 py-1"
+                    type="text"
+                    value={discountCode}
+                    onChange={(e) => setDiscountCode(e.target.value)}
+                    placeholder="Enter discount code"
+                  />
+                </form>
+
+                <button
+                  onClick={applyDiscount}
+                  className="bg-mainclr px-4 py-2 rounded-full text-white"
+                >
+                  Apply Discount
+                </button>
 
                 <button
                   onClick={openModal}
@@ -176,6 +235,7 @@ const Cart = () => {
             <img
               className=""
               src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687243479/Cart_illustartion_bewtgt.png"
+              alt="Empty cart"
             />
             <p className="text-center font-normal text-lg w-1/2">
               Looks like you haven't added anything to your cart yet

@@ -89,7 +89,7 @@ const Navbar = () => {
 
                     {userData.email ? (
                       <div className="flex flex-col gap-1">
-                        <Link to={`/account/${userData.firstname}`}>
+                        <Link className="lowercase" to={`/account/${userData.firstname}`}>
                           <div className="flex items-center gap-4 p-2 text-black border rounded-lg  cursor-pointer">
                             <FaUserCircle size={20} />
 
