@@ -36,8 +36,8 @@ const Cart = () => {
   );
 
   const handlePaymentCod = () => {
-    navigate("/success")
-  }
+    navigate("/success");
+  };
 
   const handlePayment = async () => {
     if (user.email) {
@@ -76,19 +76,19 @@ const Cart = () => {
 
     switch (discountCode) {
       case "SPECIAL10":
-        discountPercentage = 10; 
+        discountPercentage = 10;
         break;
       case "SPECIAL30":
-        discountPercentage = 30; 
+        discountPercentage = 30;
         break;
       case "SPECIAL40":
-        discountPercentage = 40; 
+        discountPercentage = 40;
         break;
       case "SPECIAL60":
-        discountPercentage = 60; 
+        discountPercentage = 60;
         break;
       default:
-        toast("Invalid discount code");
+        toast.error("Invalid discount code");
         return;
     }
 
@@ -147,7 +147,9 @@ const Cart = () => {
                         <p className="text-sm font-semibold">Total Price</p>
                         <p>{totalPrice.toFixed(0)}</p>
                       </div>
-                      <h1 className="text-center text-lg font-semibold">Proceed To Payment</h1>
+                      <h1 className="text-center text-lg font-semibold">
+                        Proceed To Payment
+                      </h1>
                       <div className="grid sm:grid-cols-2 gap-4">
                         <button
                           onClick={handlePaymentCod}
@@ -218,6 +220,9 @@ const Cart = () => {
                     placeholder="Enter discount code"
                   />
                 </form>
+                {discountAmount > 0 && (
+                  <p>Discount Applied : {discountAmount.toFixed(0)}%</p>
+                )}
 
                 <button
                   onClick={applyDiscount}
