@@ -3,9 +3,10 @@ import { toast } from "react-hot-toast";
 
 const initialState = {
   productList: [],
-  cartItem: [],
+  cartItem: localStorage.getItem("cartItem")
+    ? JSON.parse(localStorage.getItem("cartItem"))
+    : [],
 };
-
 
 export const productSlice = createSlice({
   name: "product",
@@ -20,27 +21,26 @@ export const productSlice = createSlice({
       if (check) {
         toast(`${itemName} is already added in cart`);
       } else {
-        
-        const itemName = action.payload.name
-        
+        const itemName = action.payload.name;
         toast(`${itemName} added to cart`);
-       
+
         const total = action.payload.price;
 
         state.cartItem = [
           ...state.cartItem,
           { ...action.payload, qty: 1, total: total },
         ];
+
+        localStorage.setItem("cartItem", JSON.stringify(state.cartItem));
       }
     },
-
-
     deleteCartItems: (state, action) => {
       toast.success("Item Deleted");
       const index = state.cartItem.findIndex((el) => el._id === action.payload);
       state.cartItem.splice(index, 1);
-    },
 
+      localStorage.setItem("cartItem", JSON.stringify(state.cartItem));
+    },
     increaseItem: (state, action) => {
       const index = state.cartItem.findIndex((el) => el._id === action.payload);
       let qty = state.cartItem[index].qty;
@@ -50,6 +50,8 @@ export const productSlice = createSlice({
 
       const total = price * qtyInc;
       state.cartItem[index].total = total;
+
+      localStorage.setItem("cartItem", JSON.stringify(state.cartItem));
     },
     decreaseItem: (state, action) => {
       const index = state.cartItem.findIndex((el) => el._id === action.payload);
@@ -63,11 +65,12 @@ export const productSlice = createSlice({
 
       const total = price * qtyDec;
       state.cartItem[index].total = total;
+
+      localStorage.setItem("cartItem", JSON.stringify(state.cartItem));
     },
     productRedux: (state, action) => {
-      state.products = action.payload
-     
-    }
+      state.products = action.payload;
+    },
   },
 });
 
