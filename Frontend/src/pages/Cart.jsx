@@ -72,21 +72,29 @@ const Cart = () => {
   };
 
   const applyDiscount = () => {
+    let discountPercentage = 0;
+
     switch (discountCode) {
-      case "CODE1":
-        const discountedPrice1 = totalPrice * 0.8; // 20% discount
-        setDiscountAmount(totalPrice - discountedPrice1);
-        setTotalPrice(discountedPrice1);
+      case "SPECIAL10":
+        discountPercentage = 10; 
         break;
-      case "CODE2":
-        const discountedPrice2 = totalPrice * 0.5; // 50% discount
-        setDiscountAmount(totalPrice - discountedPrice2);
-        setTotalPrice(discountedPrice2);
+      case "SPECIAL30":
+        discountPercentage = 30; 
+        break;
+      case "SPECIAL40":
+        discountPercentage = 40; 
+        break;
+      case "SPECIAL60":
+        discountPercentage = 60; 
         break;
       default:
         toast("Invalid discount code");
         return;
     }
+
+    const discountedPrice = totalPrice * (1 - discountPercentage / 100);
+    setDiscountAmount(discountPercentage);
+    setTotalPrice(discountedPrice);
   };
 
   return (
@@ -127,7 +135,7 @@ const Cart = () => {
                         </div>
                         <div className="flex justify-between">
                           <p className="text-sm font-semibold">Discount</p>
-                          <p>{discountAmount.toFixed(0)}</p>
+                          <p>{discountAmount.toFixed(0)}%</p>
                         </div>
                         <div className="flex mb-2 justify-between">
                           <p className="text-sm font-semibold">Shipping</p>
@@ -191,7 +199,7 @@ const Cart = () => {
                   </div>
                   <div className="flex mb-2 justify-between">
                     <p className="text-sm font-semibold">Discount</p>
-                    <p>{discountAmount.toFixed(0)}</p>
+                    <p>{discountAmount.toFixed(0)}%</p>
                   </div>
                   <hr></hr>
                 </div>
@@ -203,7 +211,7 @@ const Cart = () => {
                 {/* Add discount code input field */}
                 <form onSubmit={handleDiscountCode}>
                   <input
-                    className="rounded border px-2 py-1"
+                    className="rounded w-full border px-2 py-1"
                     type="text"
                     value={discountCode}
                     onChange={(e) => setDiscountCode(e.target.value)}
