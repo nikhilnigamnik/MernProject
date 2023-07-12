@@ -2,7 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { addCartItems } from "../redux/productSlice";
-import MainLoader from '../components/MainLoader'
+import MainLoader from "../components/MainLoader";
+import AllProduct from "../components/AllProduct";
 
 const Menu = () => {
   const { filterby } = useParams();
@@ -21,7 +22,7 @@ const Menu = () => {
   };
 
   if (!productDisplay) {
-    return <MainLoader/>; // or any other fallback UI when productDisplay is undefined
+    return <MainLoader />; // or any other fallback UI when productDisplay is undefined
   }
   const percent = (
     (productDisplay.discount / productDisplay.price) *
@@ -85,6 +86,7 @@ const Menu = () => {
           </button>
         </div>
       </div>
+      <AllProduct/>
     </div>
   );
 };
