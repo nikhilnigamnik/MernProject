@@ -15,6 +15,7 @@ import { toast } from "react-hot-toast";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
   const userData = useSelector((state) => state?.user) || [];
   const CartItemNum = useSelector((state) => state?.product?.cartItem) || [];
   const handleShowMenu = () => {
@@ -23,6 +24,12 @@ const Navbar = () => {
 
   const [showMenu, setShowMenu] = useState(false);
   const [colorChange, setColorChange] = useState(false);
+
+  const [activeLink, setActiveLink] = useState("");
+
+  const handleLinkClick = (link) => {
+    setActiveLink(link);
+  };
 
   const changeNavbarShadow = () => {
     if (window.scrollY >= 160) {
@@ -122,18 +129,41 @@ const Navbar = () => {
             <div className="items-center justify-between hidden sm:block">
               {/* Your navigation links */}
               <div className="flex gap-6">
-                <Link className="text-mainclr" to="/">
-                  <p>Home</p>
+                <Link
+                  to="/"
+                  className={`onhover transition-all duration-300 ${
+                    activeLink === "home" ? "text-red-700" : ""
+                  }`}
+                  onClick={() => handleLinkClick("home")}
+                >
+                  <p className="onhover transition-all duration-300">Home</p>
                 </Link>
-                <Link to="/product">
-                  <p className="hover:text-mainclr onhover">Product</p>
+                <Link
+                  to="/product"
+                  className={`onhover transition-all duration-300 ${
+                    activeLink === "product" ? "text-red-700" : ""
+                  }`}
+                  onClick={() => handleLinkClick("product")}
+                >
+                  <p className="hover:text-mainclr onhover transition-all duration-300">Product</p>
                 </Link>
-
-                <Link to="/contact">
-                  <p className="hover:text-mainclr onhover">Contact</p>
+                <Link
+                  to="/contact"
+                  className={`onhover transition-all duration-300 ${
+                    activeLink === "contact" ? "text-red-700" : ""
+                  }`}
+                  onClick={() => handleLinkClick("contact")}
+                >
+                  <p className="hover:text-mainclr onhover transition-all duration-300">Contact</p>
                 </Link>
-                <Link to="/about">
-                  <p className="hover:text-mainclr onhover">About Us</p>
+                <Link
+                  to="/about"
+                  className={`onhover transition-all duration-300 ${
+                    activeLink === "about" ? "text-red-700" : ""
+                  }`}
+                  onClick={() => handleLinkClick("about")}
+                >
+                  <p className="hover:text-mainclr onhover transition-all duration-300">About Us</p>
                 </Link>
               </div>
             </div>

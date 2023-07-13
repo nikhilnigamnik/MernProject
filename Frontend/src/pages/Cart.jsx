@@ -37,6 +37,9 @@ const Cart = () => {
 
   const handlePaymentCod = () => {
     navigate("/success");
+    setTimeout(() => {
+      navigate("/")
+    },5000)
   };
 
   const handlePayment = async () => {
@@ -57,6 +60,33 @@ const Cart = () => {
 
       toast("Redirect to Payment Gateway....!");
       stripePromise.redirectToCheckout({ sessionId: data });
+       const handlePayment = async () => {
+    if (user.email) {
+      const stripePromise = await loadStripe(
+        "pk_test_51NKO11SFNB5NKPFS71M8pGFzVBLImxOvG2UywkJofGWrN4hsWvxXdWfFaHpGEnluZoTBTZAa3Fh9ey6l9g0ZuE5D00ypujXOtb"
+      );
+      const res = await fetch(`${baseURL}/checkout-payment`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(productcartItems),
+      });
+      if (res.statusCode === 500) return;
+
+      const data = await res.json();
+
+      toast("Redirect to Payment Gateway....!");
+      stripePromise.redirectToCheckout({ sessionId: data });
+      
+    } else {
+      toast("You have not Login");
+      setTimeout(() => {
+        navigate("/login");
+      });
+    }
+  };
+      
     } else {
       toast("You have not Login");
       setTimeout(() => {
@@ -69,7 +99,6 @@ const Cart = () => {
     event.preventDefault();
     const code = event.target.value;
     setDiscountCode(code);
-  
   };
 
   const applyDiscount = () => {
