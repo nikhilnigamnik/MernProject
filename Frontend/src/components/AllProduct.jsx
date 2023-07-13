@@ -13,6 +13,7 @@ const AllProduct = () => {
   const [filterBy, setFilterBy] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [sortOrder, setSortOrder] = useState("lowToHigh");
 
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const handleToggle = () => {
@@ -24,22 +25,31 @@ const AllProduct = () => {
   }, [productData]);
 
   useEffect(() => {
-    const filteredResults = productData.filter((el) =>
-      el.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setSearchResults(filteredResults);
-  }, [searchQuery, productData]);
+    let filteredResults = [...productData];
 
-  useEffect(() => {
-    if (filterBy === "") {
-      setSearchResults(productData);
-    } else {
-      const filter = productData.filter(
+    // Filter by category
+    if (filterBy !== "") {
+      filteredResults = filteredResults.filter(
         (el) => el.category.toLowerCase() === filterBy.toLowerCase()
       );
-      setSearchResults(filter);
     }
-  }, [filterBy, productData]);
+
+    // Filter by search query
+    if (searchQuery !== "") {
+      filteredResults = filteredResults.filter((el) =>
+        el.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    // Sort by price
+    if (sortOrder === "lowToHigh") {
+      filteredResults.sort((a, b) => a.price - b.price);
+    } else if (sortOrder === "highToLow") {
+      filteredResults.sort((a, b) => b.price - a.price);
+    }
+
+    setSearchResults(filteredResults);
+  }, [filterBy, searchQuery, sortOrder, productData]);
 
   const handleFilterProduct = (category) => {
     setFilterBy(category);
@@ -60,6 +70,11 @@ const AllProduct = () => {
       setSearchResults(productData);
     }
   };
+
+  const handleSortChange = (event) => {
+    setSortOrder(event.target.value);
+  };
+  
 
   return productData?.length === 0 ? (
     <MainLoader />
@@ -87,13 +102,24 @@ const AllProduct = () => {
           </button>
         </div>
 
-        <button
-          onClick={handleToggle}
-          className="px-4 py-1 bg-gray-900 rounded-full text-white flex items-center ml-auto mr-2"
-        >
-          <BiFilter size={22} />
-          Filter
-        </button>
+        <div className="flex gap-4">
+          <select
+            className="px-4 py-2 bg-white text-gray-900 border border-gray-300 rounded-full shadow-md ml-4 focus:outline-none"
+            value={sortOrder}
+            onChange={handleSortChange}
+          >
+            <option value="lowToHigh">Price: Low to High</option>
+            <option value="highToLow">Price: High to Low</option>
+          </select>
+
+          <button
+            onClick={handleToggle}
+            className="px-4 py-1 bg-gray-900 rounded-full text-white flex items-center ml-auto mr-2"
+          >
+            <BiFilter size={22} />
+            Filter
+          </button>
+        </div>
       </div>
       {/* Filter Product Menu */}
       <section
