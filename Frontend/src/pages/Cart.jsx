@@ -69,6 +69,7 @@ const Cart = () => {
     event.preventDefault();
     const code = event.target.value;
     setDiscountCode(code);
+  
   };
 
   const applyDiscount = () => {

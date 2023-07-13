@@ -104,7 +104,7 @@ const AllProduct = () => {
         <div className="flex justify-between items-center">
           <h1 className="text-xl font-semibold">Filter Products</h1>
           <RxCross2
-            className="cursor-pointer border rounded-md p-1"
+            className="cursor-pointer transition-all duration-300 hover:bg-black hover:text-white rounded-md p-1"
             onClick={handleToggle}
             size={25}
           />

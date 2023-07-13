@@ -1,14 +1,22 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 
-const PrivateRoute = ({isUserLoggedIn, children}) => {
-  return;
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  // Replace this condition with your actual authentication check
+  const isAuthenticated = true; // Assuming the admin is authenticated
 
-  if (isUserLoggedIn) {
-    return children;
-  } else {
-    return <Navigate to="/login" />;
-  }
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        isAuthenticated ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to="/login" />
+        )
+      }
+    />
+  );
 };
 
 export default PrivateRoute;
