@@ -3,6 +3,8 @@ import HomeCard from "../components/HomeCard";
 import CardFeatures from "../components/CardFeatures";
 import MainLoader from "../components/MainLoader";
 import { Link } from "react-router-dom";
+import BannerFirst from "../components/BannerFirst";
+import BannerSecond from "../components/BannerSecond";
 
 const Home = () => {
   const productData = useSelector((state) => state.product.productList);
@@ -57,9 +59,9 @@ const Home = () => {
         </div>
       </div>
 
-      {/* <SpecialServiceBanner /> */}
+      <BannerFirst />
 
-      <div className="flex gap-2 mt-6 flex-col justify-center items-center">
+      <div className="flex gap-2 mt-10 flex-col justify-center items-center">
         <p className="text-mainclr font-medium">MENU</p>
         <h1 className="text-4xl font-bold">Explore Our Best Menu</h1>
         <p className="text-gray-600  text-center">
@@ -84,6 +86,8 @@ const Home = () => {
           );
         })}
       </div>
+
+      <BannerSecond/>
 
       <div className="mt-20">
         <div className="gap-2 flex flex-col justify-center items-center w-full">
@@ -112,7 +116,6 @@ const Home = () => {
           })}
         </div>
       </div>
-      
     </div>
   );
 };
