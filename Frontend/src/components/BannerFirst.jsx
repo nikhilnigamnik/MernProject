@@ -5,7 +5,7 @@ const BannerFirst = () => {
     <div className="mt-10">
        <p className="text-mainclr font-medium text-center mb-2">FAVOURITE</p>
       <h1 className="text-3xl font-bold text-center">Why People Choose Us?</h1>
-      <div className="sm:grid grid-cols-2 items-center">
+      <div className="md:grid grid-cols-2 items-center">
         <div className="flex justify-center items-center">
           <img
             className="w-[70%]"
