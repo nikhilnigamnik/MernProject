@@ -79,7 +79,7 @@ const AllProduct = () => {
   return productData?.length === 0 ? (
     <MainLoader />
   ) : (
-    <div className="mb-20">
+    <div className="mt-20">
       {/* <Carausel /> */}
       <div className="flex flex-col gap-2">
         <p className="text-mainclr text-center font-medium">OUR PRODUCT</p>

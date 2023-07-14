@@ -112,7 +112,7 @@ const Home = () => {
           })}
         </div>
       </div>
-      {/* <AllProduct heading={"Your Product"} /> */}
+      
     </div>
   );
 };

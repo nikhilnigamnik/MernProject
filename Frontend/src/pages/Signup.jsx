@@ -60,7 +60,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="grid md:grid-cols-2 items-center justify-center">
+    <div className="grid md:grid-cols-2 items-center justify-center mt-10">
       <div>
         <img src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1688391481/My_project_1_vjr1cx.png" />
       </div>
