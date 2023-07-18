@@ -68,6 +68,12 @@ export const productSlice = createSlice({
 
       localStorage.setItem("cartItem", JSON.stringify(state.cartItem));
     },
+
+    clearCartItems: (state) => {
+      state.cartItem = [];
+      localStorage.removeItem("cartItem");
+    },
+
     productRedux: (state, action) => {
       state.products = action.payload;
     },
@@ -79,6 +85,7 @@ export const {
   increaseItem,
   decreaseItem,
   addCartItems,
+  clearCartItems,
   productRedux,
   deleteCartItems,
 } = productSlice.actions;

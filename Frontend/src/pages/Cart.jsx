@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CartProduct from "../components/CartProduct";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -7,9 +7,11 @@ import { toast } from "react-hot-toast";
 import { loadStripe } from "@stripe/stripe-js";
 import { RxCross2 } from "react-icons/rx";
 import { baseURL } from "../components/Admin/api";
+import { clearCartItems } from "../redux/productSlice";
 
 const Cart = () => {
   const productcartItems = useSelector((state) => state.product.cartItem);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -49,6 +51,7 @@ const Cart = () => {
 
       toast("Redirect to Payment Gateway....!");
       stripePromise.redirectToCheckout({ sessionId: data });
+      dispatch((clearCartItems()));
     } else {
       toast("You have not Login");
       setTimeout(() => {
@@ -59,6 +62,7 @@ const Cart = () => {
 
   const handlePaymentCod = () => {
     navigate("/success");
+    dispatch((clearCartItems()));
     setTimeout(() => {
       navigate("/");
     }, 5000);
