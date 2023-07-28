@@ -10,8 +10,8 @@ app.use(express.json({ limit: "100mb" }));
 
 const PORT = process.env.PORT || 8000;
 
-// mongodb connection
-// console.log(process.env.MONGODB_URL);
+// setup MongoDb
+
 mongoose.set("strictQuery", false);
 mongoose
   .connect(process.env.MONGODB_URL, {
@@ -25,7 +25,19 @@ mongoose
     console.log("Connection failed !!" + err.message);
   });
 
-//   schemaaa
+
+
+
+//index api
+
+app.get("/", (req, res) => {
+  res.send("Server is running");
+});
+
+//   schemaaas
+
+
+// user schema
 
 const userSchema = mongoose.Schema({
   firstname: String,
@@ -42,13 +54,25 @@ const userSchema = mongoose.Schema({
 
 const userModel = mongoose.model("user", userSchema);
 
-// api
 
-app.get("/", (req, res) => {
-  res.send("Server is running");
+
+// Product Schema
+
+const schemaProduct = mongoose.Schema({
+  name: String,
+  category: String,
+  image: String,
+  price: String,
+  description: String,
 });
 
-// signup
+const productModel = mongoose.model("product", schemaProduct);
+
+
+
+
+
+// signup user
 
 async function signup(req, res) {
   const { email } = req.body;
@@ -65,7 +89,9 @@ async function signup(req, res) {
 
 app.post("/signup", signup);
 
-// Login
+
+
+// Login user
 
 app.post("/login", async (req, res) => {
   // console.log(req.body);
@@ -97,106 +123,6 @@ app.post("/login", async (req, res) => {
   }
 });
 
-// purchase section 
-
-// User Account Section
-
-const accountSchema = mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "user",
-    unique: true,
-  },
-  purchases: [
-    {
-      productId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "product",
-      },
-      quantity: Number,
-    },
-  ],
-});
-
-const accountModel = mongoose.model("account", accountSchema);
-
-
-
-// Retrieve Order History
-app.get("/orderHistory", async (req, res) => {
-  const { userId } = req.body;
-
-  try {
-    const userAccount = await accountModel.findOne({ userId: userId }).populate("purchases.productId");
-
-    if (userAccount) {
-      const orderHistory = userAccount.purchases.map((purchase) => ({
-        _id: purchase._id,
-        product: purchase.productId,
-        quantity: purchase.quantity,
-      }));
-
-      res.send(orderHistory);
-    } else {
-      res.send([]);
-    }
-  } catch (error) {
-    console.error("Error retrieving order history:", error);
-    res.status(500).json({ error: "Error retrieving order history" });
-  }
-});
-
-
-// Purchase Product
-
-app.post("/purchase", async (req, res) => {
-  const { userId, productId, quantity } = req.body;
-
-  try {
-    const userAccount = await accountModel.findOne({ userId: userId });
-
-    if (userAccount) {
-      // User account exists, add purchase to existing account
-      userAccount.purchases.push({
-        productId: productId,
-        quantity: quantity,
-      });
-      await userAccount.save();
-    } else {
-      // User account does not exist, create a new account and add purchase
-      const newAccount = new accountModel({
-        userId: userId,
-        purchases: [
-          {
-            productId: productId,
-            quantity: quantity,
-          },
-        ],
-      });
-      await newAccount.save();
-    }
-
-    res.send({
-      message: "Product purchased successfully and added to the account.",
-      success: true,
-    });
-  } catch (error) {
-    res.status(error.statusCode || 500).json(error.message);
-  }
-});
-
-
-// Product Section
-
-const schemaProduct = mongoose.Schema({
-  name: String,
-  category: String,
-  image: String,
-  price: String,
-  description: String,
-});
-
-const productModel = mongoose.model("product", schemaProduct);
 
 // save product in DB
 
@@ -255,10 +181,6 @@ app.post("/checkout-payment", async (req, res) => {
     res.status(error.statusCode || 500).json(error.message);
   }
 
-  // res.send({
-  //   message: "Payment Gateway",
-  //   success: true,
-  // });
 });
 
 // Api running
