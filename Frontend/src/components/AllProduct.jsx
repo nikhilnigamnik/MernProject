@@ -28,7 +28,7 @@ const AllProduct = () => {
     let filteredResults = [...productData];
 
     // Filter by category
-    if (filterBy !== "") {
+    if (filterBy !== "") { 
       filteredResults = filteredResults.filter(
         (el) => el.category.toLowerCase() === filterBy.toLowerCase()
       );
