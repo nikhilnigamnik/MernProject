@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { loginRedux } from "../redux/userSlice";
 import { baseURL } from "../components/Admin/api";
+import { Img } from "../utils/helper";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ export default function Login() {
   return (
     <div className="grid md:grid-cols-2 items-center justify-center">
       <div>
-        <img src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1688391481/My_project_1_vjr1cx.png" />
+        <Img src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1688391481/My_project_1_vjr1cx.png" />
       </div>
       <form className="sha2 rounded-xl p-8" onSubmit={handleSubmit}>
         <h2 className="text-4xl text-center  capitalize font-bold">Login</h2>

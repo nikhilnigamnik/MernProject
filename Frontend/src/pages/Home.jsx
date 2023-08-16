@@ -5,6 +5,7 @@ import MainLoader from "../components/MainLoader";
 import { Link } from "react-router-dom";
 import BannerFirst from "../components/BannerFirst";
 import BannerSecond from "../components/BannerSecond";
+import { Img } from "../utils/helper";
 
 const Home = () => {
   const productData = useSelector((state) => state.product.productList);
@@ -52,8 +53,10 @@ const Home = () => {
             className="w-full rounded-full bg-gray-200 absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             style={{ height: "80%", width: "80%" }}
           ></div>
-          <img
-            className="w-full relative max-w-lg"
+          <Img
+          width={500}
+          height={500}
+            className=" relative max-w-lg"
             src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1688670097/My_project_2_fkjbyq.png"
           />
         </div>

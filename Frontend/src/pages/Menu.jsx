@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { addCartItems } from "../redux/productSlice";
 import MainLoader from "../components/MainLoader";
 import AllProduct from "../components/AllProduct";
+import { Img } from "../utils/helper";
 
 const Menu = () => {
   const { filterby } = useParams();
@@ -35,7 +36,7 @@ const Menu = () => {
       <h1 className="text-4xl text-center font-bold">Explore Our Best Meal</h1>
       <div className="w-full gap-6 p-10 my-10  m-auto max-w-4xl items-center  grid md:grid-cols-3 sha2 rounded-xl">
         <div className="flex items-center justify-center">
-          <img src={productDisplay.image} className="rounded-md" />
+          <Img src={productDisplay.image} className="rounded-md" />
         </div>
 
         <div className="flex gap-4 max-w-lg  flex-col justify-center ">

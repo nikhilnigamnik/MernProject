@@ -8,6 +8,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { RxCross2 } from "react-icons/rx";
 import { baseURL } from "../components/Admin/api";
 import { clearCartItems } from "../redux/productSlice";
+import { Img } from "../utils/helper";
 
 const Cart = () => {
   const productcartItems = useSelector((state) => state.product.cartItem);
@@ -193,7 +194,7 @@ const Cart = () => {
             <h1 className="text-center text-xl font-semibold ">
               Your Cart is Empty
             </h1>
-            <img
+            <Img
               className=""
               src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687243479/Cart_illustartion_bewtgt.png"
             />

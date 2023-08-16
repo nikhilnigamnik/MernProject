@@ -6,6 +6,7 @@ import {
   increaseItem,
   decreaseItem,
 } from "../redux/productSlice";
+import { Img } from "../utils/helper";
 
 const CartProduct = ({
   id,
@@ -25,7 +26,7 @@ const CartProduct = ({
   return (
     <div className="grid sm:grid-cols-4 justify-center grid-cols-2 gap-4 items-center sha5  rounded-xl p-8">
       <div className="flex justify-center items-center">
-        <img className=" bg-white w-20 rounded-md" src={image} />
+        <Img className=" bg-white w-20 rounded-md" src={image} />
       </div>
 
       <div className="flex flex-col gap-1 text-center">

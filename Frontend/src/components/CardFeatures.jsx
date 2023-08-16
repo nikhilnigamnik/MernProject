@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { BsBookmarkHeart } from "react-icons/bs";
 import { addCartItems } from "../redux/productSlice";
+import { Img } from "../utils/helper";
 
 const CardFeature = ({
   image,
@@ -49,7 +50,7 @@ const CardFeature = ({
         to={`/menu/${id}`}
         onClick={() => window.scrollTo({ top: "0", behavior: "smooth" })}
       >
-        <img src={image} className="w-full rounded-md" />
+        <Img src={image} className="w-full rounded-md" />
       </Link>
 
       <div className="">

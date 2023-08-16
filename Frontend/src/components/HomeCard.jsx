@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BsBookmarkHeart } from "react-icons/bs";
+import { Img } from "../utils/helper";
 
 const HomeCard = ({ name, image, rating, discount, category, price, id }) => {
   const percent = ((discount / price) * 100).toFixed(0);
   return (
     <div className="cursor-pointer gap-4 items-center sm:items-stretch p-4 hover:shadow-md transition-all sha5 rounded-xl grid grid-cols-2 sm:justify-between sm:flex sm:flex-col">
       <div className="w-full flex items-center justify-center">
-        <img src={image} className="w-full rounded-md" />
+        <Img src={image} className="w-full rounded-md" />
       </div>
 
       <div className="">

@@ -4,6 +4,7 @@ import { BiHide } from "react-icons/bi";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { baseURL } from "../components/Admin/api";
+import { Img } from "../utils/helper";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -62,7 +63,7 @@ export default function Signup() {
   return (
     <div className="grid md:grid-cols-2 items-center justify-center mt-10">
       <div>
-        <img src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1688391481/My_project_1_vjr1cx.png" />
+        <Img src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1688391481/My_project_1_vjr1cx.png" />
       </div>
 
       <form

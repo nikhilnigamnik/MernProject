@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Img } from "../utils/helper";
 
 const Success = () => {
   return (
     <div className="flex gap-2 flex-col justify-center items-center  h-[70vh]">
-      <img
+      <Img
         width={100}
         src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1687454555/vecteezy_green-tick-checkbox-illustration-isolated_10829962_2_ragbmh.png"
       />
