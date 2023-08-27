@@ -16,14 +16,15 @@ import { Provider } from "react-redux";
 import { store } from "./redux/index.js";
 import Menu from "./pages/Menu.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
-import Admin from "./components/Admin/Admin.jsx";
+// import Admin from "./components/Admin/Admin.jsx";
 import UserDetails from "./components/Admin/UserDetails.jsx";
-import AllProduct from "./components/AllProduct.jsx";
+// import AllProduct from "./components/AllProduct.jsx";
 import Account from "./pages/Account.jsx";
 import Lazy from "./utils/Lazy.jsx";
 
 const Home = React.lazy(() => import("./pages/Home.jsx"));
 const Product = React.lazy(() => import("./components/AllProduct.jsx"));
+const Admin = React.lazy(() => import("./components/Admin/Admin.jsx"));
 
 const router = createBrowserRouter([
   {
@@ -85,7 +86,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/admin/*",
-        element: <Admin />,
+        element: (
+          <Suspense fallback={<Lazy/>}>
+            <Admin />
+          </Suspense>
+        ),
       },
       {
         path: "/userdetails",

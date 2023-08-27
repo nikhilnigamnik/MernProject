@@ -1,3 +1,3 @@
 
-export const baseURL = "https://foodwaala.onrender.com";
+export const baseURL = "https://foodwaalebackendapi.vercel.app";
 
