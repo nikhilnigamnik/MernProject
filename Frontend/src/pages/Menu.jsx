@@ -22,9 +22,9 @@ const Menu = () => {
     navigate("/cart");
   };
 
-  if (!productDisplay) {
-    return <MainLoader />; // or any other fallback UI when productDisplay is undefined
-  }
+  // if (!productDisplay) {
+  //   return <MainLoader />; // or any other fallback UI when productDisplay is undefined
+  // }
   const percent = (
     (productDisplay.discount / productDisplay.price) *
     100

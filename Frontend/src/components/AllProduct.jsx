@@ -28,7 +28,7 @@ const AllProduct = () => {
     let filteredResults = [...productData];
 
     // Filter by category
-    if (filterBy !== "") { 
+    if (filterBy !== "") {
       filteredResults = filteredResults.filter(
         (el) => el.category.toLowerCase() === filterBy.toLowerCase()
       );
@@ -74,7 +74,6 @@ const AllProduct = () => {
   const handleSortChange = (event) => {
     setSortOrder(event.target.value);
   };
-  
 
   return productData?.length === 0 ? (
     <MainLoader />

@@ -12,9 +12,11 @@ const Home = () => {
   const homeProductCartList = productData.slice(0, 4);
   const productCartVegetableCardList = productData.slice(8, 12);
 
-  return productData?.length === 0 ? (
-    <MainLoader />
-  ) : (
+  if (productData.legth == 0) {
+    return <MainLoader />;
+  }
+
+  return (
     <div className="p-2 md:p-4 ">
       <div className="md:flex w-full justify-center items-center gap-4 py-2">
         <div className="md:w-1/2">
@@ -54,8 +56,8 @@ const Home = () => {
             style={{ height: "80%", width: "80%" }}
           ></div>
           <Img
-          width={500}
-          height={500}
+            width={500}
+            height={500}
             className=" relative max-w-lg"
             src="https://res.cloudinary.com/dtmp7op6k/image/upload/v1688670097/My_project_2_fkjbyq.png"
           />
@@ -90,7 +92,7 @@ const Home = () => {
         })}
       </div>
 
-      <BannerSecond/>
+      <BannerSecond />
 
       <div className="mt-20">
         <div className="gap-2 flex flex-col justify-center items-center w-full">

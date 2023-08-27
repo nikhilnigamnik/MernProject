@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import Home from "./pages/Home.jsx";
+// import Home from "./pages/Home.jsx";
 import Contact from "./pages/Contact.jsx";
 import Login from "./pages/Login.jsx";
 import Success from "./pages/Success.jsx";
@@ -20,6 +20,10 @@ import Admin from "./components/Admin/Admin.jsx";
 import UserDetails from "./components/Admin/UserDetails.jsx";
 import AllProduct from "./components/AllProduct.jsx";
 import Account from "./pages/Account.jsx";
+import Lazy from "./utils/Lazy.jsx";
+
+const Home = React.lazy(() => import("./pages/Home.jsx"));
+const Product = React.lazy(() => import("./components/AllProduct.jsx"));
 
 const router = createBrowserRouter([
   {
@@ -29,7 +33,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: (
+          <Suspense fallback={<Lazy />}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
         path: "menu/:filterby",
@@ -45,7 +53,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/product",
-        element: <AllProduct />,
+        element: (
+          <Suspense fallback={<Lazy />}>
+            <Product />
+          </Suspense>
+        ),
       },
       {
         path: "/login",
